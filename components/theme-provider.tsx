@@ -1,28 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+'use client'
 
-@layer base {
-  :root {
-    --background: 255, 255, 255; /* Light Mode - White */
-    --foreground: 0, 0, 0; /* Light Mode - Black */
-  }
+import * as React from 'react'
+import { ThemeProvider as NextThemesProvider } from 'next-themes'
 
-  /* 🌙 Forced Dark Mode */
-  .dark {
-    --background: 15, 23, 42 !important; /* 🚨 Deep Navy Blue Background */
-    --foreground: 220, 220, 220 !important; /* Light Text */
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  return (
+    <NextThemesProvider defaultTheme="dark" attribute="class" enableSystem={false}>
+      <ForceDarkMode />
+      {children}
+    </NextThemesProvider>
+  )
+}
 
-    --card: 24, 35, 55 !important; /* 🚨 Darker Blue for Cards */
-    --card-foreground: 240, 240, 240 !important; /* White Text */
-  }
+// 🚀 Force the "dark" class on <html> to ensure dark mode works
+function ForceDarkMode() {
+  React.useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
 
-  * {
-    @apply border-border;
-  }
-
-  body {
-    background-color: rgb(var(--background)) !important;
-    color: rgb(var(--foreground)) !important;
-  }
+  return null;
 }
