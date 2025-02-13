@@ -12,7 +12,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   )
 }
 
-// 🚨 Directly force "dark" mode on <html> to ensure it applies
+// 🚀 Force Dark Mode Globally on <html>
 function ForceDarkMode() {
   React.useEffect(() => {
     document.documentElement.classList.add("dark");
