@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className={`${inter.className} min-h-screen flex flex-col bg-[rgb(0,0,128)]`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <MainNav />
           <main className="flex-grow">{children}</main>
