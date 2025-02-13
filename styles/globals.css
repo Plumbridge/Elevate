@@ -4,74 +4,25 @@
 
 @layer base {
   :root {
-    --background: 60 100% 98%; /* Light background */
-    --foreground: 222.2 84% 4.9%; /* Dark text */
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 185 100% 33%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 329 100% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --background: 255, 255, 255; /* Light Mode - White */
+    --foreground: 0, 0, 0; /* Light Mode - Black */
   }
 
-  /* Dark Mode Overrides */
+  /* 🌙 Forced Dark Mode */
   .dark {
-    --background: 220 40% 15%; /* Navy blue background */
-    --foreground: 210 40% 98%; /* Light text */
+    --background: 15, 23, 42 !important; /* 🚨 Deep Navy Blue Background */
+    --foreground: 220, 220, 220 !important; /* Light Text */
 
-    --card: 220 30% 20%; /* Darker blue for cards/bubbles */
-    --card-foreground: 210 40% 98%; /* Light text on cards */
-
-    --popover: 220 30% 20%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 185 100% 33%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 215 28% 17%;
-    --muted-foreground: 215.4 16.3% 86.9%;
-
-    --accent: 329 100% 56%;
-    --accent-foreground: 222.2 47.4% 91.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 215 28% 17%;
-    --input: 215 28% 17%;
-    --ring: 222.2 47.4% 91.2%;
+    --card: 24, 35, 55 !important; /* 🚨 Darker Blue for Cards */
+    --card-foreground: 240, 240, 240 !important; /* White Text */
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--foreground)) !important;
   }
 }
