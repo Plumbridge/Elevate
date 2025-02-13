@@ -3,44 +3,47 @@
 @tailwind utilities;
 
 @layer base {
-  /* 🌍 Ensure Global Background Color */
+  /* 🔹 Default Light Mode (if applicable) */
   :root {
-    --background: 0, 0, 128 !important; /* 🔵 Navy Blue */
-    --foreground: 220, 220, 220 !important; /* ⚪ Light Text */
+    --background: 0, 0, 128 !important; /* Navy Blue */
+    --foreground: 220, 220, 220 !important; /* Light Text */
 
-    --card: 0, 0, 90 !important; /* 🔵 Darker Blue Bubbles */
-    --card-foreground: 240, 240, 240 !important; /* ⚪ White Text */
+    --card: 0, 0, 90 !important; /* Darker Blue Bubbles */
+    --card-foreground: 240, 240, 240 !important; /* White Text */
 
-    background-color: rgb(var(--background)) !important;
-    color: rgb(var(--foreground)) !important;
+    /* 🔹 Other Colors (Ensure Consistency) */
+    --border: 214, 31%, 91% !important;
+    --input: 214, 31%, 91% !important;
+    --ring: 222, 84%, 4.9% !important;
   }
 
-  /* 🌙 Forced Dark Mode */
+  /* 🌙 Forced Dark Mode (Ensures it's applied) */
   .dark {
-    --background: 0, 0, 128 !important; /* 🔵 Navy Blue */
-    --foreground: 220, 220, 220 !important; /* ⚪ Light Text */
+    --background: 0, 0, 128 !important; /* Navy Blue */
+    --foreground: 220, 220, 220 !important; /* Light Text */
 
-    --card: 0, 0, 90 !important; /* 🔵 Darker Blue Bubbles */
-    --card-foreground: 240, 240, 240 !important; /* ⚪ White Text */
-
-    background-color: rgb(var(--background)) !important;
-    color: rgb(var(--foreground)) !important;
+    --card: 0, 0, 90 !important; /* Darker Blue */
+    --card-foreground: 240, 240, 240 !important; /* White Text */
   }
 
-  /* ✅ Apply Dark Mode Background Globally */
+  /* ✅ Force Apply Navy Blue & Light Text */
   html, body, #__next, main {
-    background-color: rgb(var(--background)) !important;
-    color: rgb(var(--foreground)) !important;
+    background-color: rgb(0, 0, 128) !important;
+    color: rgb(220, 220, 220) !important;
   }
 
-  /* ✅ Apply Background to Everything */
+  /* ✅ Ensure Cards/Bubbles Use Darker Blue */
+  .card {
+    background-color: rgb(0, 0, 90) !important;
+    color: rgb(240, 240, 240) !important;
+  }
+
+  /* ✅ Reset Any Overridden Borders */
   * {
     @apply border-border;
-    background-color: rgb(var(--background)) !important;
-    color: rgb(var(--foreground)) !important;
   }
 
-  /* ✅ Ensure Body Uses Navy Blue */
+  /* ✅ Debugging Fix: Override All Backgrounds */
   body {
     background-color: rgb(0, 0, 128) !important;
   }
