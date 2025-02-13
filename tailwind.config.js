@@ -1,8 +1,8 @@
-const { fontFamily } = require("tailwindcss/defaultTheme")
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class", // ✅ Fixes incorrect syntax
+  darkMode: "class", // ✅ Ensures dark mode uses `.dark` class
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", "*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     container: {
@@ -17,8 +17,9 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: "rgb(0, 0, 128) !important", // 🔵 Force Navy Background
+        foreground: "rgb(220, 220, 220) !important", // ⚪ Light Text
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -48,8 +49,8 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         navy: {
-          DEFAULT: "hsl(210, 64%, 20%)",
-          foreground: "hsl(0, 0%, 100%)",
+          DEFAULT: "rgb(0, 0, 128) !important", // 🔵 Navy Blue
+          foreground: "rgb(220, 220, 220) !important", // ⚪ White Text
         },
       },
       borderRadius: {
@@ -77,4 +78,4 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-}
+};
