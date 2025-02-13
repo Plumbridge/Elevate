@@ -17,6 +17,11 @@
     --card-foreground: 240, 240, 240 !important; /* White Text */
   }
 
+  html.dark {
+    background-color: rgb(15, 23, 42) !important;
+    color: rgb(220, 220, 220) !important;
+  }
+
   * {
     @apply border-border;
   }
