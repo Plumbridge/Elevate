@@ -3,39 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  /* 🌍 Ensure Global Background Color */
   :root {
-    --background: 0, 0, 128; /* Navy Blue Background */
-    --foreground: 220, 220, 220; /* Light Text */
+    --background: 0, 0, 128 !important; /* 🔵 Navy Blue */
+    --foreground: 220, 220, 220 !important; /* ⚪ Light Text */
 
-    --card: 0, 0, 90; /* Darker Blue Bubbles */
-    --card-foreground: 240, 240, 240; /* White Text */
+    --card: 0, 0, 90 !important; /* 🔵 Darker Blue Bubbles */
+    --card-foreground: 240, 240, 240 !important; /* ⚪ White Text */
+
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--foreground)) !important;
   }
 
   /* 🌙 Forced Dark Mode */
   .dark {
-    --background: 0, 0, 128 !important; /* Navy Blue Background */
-    --foreground: 220, 220, 220 !important; /* Light Text */
+    --background: 0, 0, 128 !important; /* 🔵 Navy Blue */
+    --foreground: 220, 220, 220 !important; /* ⚪ Light Text */
 
-    --card: 0, 0, 90 !important; /* Darker Blue Bubbles */
-    --card-foreground: 240, 240, 240 !important; /* White Text */
-  }
+    --card: 0, 0, 90 !important; /* 🔵 Darker Blue Bubbles */
+    --card-foreground: 240, 240, 240 !important; /* ⚪ White Text */
 
-  /* ✅ Ensures Dark Mode is Applied to the Whole Page */
-  html.dark, body.dark {
     background-color: rgb(var(--background)) !important;
     color: rgb(var(--foreground)) !important;
   }
 
-  /* ✅ Forces All Sections to Use These Colors */
-  body, #__next, main {
+  /* ✅ Apply Dark Mode Background Globally */
+  html, body, #__next, main {
     background-color: rgb(var(--background)) !important;
     color: rgb(var(--foreground)) !important;
   }
 
+  /* ✅ Apply Background to Everything */
   * {
     @apply border-border;
+    background-color: rgb(var(--background)) !important;
+    color: rgb(var(--foreground)) !important;
   }
+
+  /* ✅ Ensure Body Uses Navy Blue */
   body {
-  background-color: rgb(0, 0, 128) !important;
-}
+    background-color: rgb(0, 0, 128) !important;
+  }
 }
