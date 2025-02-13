@@ -4,44 +4,38 @@
 
 @layer base {
   :root {
-    --background: 60 100% 98%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 240 100% 20%; /* ✅ Navy Blue */
+    --foreground: 220 220 220; /* ✅ Light Text */
 
-    --card: 210 64% 20%;
-    --card-foreground: 0 0% 100%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 185 100% 33%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 329 100% 56%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --card: 0, 0, 90; /* Darker Blue Bubbles */
+    --card-foreground: 240, 240, 240; /* White Text */
   }
-}
 
-@layer base {
+  /* 🌙 Forced Dark Mode */
+  .dark {
+    --background: 240 100% 20% !important; /* ✅ Navy Blue */
+    --foreground: 220, 220, 220 !important; /* ✅ Light Text */
+
+    --card: 0, 0, 90 !important; /* Darker Blue Bubbles */
+    --card-foreground: 240, 240, 240 !important; /* White Text */
+  }
+
+  /* ✅ Ensures Dark Mode is Applied to the Whole Page */
+  html.dark, body.dark {
+    background-color: hsl(var(--background)) !important;
+    color: rgb(var(--foreground)) !important;
+  }
+
+  /* ✅ Forces All Sections to Use These Colors */
+  body, #__next, main {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
+  }
+
   * {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(240, 100%, 20%) !important;
   }
 }
-
