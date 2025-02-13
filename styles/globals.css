@@ -3,48 +3,37 @@
 @tailwind utilities;
 
 @layer base {
-  /* 🔹 Default Light Mode (if applicable) */
   :root {
-    --background: 0, 0, 128 !important; /* Navy Blue */
-    --foreground: 220, 220, 220 !important; /* Light Text */
+    --background: 240, 100%, 20%; /* ✅ Proper HSL Navy Blue */
+    --foreground: 220, 220, 220; /* ✅ Light Gray for Text */
 
-    --card: 0, 0, 90 !important; /* Darker Blue Bubbles */
-    --card-foreground: 240, 240, 240 !important; /* White Text */
+    --card: 240, 100%, 15%; /* Darker Navy Blue */
+    --card-foreground: 255, 255, 255; /* White */
 
-    /* 🔹 Other Colors (Ensure Consistency) */
-    --border: 214, 31%, 91% !important;
-    --input: 214, 31%, 91% !important;
-    --ring: 222, 84%, 4.9% !important;
+    --border: 240, 100%, 30%; /* Slightly Brighter Navy */
+    --muted: 240, 30%, 50%;
+    --muted-foreground: 240, 30%, 70%;
   }
 
-  /* 🌙 Forced Dark Mode (Ensures it's applied) */
+  /* ✅ Ensures Dark Mode Uses Navy Blue */
   .dark {
-    --background: 0, 0, 128 !important; /* Navy Blue */
-    --foreground: 220, 220, 220 !important; /* Light Text */
-
-    --card: 0, 0, 90 !important; /* Darker Blue */
-    --card-foreground: 240, 240, 240 !important; /* White Text */
+    --background: 240, 100%, 20% !important; /* Navy Blue */
+    --foreground: 220, 220, 220 !important; /* Light Gray */
   }
 
-  /* ✅ Force Apply Navy Blue & Light Text */
-  html, body, #__next, main {
-    background-color: rgb(0, 0, 128) !important;
-    color: rgb(220, 220, 220) !important;
+  /* ✅ Applies the Background & Foreground */
+  html, body {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
-  /* ✅ Ensure Cards/Bubbles Use Darker Blue */
-  .card {
-    background-color: rgb(0, 0, 90) !important;
-    color: rgb(240, 240, 240) !important;
+  /* ✅ Apply the Color to All Containers */
+  body, #__next, main {
+    background-color: hsl(var(--background)) !important;
+    color: hsl(var(--foreground)) !important;
   }
 
-  /* ✅ Reset Any Overridden Borders */
   * {
     @apply border-border;
-  }
-
-  /* ✅ Debugging Fix: Override All Backgrounds */
-  body {
-    background-color: rgb(0, 0, 128) !important;
   }
 }
