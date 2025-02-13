@@ -82,7 +82,7 @@ export default function Home() {
           opportunities, helping you kickstart your international career.
         </p>
         <Button asChild className="mt-8">
-          <Link href="/services#career">Learn More About Career Support</Link>
+          <Link href="/services#career">Learn More</Link>
         </Button>
       </section>
     </div>
