@@ -23,6 +23,12 @@
     color: rgb(220, 220, 220) !important;
   }
 
+  /* ✅ Forces All Sections to Use Dark Mode */
+  body, #__next, main {
+    background-color: rgb(15, 23, 42) !important;
+    color: rgb(220, 220, 220) !important;
+  }
+
   * {
     @apply border-border;
   }
