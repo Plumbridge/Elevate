@@ -2,8 +2,13 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: "class", // ✅ Ensures dark mode uses `.dark` class
-  content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}", "*.{js,ts,jsx,tsx,mdx}"],
+  darkMode: "class", // ✅ Dark mode is controlled via class
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}", // ✅ Add pages directory
+    "./app/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "*.{js,ts,jsx,tsx,mdx}"
+  ],
   theme: {
     container: {
       center: true,
@@ -17,8 +22,8 @@ module.exports = {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "rgb(0, 0, 128) !important", // 🔵 Force Navy Background
-        foreground: "rgb(220, 220, 220) !important", // ⚪ Light Text
+        background: "hsl(var(--background))", // ✅ Uses CSS variable correctly
+        foreground: "hsl(var(--foreground))", 
 
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -49,8 +54,8 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         navy: {
-          DEFAULT: "rgb(0, 0, 128) !important", // 🔵 Navy Blue
-          foreground: "rgb(220, 220, 220) !important", // ⚪ White Text
+          DEFAULT: "hsl(240, 100%, 20%)", // ✅ Uses proper HSL for navy blue
+          foreground: "hsl(0, 0%, 100%)",
         },
       },
       borderRadius: {
