@@ -18,7 +18,7 @@
   }
 
   /* ✅ Ensures Dark Mode is Applied to the Whole Page */
-  html.dark {
+  html.dark, body.dark {
     background-color: rgb(15, 23, 42) !important;
     color: rgb(220, 220, 220) !important;
   }
