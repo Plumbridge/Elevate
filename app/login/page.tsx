@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -36,6 +37,7 @@ const loginSchema = z.object({
 })
 
 export default function LoginPage() {
+  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
 
@@ -50,21 +52,38 @@ export default function LoginPage() {
   async function onSubmit(values: z.infer<typeof loginSchema>) {
     setIsLoading(true)
     
-    // TODO: Implement actual login logic here
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulated delay
-    
     try {
-      // Simulate successful login
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Invalid credentials')
+      }
+
+      // Store token in localStorage
+      localStorage.setItem('token', data.token)
+
       toast({
         title: "Welcome back!",
         description: "You have successfully logged in.",
       })
+
       // Reset form
       form.reset()
+      
+      // Redirect to home page
+      router.push('/')
     } catch (error) {
       toast({
         title: "Error",
-        description: "Invalid email or password. Please try again.",
+        description: error instanceof Error ? error.message : "Invalid email or password",
         variant: "destructive",
       })
     } finally {

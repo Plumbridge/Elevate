@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import Link from "next/link"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -43,6 +44,7 @@ const signUpSchema = z.object({
 })
 
 export default function SignUpPage() {
+  const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
 
@@ -59,21 +61,39 @@ export default function SignUpPage() {
   async function onSubmit(values: z.infer<typeof signUpSchema>) {
     setIsLoading(true)
     
-    // TODO: Implement actual signup logic here
-    await new Promise(resolve => setTimeout(resolve, 1000)) // Simulated delay
-    
     try {
-      // Simulate successful signup
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: values.email,
+          password: values.password,
+          fullName: values.fullName,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error signing up')
+      }
+
       toast({
         title: "Account created successfully!",
-        description: "Please check your email to verify your account.",
+        description: "Please log in with your credentials.",
       })
+      
       // Reset form
       form.reset()
+      
+      // Redirect to login page
+      router.push('/login')
     } catch (error) {
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: error instanceof Error ? error.message : "Something went wrong",
         variant: "destructive",
       })
     } finally {
