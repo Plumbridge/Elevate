@@ -51,12 +51,15 @@ export function MainNav() {
             </Link>
           </nav>
           <div className="flex-1 flex justify-end gap-2">
-            <Button variant="outline">Log in</Button>
-            <Button>Sign up</Button>
+            <Button variant="outline" asChild>
+              <Link href="/login">Log in</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/signup">Sign up</Link>
+            </Button>
           </div>
         </div>
       </div>
     </header>
   )
 }
-
