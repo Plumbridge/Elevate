@@ -14,7 +14,7 @@ export function MainNav() {
             </Link>
           </div>
 
-          {/* Center - Navigation (Now properly centered) */}
+          {/* Center - Navigation */}
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <nav className="hidden md:flex space-x-6">
               <Link href="/application" className="text-muted-foreground hover:text-primary text-center">
@@ -31,10 +31,12 @@ export function MainNav() {
 
           {/* Right - Auth Buttons */}
           <div className="flex items-center">
-            <Button variant="outline" className="mr-2">
-              Log in
+            <Button variant="outline" className="mr-2" asChild>
+              <Link href="/login">Log in</Link>
             </Button>
-            <Button>Sign up</Button>
+            <Button asChild>
+              <Link href="/signup">Sign up</Link>
+            </Button>
           </div>
         </div>
       </div>
