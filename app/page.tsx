@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-background to-muted">
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+        {/* Hero Section with extra bottom margin */}
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 mb-12 md:mb-24 lg:mb-32">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <div className="flex flex-col items-center space-y-4">
               <div className="space-y-2">
@@ -14,7 +14,8 @@ export default function Home() {
                   Your Journey Starts Here
                 </h1>
                 <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
-                  From application to graduation and beyond, we're here to support your international education journey every step of the way.
+                  From application to graduation and beyond, we're here to support your international education journey
+                  every step of the way.
                 </p>
               </div>
               <div className="space-x-4">
