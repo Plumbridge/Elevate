@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gradient-to-b from-background to-muted">
       <main className="text-center">
-        <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-          Your Journey to Study Abroad Starts Here
+        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+          Your Journey Starts Here
         </h1>
-        <p className="mt-6 text-xl text-muted-foreground max-w-3xl mx-auto">
+        <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
           From application to graduation and beyond, we're here to support your international education journey every
           step of the way.
         </p>
