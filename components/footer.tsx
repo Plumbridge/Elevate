@@ -87,7 +87,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t pt-8 text-center">
-          <p className="text-muted-foreground">&copy; 2023 StudyAbroad. All rights reserved.</p>
+          <p className="text-muted-foreground">&copy; 2025 Elevate. All rights reserved.</p>
         </div>
       </div>
     </footer>
