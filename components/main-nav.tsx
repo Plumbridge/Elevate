@@ -12,7 +12,7 @@ import { ChevronDown } from "lucide-react"
 
 export function MainNav() {
   return (
-    <header className="px-4 lg:px-6 h-16 flex items-center border-b border-white/10">
+    <header className="bg-background px-4 lg:px-6 h-16 flex items-center border-b border-white/10">
       {/* Left: Logo */}
       <Link className="flex items-center justify-center" href="/">
         <span className="font-bold text-xl text-primary">Elevate</span>
