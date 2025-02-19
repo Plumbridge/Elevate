@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-background to-muted">
+    <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gradient-to-b from-background to-muted">
       {/* Hero Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48">
         <main className="text-center">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
             Your Journey Starts Here
           </h1>
           <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
@@ -70,11 +70,11 @@ export default function Home() {
               <Link
                 key={index}
                 href={service.link}
-                className="bg-card text-card-foreground rounded-lg shadow-lg p-6 flex flex-col items-center hover:shadow-xl transition-shadow"
+                className="flex flex-col items-center text-center p-6 rounded-lg bg-black/20 border border-white/10 transition-colors hover:bg-black/30"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-muted-foreground text-center">{service.description}</p>
+                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                <p className="text-muted-foreground">{service.description}</p>
               </Link>
             ))}
           </div>
