@@ -110,22 +110,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="py-6 w-full border-t border-white/10">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="flex flex-col gap-2 sm:flex-row items-center">
-            <p className="text-xs text-muted-foreground">© 2024 Elevate. All rights reserved.</p>
-            <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-              <Link className="text-xs hover:text-primary transition-colors" href="#">
-                Terms of Service
-              </Link>
-              <Link className="text-xs hover:text-primary transition-colors" href="#">
-                Privacy
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
