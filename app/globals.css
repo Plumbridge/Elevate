@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 100% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 217 80% 68%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 191 78% 58%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 60.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 10%;
+    --input: 240 10% 10%;
+    --ring: 252 100% 68%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 252 100% 68%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 217 80% 68%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 15%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 191 78% 58%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 60.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 10%;
+    --input: 240 10% 10%;
+    --ring: 252 100% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.glass {
+  background: rgba(14, 14, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+}
+
+.service-card {
+  transition: all 0.5s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
