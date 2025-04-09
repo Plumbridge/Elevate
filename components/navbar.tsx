@@ -1,4 +1,4 @@
-  "use client"
+"use client"
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
@@ -21,10 +21,10 @@ const navLinks = [
       { name: "Career Support", href: "/services/career" },
     ],
   },
-  /*{ name: "Universities", href: "/universities" }*/,
+  // { name: "Universities", href: "/universities" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
-  /*{ name: "Resources", href: "/resources" }*/,
+  // { name: "Resources", href: "/resources" },
 ]
 
 export default function Navbar() {
@@ -65,29 +65,40 @@ export default function Navbar() {
                 <li key={link.name} className="relative">
                   {link.submenu ? (
                     <div
-                      className="flex items-center cursor-pointer group"
+                      className="flex items-center cursor-pointer group relative"
                       onMouseEnter={() => setActiveSubmenu(link.name)}
                       onMouseLeave={() => setActiveSubmenu(null)}
                     >
-                      <span className="text-muted-foreground hover:text-white transition-colors">{link.name}</span>
+                      <span className="text-muted-foreground hover:text-white transition-colors">
+                        {link.name}
+                      </span>
                       <ChevronDown className="ml-1 h-4 w-4 text-muted-foreground group-hover:text-white" />
 
                       {activeSubmenu === link.name && (
-                        <div className="absolute top-full left-0 mt-2 w-48 glass rounded-lg shadow-lg p-2 z-50">
-                          {link.submenu.map((sublink) => (
-                            <Link
-                              key={sublink.name}
-                              href={sublink.href}
-                              className="block px-4 py-2 text-sm rounded-md hover:bg-accent/20 text-muted-foreground hover:text-white transition-colors"
-                            >
-                              {sublink.name}
-                            </Link>
-                          ))}
-                        </div>
+                        <>
+                          {/* Invisible bridge for hover */}
+                          <div className="absolute h-3 w-full bottom-0 left-0 translate-y-full" />
+                          <div className="absolute top-full left-0 pt-3 w-48 z-50">
+                            <div className="glass rounded-lg shadow-lg p-2">
+                              {link.submenu.map((sublink) => (
+                                <Link
+                                  key={sublink.name}
+                                  href={sublink.href}
+                                  className="block px-4 py-2 text-sm rounded-md hover:bg-accent/20 text-muted-foreground hover:text-white transition-colors"
+                                >
+                                  {sublink.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </>
                       )}
                     </div>
                   ) : (
-                    <Link href={link.href} className="text-muted-foreground hover:text-white transition-colors">
+                    <Link
+                      href={link.href}
+                      className="text-muted-foreground hover:text-white transition-colors"
+                    >
                       {link.name}
                     </Link>
                   )}
@@ -106,7 +117,12 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="text-white">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMobileMenu}
+              className="text-white"
+            >
               {mobileMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>
@@ -131,9 +147,15 @@ export default function Navbar() {
                       <div className="space-y-2">
                         <div
                           className="flex items-center justify-between"
-                          onClick={() => setActiveSubmenu(activeSubmenu === link.name ? null : link.name)}
+                          onClick={() =>
+                            setActiveSubmenu(
+                              activeSubmenu === link.name ? null : link.name,
+                            )
+                          }
                         >
-                          <span className="text-lg font-medium">{link.name}</span>
+                          <span className="text-lg font-medium">
+                            {link.name}
+                          </span>
                           <ChevronDown
                             className={cn(
                               "h-5 w-5 transition-transform",
@@ -163,7 +185,11 @@ export default function Navbar() {
                         )}
                       </div>
                     ) : (
-                      <Link href={link.href} className="text-lg font-medium" onClick={toggleMobileMenu}>
+                      <Link
+                        href={link.href}
+                        className="text-lg font-medium"
+                        onClick={toggleMobileMenu}
+                      >
                         {link.name}
                       </Link>
                     )}
@@ -185,4 +211,3 @@ export default function Navbar() {
     </header>
   )
 }
-
