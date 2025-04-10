@@ -596,3 +596,26 @@ export default function AccommodationPage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="text-center max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold mb-6">Ready to Find Your Perfect Student Home?</h2>
+        <p className="text-lg text-muted-foreground mb-8">
+          Schedule a free consultation to discuss your accommodation needs and preferences. Our housing experts are
+          ready to help you find the perfect place to call home during your studies.
+        </p>
+        <Button
+          size="lg"
+          variant="glow"
+          className="gap-2"
+        >
+          <span>Start Your Accommodation Search</span>
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+  )
+}
