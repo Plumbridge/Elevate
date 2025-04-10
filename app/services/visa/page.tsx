@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { ChevronRight, CheckCircle2, FileCheck, Globe, MessageSquare, Calendar } from "lucide-react"
+import Link from "next/link"
 
 export default function VisaSupportPage() {
   return (
@@ -19,10 +20,12 @@ export default function VisaSupportPage() {
               us guide you towards your international education dreams.
             </p>
             <div className="flex justify-center">
-              <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
-                <span>Get Started with Visa Support</span>
-                <ChevronRight className="h-4 w-4" />
-              </Button>
+              <Link href="/pricing">
+                <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+                  <span>Get Started with Visa Support</span>
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -507,10 +510,12 @@ export default function VisaSupportPage() {
           Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
           with confidence.
         </p>
-        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2" onClick={() => window.location.href = '/pricing'}>
-          <span>Get Started with Visa Support</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        <Link href="/pricing">
+          <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+            <span>Get Started with Visa Support</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   )
