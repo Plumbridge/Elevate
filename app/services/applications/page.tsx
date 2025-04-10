@@ -329,9 +329,10 @@ export default function ApplicationsPage() {
           Schedule a free consultation to discuss your goals and learn how we can help you craft a standout university
           application.
         </p>
-        <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white gap-2">
-          <span>Schedule Your Consultation</span>
-          <ChevronRight className="h-4 w-4" />
+        <Link href="/pricing">
+          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white gap-2">
+            <span>Schedule Your Consultation</span>
+            <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
     </div>
