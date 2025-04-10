@@ -8,7 +8,7 @@ export default function VisaSupportPage() {
     <div className="container mx-auto py-12 px-4">
       {/* Hero Section with Background */}
       <div className="relative overflow-hidden rounded-xl mb-16">
-        <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-blue-600 opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 opacity-90"></div>
         <div className="relative z-10 py-16 px-6 md:px-12 text-white">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
@@ -19,7 +19,7 @@ export default function VisaSupportPage() {
               us guide you towards your international education dreams.
             </p>
             <div className="flex justify-center">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 gap-2">
+              <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
                 <span>Get Started with Visa Support</span>
                 <ChevronRight className="h-4 w-4" />
               </Button>
@@ -31,9 +31,9 @@ export default function VisaSupportPage() {
       {/* Key Benefits Section */}
       <div className="mb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl">
-            <div className="bg-teal-100 dark:bg-teal-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Globe className="h-6 w-6 text-teal-600 dark:text-teal-300" />
+          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div className="bg-purple-100 dark:bg-purple-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <Globe className="h-6 w-6 text-purple-600 dark:text-purple-300" />
             </div>
             <h3 className="text-xl font-bold mb-3">Global Expertise</h3>
             <p className="text-muted-foreground">
@@ -42,9 +42,9 @@ export default function VisaSupportPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl">
-            <div className="bg-teal-100 dark:bg-teal-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <FileCheck className="h-6 w-6 text-teal-600 dark:text-teal-300" />
+          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div className="bg-purple-100 dark:bg-purple-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <FileCheck className="h-6 w-6 text-purple-600 dark:text-purple-300" />
             </div>
             <h3 className="text-xl font-bold mb-3">Personalized Support</h3>
             <p className="text-muted-foreground">
@@ -53,9 +53,9 @@ export default function VisaSupportPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl">
-            <div className="bg-teal-100 dark:bg-teal-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <MessageSquare className="h-6 w-6 text-teal-600 dark:text-teal-300" />
+          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div className="bg-purple-100 dark:bg-purple-800 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <MessageSquare className="h-6 w-6 text-purple-600 dark:text-purple-300" />
             </div>
             <h3 className="text-xl font-bold mb-3">Interview Coaching</h3>
             <p className="text-muted-foreground">
@@ -69,7 +69,7 @@ export default function VisaSupportPage() {
       {/* Country-Specific Visa Information */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Expert Guidance for <span className="text-teal-600 dark:text-teal-400">Major Study Destinations</span>
+          Expert Guidance for <span className="text-purple-600 dark:text-purple-400">Major Study Destinations</span>
         </h2>
 
         <Tabs defaultValue="usa" className="w-full">
@@ -82,7 +82,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="usa"
-            className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -94,36 +94,36 @@ export default function VisaSupportPage() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>I-20 form preparation assistance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>SEVIS fee guidance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>DS-160 form completion support</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Financial documentation preparation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Specialized interview coaching</span>
                   </li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Success Rate</h4>
+                <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">97%</p>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our students have a 97% success rate for F-1 visa approvals on their first attempt, compared to the
                   national average of 82%.
                 </p>
                 <div className="border-t pt-4">
-                  <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Processing Timeline</h4>
+                  <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Processing Timeline</h4>
                   <p className="text-muted-foreground">
                     With our guidance, most students complete their F-1 visa application process within 4-6 weeks,
                     including interview preparation.
@@ -135,7 +135,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="uk"
-            className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -146,36 +146,36 @@ export default function VisaSupportPage() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>CAS statement guidance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Biometric appointment scheduling</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Financial requirement documentation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Tuberculosis test guidance (if applicable)</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Immigration Health Surcharge assistance</span>
                   </li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Success Rate</h4>
+                <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">98%</p>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our students have a 98% success rate for UK Student Visa approvals, with most applications processed
                   without any additional information requests.
                 </p>
                 <div className="border-t pt-4">
-                  <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Processing Timeline</h4>
+                  <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Processing Timeline</h4>
                   <p className="text-muted-foreground">
                     With our guidance, most students complete their UK Student Visa application process within 3-5 weeks
                     from CAS issuance to decision.
@@ -187,7 +187,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="canada"
-            className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -198,36 +198,36 @@ export default function VisaSupportPage() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Letter of acceptance guidance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Proof of financial support preparation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Biometrics appointment scheduling</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Study plan development</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Medical examination guidance (if required)</span>
                   </li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Success Rate</h4>
+                <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">95%</p>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our students have a 95% success rate for Canadian Study Permit approvals, with specialized guidance
                   for SDS (Student Direct Stream) eligible countries.
                 </p>
                 <div className="border-t pt-4">
-                  <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Processing Timeline</h4>
+                  <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Processing Timeline</h4>
                   <p className="text-muted-foreground">
                     With our guidance, most students complete their Study Permit application process within 4-8 weeks,
                     depending on country of origin and SDS eligibility.
@@ -239,7 +239,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="australia"
-            className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -250,36 +250,36 @@ export default function VisaSupportPage() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Confirmation of Enrollment (CoE) guidance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Genuine Temporary Entrant (GTE) statement preparation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Financial capacity documentation</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Health insurance (OSHC) arrangement assistance</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
                     <span>Health examination guidance</span>
                   </li>
                 </ul>
               </div>
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
-                <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Success Rate</h4>
+                <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">96%</p>
                 <p className="text-sm text-muted-foreground mb-6">
                   Our students have a 96% success rate for Australian Student Visa approvals, with particular expertise
                   in GTE statement preparation.
                 </p>
                 <div className="border-t pt-4">
-                  <h4 className="font-semibold mb-2 text-teal-600 dark:text-teal-400">Processing Timeline</h4>
+                  <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-400">Processing Timeline</h4>
                   <p className="text-muted-foreground">
                     With our guidance, most students complete their Student Visa application process within 4-6 weeks
                     from CoE issuance to decision.
@@ -294,12 +294,12 @@ export default function VisaSupportPage() {
       {/* Process Timeline */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Our <span className="text-teal-600 dark:text-teal-400">Comprehensive</span> Visa Support Process
+          Our <span className="text-purple-600 dark:text-purple-400">Comprehensive</span> Visa Support Process
         </h2>
 
         <div className="relative">
           {/* Vertical line for timeline */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-teal-200 dark:bg-teal-800 transform -translate-x-1/2"></div>
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-purple-200 dark:bg-purple-800 transform -translate-x-1/2"></div>
 
           <div className="space-y-12">
             {/* Step 1 */}
@@ -313,12 +313,12 @@ export default function VisaSupportPage() {
                     need to meet. This personalized roadmap sets the foundation for a successful application.
                   </p>
                 </div>
-                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
+                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   1
                 </div>
                 <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
-                  <div className="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
-                    <Calendar className="h-6 w-6 text-teal-600 dark:text-teal-400 mb-2" />
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1-2 days</p>
                     <p className="text-xs text-muted-foreground">
                       We'll schedule your initial consultation within 24-48 hours of your request.
@@ -332,8 +332,8 @@ export default function VisaSupportPage() {
             <div className="relative">
               <div className="flex flex-col md:flex-row items-start gap-8">
                 <div className="md:w-1/2 order-2 md:order-1 md:pr-12 pl-12 md:pl-0">
-                  <div className="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
-                    <Calendar className="h-6 w-6 text-teal-600 dark:text-teal-400 mb-2" />
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1-2 weeks</p>
                     <p className="text-xs text-muted-foreground">
                       We'll work with you to gather and prepare all necessary documents according to specific country
@@ -341,7 +341,7 @@ export default function VisaSupportPage() {
                     </p>
                   </div>
                 </div>
-                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
+                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   2
                 </div>
                 <div className="md:w-1/2 md:text-left order-1 md:order-2 pt-8 md:pt-0">
@@ -366,12 +366,12 @@ export default function VisaSupportPage() {
                     your responses align perfectly with your supporting documents.
                   </p>
                 </div>
-                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
+                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   3
                 </div>
                 <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
-                  <div className="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
-                    <Calendar className="h-6 w-6 text-teal-600 dark:text-teal-400 mb-2" />
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
                     <p className="text-sm font-medium">Timeline: 3-5 days</p>
                     <p className="text-xs text-muted-foreground">
                       We'll guide you through the application form completion process with careful attention to detail.
@@ -385,15 +385,15 @@ export default function VisaSupportPage() {
             <div className="relative">
               <div className="flex flex-col md:flex-row items-start gap-8">
                 <div className="md:w-1/2 order-2 md:order-1 md:pr-12 pl-12 md:pl-0">
-                  <div className="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
-                    <Calendar className="h-6 w-6 text-teal-600 dark:text-teal-400 mb-2" />
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1 week</p>
                     <p className="text-xs text-muted-foreground">
                       We'll conduct multiple mock interviews to ensure you're fully prepared for your visa interview.
                     </p>
                   </div>
                 </div>
-                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
+                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   4
                 </div>
                 <div className="md:w-1/2 md:text-left order-1 md:order-2 pt-8 md:pt-0">
@@ -418,12 +418,12 @@ export default function VisaSupportPage() {
                     additional information is requested, we're here to help you respond promptly and appropriately.
                   </p>
                 </div>
-                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-teal-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
+                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   5
                 </div>
                 <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
-                  <div className="bg-teal-50 dark:bg-teal-900/20 p-4 rounded-lg">
-                    <Calendar className="h-6 w-6 text-teal-600 dark:text-teal-400 mb-2" />
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
                     <p className="text-sm font-medium">Timeline: Ongoing</p>
                     <p className="text-xs text-muted-foreground">
                       We'll provide continuous support throughout the visa processing period until you receive your
@@ -440,7 +440,7 @@ export default function VisaSupportPage() {
       {/* FAQ Accordion */}
       <div className="mb-16 max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Frequently Asked <span className="text-teal-600 dark:text-teal-400">Questions</span>
+          Frequently Asked <span className="text-purple-600 dark:text-purple-400">Questions</span>
         </h2>
 
         <Accordion type="single" collapsible className="w-full">
@@ -501,13 +501,13 @@ export default function VisaSupportPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-teal-500 to-blue-600 rounded-xl p-8 md:p-12 text-white text-center">
+      <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-8 md:p-12 text-white text-center">
         <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Visa Journey?</h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto">
           Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
           with confidence.
         </p>
-        <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 gap-2">
+        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
           <span>Get Started with Visa Support</span>
           <ChevronRight className="h-4 w-4" />
         </Button>
