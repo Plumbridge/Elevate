@@ -5,7 +5,7 @@ import { CheckCircle, ChevronRight, FileText, Users, Award, BookOpen } from "luc
 
 export default function ApplicationsPage() {
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-24 px-4">
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
