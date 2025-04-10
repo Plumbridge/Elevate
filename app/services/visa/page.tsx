@@ -10,33 +10,33 @@ export default function VisaSupportPage() {
     <div className="container mx-auto py-12 px-4">
       {/* Hero Section with Split Design */}
       <div className="grid md:grid-cols-2 gap-8 mb-16 items-center">
-        <div>
-          <Badge className="mb-4 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
-            Visa Support
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Navigate Your{" "}
-            <span className="text-gradient">
-              Visa Journey
-            </span>{" "}
-            with Confidence
-          </h1>
-          <p className="text-muted-foreground mb-8">
-            At Elevate, we transform the complex visa application process into a smooth, stress-free experience. Let
-            us guide you towards your international education dreams.
-          </p>
-          <Link href="/pricing">
-            <Button
-              size="lg"
-              variant="glow"
-              className="gap-2"
-            >
-              <span>Get Started with Visa Support</span>
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </Link>
-        </div>
-        <div className="relative">
+  <div>
+    <Badge className="mb-4 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
+      Visa Support
+    </Badge>
+    <h1 className="text-4xl md:text-5xl font-bold mb-6">
+      Navigate Your{" "}
+      <span className="text-gradient">
+        Visa Journey
+      </span>{" "}
+      with Confidence
+    </h1>
+    <p className="text-muted-foreground mb-8">
+      At Elevate, we transform the complex visa application process into a smooth, stress-free experience. Let
+      us guide you towards your international education dreams.
+    </p>
+    <Link href="/pricing">
+      <Button
+        size="lg"
+        variant="glow"
+        className="gap-2"
+      >
+        <span>Get Started with Visa Support</span>
+        <ChevronRight className="h-4 w-4" />
+      </Button>
+    </Link>
+  </div>
+  <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
           <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
           <div className="relative z-10 grid grid-cols-2 gap-4">
