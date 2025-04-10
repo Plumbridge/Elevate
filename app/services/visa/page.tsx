@@ -8,8 +8,7 @@ export default function VisaSupportPage() {
   return (
     <div className="container mx-auto py-12 px-4">
       {/* Hero Section with Background */}
-      <div className="relative overflow-hidden rounded-xl mb-16">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-500 to-purple-600 opacity-90"></div>
+      <div className="relative overflow-hidden rounded-xl mb-16 bg-[#1A0B29]">
         <div className="relative z-10 py-16 px-6 md:px-12 text-white">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
