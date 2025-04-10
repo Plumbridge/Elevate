@@ -14,11 +14,9 @@ export default function VisaSupportPage() {
     <Badge className="mb-4 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
       Visa Support
     </Badge>
-    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-      Navigate Your{" "}
-      <span className="text-gradient">
-        Visa Journey
-      </span>{" "}
+    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+      Navigate Your <span className="text-violet-400">Visa</span>{" "}
+      <span className="text-blue-400">Journey</span><br/>
       with Confidence
     </h1>
     <p className="text-muted-foreground mb-8">
