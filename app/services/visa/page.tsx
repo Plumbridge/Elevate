@@ -452,24 +452,23 @@ export default function VisaSupportPage() {
               <div className="flex flex-col md:flex-row items-start gap-8">
                 <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0">
                   <h3 className="text-xl font-bold mb-2">Submission and Follow-up</h3>
-                   <p className="text-muted-foreground">
-                      We don't just help you prepare; we're with you until the end. Our team assists with the submission
-                      process, ensures all documents are properly filed, and helps you track your application status. If
-                      additional information is requested, we're here to help you respond promptly and appropriately.
+                  <p className="text-muted-foreground">
+                    We don't just help you prepare; we're with you until the end. Our team assists with the submission
+                    process, ensures all documents are properly filed, and helps you track your application status. If
+                    additional information is requested, we're here to help you respond promptly and appropriately.
+                  </p>
+                </div>
+                <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
+                  5
+                </div>
+                <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
+                  <div className="bg-card p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
+                    <p className="text-sm font-medium">Timeline: Ongoing</p>
+                    <p className="text-xs text-muted-foreground">
+                      We'll provide continuous support throughout the visa processing period until you receive your
+                      final decision.
                     </p>
-                  </div>
-                  <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
-                    5
-                  </div>
-                  <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
-                    <div className="bg-card p-4 rounded-lg">
-                      <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
-                      <p className="text-sm font-medium">Timeline: Ongoing</p>
-                      <p className="text-xs text-muted-foreground">
-                        We'll provide continuous support throughout the visa processing period until you receive your
-                        final decision.
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>
