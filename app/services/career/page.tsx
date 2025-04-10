@@ -18,28 +18,28 @@ export default function CareerSupportPage() {
   return (
     <div className="bg-slate-50 dark:bg-slate-900">
       {/* Hero Section with Geometric Background */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-blue-900 text-white">
+      <div className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-purple-900 text-white">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-500 rounded-full translate-x-1/2 translate-y-1/2"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-indigo-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500 rounded-full translate-x-1/2 translate-y-1/2"></div>
+          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-500 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
         </div>
 
         <div className="container mx-auto py-20 px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="md:w-1/2">
-              <div className="inline-block px-3 py-1 mb-6 text-xs font-semibold bg-blue-600/30 rounded-full">
+              <div className="inline-block px-3 py-1 mb-6 text-xs font-semibold bg-purple-600/30 rounded-full">
                 PARTNER SERVICE
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                Launch Your Global <span className="text-teal-400">Career</span> with Confidence
+                Launch Your Global <span className="text-purple-400">Career</span> with Confidence
               </h1>
               <p className="text-lg mb-8 text-slate-200">
                 Your international education is just the beginning. We've partnered with CareerLaunch International to
                 help you transform your global experience into a successful career.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-teal-500 hover:bg-teal-600 text-white gap-2 px-6">
+                <Button size="lg" variant="glow" className="gap-2 px-6">
                   <span>Explore CareerLaunch</span>
                   <ExternalLink className="h-4 w-4" />
                 </Button>
@@ -51,10 +51,10 @@ export default function CareerSupportPage() {
             </div>
             <div className="md:w-1/2">
               <div className="relative">
-                <div className="absolute -top-4 -left-4 w-full h-full border-2 border-teal-500 rounded-lg"></div>
-                <div className="bg-gradient-to-br from-slate-800 to-blue-800 p-8 rounded-lg border border-slate-700">
+                <div className="absolute -top-4 -left-4 w-full h-full border-2 border-purple-500 rounded-lg"></div>
+                <div className="bg-gradient-to-br from-slate-800 to-purple-800 p-8 rounded-lg border border-slate-700">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-full bg-purple-500 flex items-center justify-center">
                       <Briefcase className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -64,19 +64,19 @@ export default function CareerSupportPage() {
                   </div>
                   <div className="space-y-4 mb-6">
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-teal-500 mt-0.5 shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
                       <p className="text-slate-200">Access to 5,000+ global employers</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-teal-500 mt-0.5 shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
                       <p className="text-slate-200">92% job placement rate within 6 months</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-teal-500 mt-0.5 shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
                       <p className="text-slate-200">Specialized in international student career transitions</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-teal-500 mt-0.5 shrink-0" />
+                      <CheckCircle className="h-5 w-5 text-purple-500 mt-0.5 shrink-0" />
                       <p className="text-slate-200">Offices in 12 countries across 4 continents</p>
                     </div>
                   </div>
@@ -87,7 +87,7 @@ export default function CareerSupportPage() {
                       <div className="w-8 h-8 rounded-full bg-slate-700 -ml-2"></div>
                       <p className="text-sm text-slate-300">+2,500 success stories</p>
                     </div>
-                    <div className="flex items-center gap-1 text-teal-400 text-sm font-medium">
+                    <div className="flex items-center gap-1 text-purple-400 text-sm font-medium">
                       <span>View testimonials</span>
                       <ArrowRight className="h-4 w-4" />
                     </div>
@@ -114,7 +114,7 @@ export default function CareerSupportPage() {
       <div className="container mx-auto py-16 px-4">
         {/* Partnership Explanation */}
         <div className="max-w-3xl mx-auto mb-16 text-center">
-          <div className="inline-block px-4 py-1 mb-4 text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full">
+          <div className="inline-block px-4 py-1 mb-4 text-sm font-medium bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full">
             ELEVATE × CAREERLAUNCH PARTNERSHIP
           </div>
           <h2 className="text-3xl font-bold mb-6">Seamless Transition from Education to Career</h2>
@@ -127,8 +127,8 @@ export default function CareerSupportPage() {
             <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
               <span className="text-2xl font-bold text-slate-400">E</span>
             </div>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-300 to-teal-500"></div>
-            <div className="w-16 h-16 rounded-full bg-teal-500 flex items-center justify-center">
+            <div className="w-24 h-1 bg-gradient-to-r from-slate-300 to-purple-500"></div>
+            <div className="w-16 h-16 rounded-full bg-purple-500 flex items-center justify-center">
               <span className="text-2xl font-bold text-white">C</span>
             </div>
           </div>
@@ -140,10 +140,10 @@ export default function CareerSupportPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="bg-white dark:bg-slate-800 border-0 shadow-lg overflow-hidden">
-              <div className="h-2 bg-teal-500"></div>
+              <div className="h-2 bg-purple-500"></div>
               <CardContent className="pt-6">
-                <div className="w-12 h-12 rounded-lg bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center mb-4">
-                  <FileText className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+                <div className="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Career Planning</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-4">
@@ -152,15 +152,15 @@ export default function CareerSupportPage() {
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-teal-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Personalized career roadmapping</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-teal-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Skills gap analysis</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-teal-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Industry-specific guidance</span>
                   </li>
                 </ul>
@@ -169,7 +169,7 @@ export default function CareerSupportPage() {
                     <Globe className="h-4 w-4 text-slate-400" />
                     <span className="text-xs text-slate-500 dark:text-slate-400">Available worldwide</span>
                   </div>
-                  <div className="flex items-center gap-1 text-teal-600 dark:text-teal-400 text-sm font-medium">
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
                     <span>Learn more</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -178,10 +178,10 @@ export default function CareerSupportPage() {
             </Card>
 
             <Card className="bg-white dark:bg-slate-800 border-0 shadow-lg overflow-hidden">
-              <div className="h-2 bg-blue-500"></div>
+              <div className="h-2 bg-purple-500"></div>
               <CardContent className="pt-6">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
-                  <Briefcase className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                <div className="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                  <Briefcase className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Job Search Support</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-4">
@@ -190,15 +190,15 @@ export default function CareerSupportPage() {
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-blue-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Exclusive job board access</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-blue-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Resume & LinkedIn optimization</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-blue-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Direct employer introductions</span>
                   </li>
                 </ul>
@@ -207,7 +207,7 @@ export default function CareerSupportPage() {
                     <Users className="h-4 w-4 text-slate-400" />
                     <span className="text-xs text-slate-500 dark:text-slate-400">5,000+ employer network</span>
                   </div>
-                  <div className="flex items-center gap-1 text-blue-600 dark:text-blue-400 text-sm font-medium">
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
                     <span>Learn more</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -216,10 +216,10 @@ export default function CareerSupportPage() {
             </Card>
 
             <Card className="bg-white dark:bg-slate-800 border-0 shadow-lg overflow-hidden">
-              <div className="h-2 bg-indigo-500"></div>
+              <div className="h-2 bg-purple-500"></div>
               <CardContent className="pt-6">
-                <div className="w-12 h-12 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center mb-4">
-                  <MessageSquare className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+                <div className="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mb-4">
+                  <MessageSquare className="h-6 w-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">Interview Preparation</h3>
                 <p className="text-slate-600 dark:text-slate-300 mb-4">
@@ -228,19 +228,19 @@ export default function CareerSupportPage() {
                 </p>
                 <ul className="space-y-2 mb-6">
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-indigo-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
                       Industry-specific mock interviews
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-indigo-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">
                       Cross-cultural communication coaching
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-indigo-500 mt-1 shrink-0" />
+                    <CheckCircle className="h-4 w-4 text-purple-500 mt-1 shrink-0" />
                     <span className="text-sm text-slate-600 dark:text-slate-300">Salary negotiation training</span>
                   </li>
                 </ul>
@@ -249,7 +249,7 @@ export default function CareerSupportPage() {
                     <BarChart className="h-4 w-4 text-slate-400" />
                     <span className="text-xs text-slate-500 dark:text-slate-400">87% interview success rate</span>
                   </div>
-                  <div className="flex items-center gap-1 text-indigo-600 dark:text-indigo-400 text-sm font-medium">
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
                     <span>Learn more</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -261,10 +261,10 @@ export default function CareerSupportPage() {
 
         {/* Global Reach Section */}
         <div className="mb-20">
-          <div className="bg-gradient-to-br from-slate-100 to-blue-50 dark:from-slate-800 dark:to-blue-900/20 rounded-2xl p-8 md:p-12">
+          <div className="bg-gradient-to-br from-slate-100 to-purple-50 dark:from-slate-800 dark:to-purple-900/20 rounded-2xl p-8 md:p-12">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 rounded-full">
+                <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full">
                   GLOBAL OPPORTUNITIES
                 </div>
                 <h2 className="text-3xl font-bold mb-6">Launch Your Career Anywhere in the World</h2>
@@ -293,20 +293,20 @@ export default function CareerSupportPage() {
                   </div>
                 </div>
 
-                <Button className="bg-teal-500 hover:bg-teal-600 text-white gap-2">
+                <Button variant="glow" className="gap-2">
                   <span>Explore Global Opportunities</span>
                   <Globe className="h-4 w-4" />
                 </Button>
               </div>
 
               <div className="relative">
-                <div className="absolute -top-6 -left-6 w-32 h-32 bg-teal-200 dark:bg-teal-900/30 rounded-full opacity-50 z-0"></div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-200 dark:bg-blue-900/30 rounded-full opacity-50 z-0"></div>
+                <div className="absolute -top-6 -left-6 w-32 h-32 bg-purple-200 dark:bg-purple-900/30 rounded-full opacity-50 z-0"></div>
+                <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-200 dark:bg-purple-900/30 rounded-full opacity-50 z-0"></div>
 
                 <div className="relative z-10 grid grid-cols-2 gap-4">
                   <div className="bg-white dark:bg-slate-700 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="h-4 w-4 text-teal-500" />
+                      <MapPin className="h-4 w-4 text-purple-500" />
                       <h4 className="font-semibold">North America</h4>
                     </div>
                     <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
@@ -318,7 +318,7 @@ export default function CareerSupportPage() {
 
                   <div className="bg-white dark:bg-slate-700 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="h-4 w-4 text-blue-500" />
+                      <MapPin className="h-4 w-4 text-purple-500" />
                       <h4 className="font-semibold">Europe</h4>
                     </div>
                     <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
@@ -330,7 +330,7 @@ export default function CareerSupportPage() {
 
                   <div className="bg-white dark:bg-slate-700 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="h-4 w-4 text-indigo-500" />
+                      <MapPin className="h-4 w-4 text-purple-500" />
                       <h4 className="font-semibold">Asia Pacific</h4>
                     </div>
                     <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
@@ -342,7 +342,7 @@ export default function CareerSupportPage() {
 
                   <div className="bg-white dark:bg-slate-700 p-4 rounded-lg shadow-sm">
                     <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="h-4 w-4 text-amber-500" />
+                      <MapPin className="h-4 w-4 text-purple-500" />
                       <h4 className="font-semibold">Middle East</h4>
                     </div>
                     <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-300">
@@ -360,7 +360,7 @@ export default function CareerSupportPage() {
         {/* Success Stories */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold bg-teal-100 text-teal-800 dark:bg-teal-900/30 dark:text-teal-300 rounded-full">
+            <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-300 rounded-full">
               SUCCESS STORIES
             </div>
             <h2 className="text-3xl font-bold mb-4">From International Students to Global Professionals</h2>
@@ -372,7 +372,7 @@ export default function CareerSupportPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
-              <div className="h-2 bg-teal-500"></div>
+              <div className="h-2 bg-purple-500"></div>
               <div className="p-6">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-700"></div>
@@ -395,7 +395,7 @@ export default function CareerSupportPage() {
             </div>
 
             <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
-              <div className="h-2 bg-blue-500"></div>
+              <div className="h-2 bg-purple-500"></div>
               <div className="p-6">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-700"></div>
@@ -416,7 +416,7 @@ export default function CareerSupportPage() {
             </div>
 
             <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm overflow-hidden">
-              <div className="h-2 bg-indigo-500"></div>
+              <div className="h-2 bg-purple-500"></div>
               <div className="p-6">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-700"></div>
@@ -440,7 +440,7 @@ export default function CareerSupportPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-gradient-to-br from-slate-900 to-blue-900 rounded-2xl p-8 md:p-12 text-white text-center">
+        <div className="bg-gradient-to-br from-slate-900 to-purple-900 rounded-2xl p-8 md:p-12 text-white text-center">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Ready to Launch Your Global Career?</h2>
             <p className="text-lg mb-8">
@@ -448,7 +448,7 @@ export default function CareerSupportPage() {
               International. Take the first step toward your international career today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-teal-500 hover:bg-teal-600 text-white gap-2 px-6">
+              <Button size="lg" variant="glow" className="gap-2 px-6">
                 <span>Visit CareerLaunch International</span>
                 <ExternalLink className="h-4 w-4" />
               </Button>
