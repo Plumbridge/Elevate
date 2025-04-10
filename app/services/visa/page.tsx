@@ -507,7 +507,7 @@ export default function VisaSupportPage() {
           Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
           with confidence.
         </p>
-        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2" onClick={() => window.location.href = '/pricing'}>
           <span>Get Started with Visa Support</span>
           <ChevronRight className="h-4 w-4" />
         </Button>
