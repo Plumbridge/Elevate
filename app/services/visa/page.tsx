@@ -65,7 +65,101 @@ export default function VisaSupportPage() {
               
               <div className="flex justify-between items-center pt-4 border-t border-purple-100 dark:border-purple-700">
                 <div className="flex items-center gap-2">
-                  <div className="text-sm text-purple-600 dark:text-purple-300 font-medium">Success Rate:</div>
+                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
+                    <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
+                    <p className="text-sm font-medium">Timeline: Ongoing</p>
+                    <p className="text-xs text-muted-foreground">
+                      We'll provide continuous support throughout the visa processing period until you receive your
+                      final decision.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Accordion */}
+      <div className="mb-16 max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Frequently Asked <span className="text-purple-600 dark:text-purple-400">Questions</span>
+        </h2>
+
+        <Accordion type="single" collapsible className="w-full">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>When should I start my visa application process?</AccordionTrigger>
+            <AccordionContent>
+              We recommend starting your visa application process at least 3-6 months before your intended program start
+              date. This timeline allows for document collection, application preparation, potential interview
+              scheduling, and processing times which vary by country. Starting early also provides a buffer for any
+              unexpected delays or additional document requests.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-2">
+            <AccordionTrigger>What financial documents will I need for my visa application?</AccordionTrigger>
+            <AccordionContent>
+              Financial requirements vary by country, but generally you'll need to demonstrate that you can cover
+              tuition fees and living expenses for at least one year of study. Common documents include bank statements
+              (typically showing funds maintained for at least 3-6 months), scholarship award letters, education loans,
+              or sponsorship letters with supporting financial documents. Our team will provide country-specific
+              guidance on exact requirements and how to present your financial documentation effectively.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-3">
+            <AccordionTrigger>How do I prepare for a visa interview?</AccordionTrigger>
+            <AccordionContent>
+              Visa interviews assess your genuine intent to study and return to your home country after completing your
+              program. Our preparation includes multiple mock interviews covering likely questions about your academic
+              background, chosen program, career plans, ties to your home country, and financial situation. We'll help
+              you articulate clear, consistent answers that align with your application documents and demonstrate your
+              legitimate student status.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-4">
+            <AccordionTrigger>What happens if my visa application is rejected?</AccordionTrigger>
+            <AccordionContent>
+              While our high success rate minimizes rejections, we provide full support if this occurs. We'll analyze
+              the rejection reason, address any issues, strengthen your application, and guide you through the
+              reapplication process. Our team will help you understand what went wrong and develop a strategic plan to
+              overcome those specific concerns in your next application, significantly improving your chances of
+              approval.
+            </AccordionContent>
+          </AccordionItem>
+
+          <AccordionItem value="item-5">
+            <AccordionTrigger>Can I work while studying on a student visa?</AccordionTrigger>
+            <AccordionContent>
+              Work permissions vary significantly by country. For example, F-1 visa holders in the US can work on-campus
+              and may qualify for CPT/OPT. UK Student visa holders can typically work up to 20 hours per week during
+              term time. Canadian study permit holders may work up to 20 hours per week off-campus. Australian Student
+              visa holders can work up to 48 hours per fortnight. Our advisors will explain the specific work rights for
+              your destination country and how to maintain compliance with visa regulations.
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-8 md:p-12 text-white text-center">
+        <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Visa Journey?</h2>
+        <p className="text-lg mb-8 max-w-2xl mx-auto">
+          Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
+          with confidence.
+        </p>
+        <Link href="/pricing">
+          <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+            <span>Get Started with Visa Support</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
+      </div>
+    </div>
+  )
+}="text-sm text-purple-600 dark:text-purple-300 font-medium">Success Rate:</div>
                   <div className="text-lg font-bold">96%</div>
                 </div>
                 <div className="text-sm text-muted-foreground">
@@ -368,99 +462,6 @@ export default function VisaSupportPage() {
                 <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                     <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
-                    <p className="text-sm font-medium">Timeline: Ongoing</p>
-                    <p className="text-xs text-muted-foreground">
-                      We'll provide continuous support throughout the visa processing period until you receive your
-                      final decision.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* FAQ Accordion */}
-      <div className="mb-16 max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-center">
-          Frequently Asked <span className="text-purple-600 dark:text-purple-400">Questions</span>
-        </h2>
-
-        <Accordion type="single" collapsible className="w-full">
-          <AccordionItem value="item-1">
-            <AccordionTrigger>When should I start my visa application process?</AccordionTrigger>
-            <AccordionContent>
-              We recommend starting your visa application process at least 3-6 months before your intended program start
-              date. This timeline allows for document collection, application preparation, potential interview
-              scheduling, and processing times which vary by country. Starting early also provides a buffer for any
-              unexpected delays or additional document requests.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-2">
-            <AccordionTrigger>What financial documents will I need for my visa application?</AccordionTrigger>
-            <AccordionContent>
-              Financial requirements vary by country, but generally you'll need to demonstrate that you can cover
-              tuition fees and living expenses for at least one year of study. Common documents include bank statements
-              (typically showing funds maintained for at least 3-6 months), scholarship award letters, education loans,
-              or sponsorship letters with supporting financial documents. Our team will provide country-specific
-              guidance on exact requirements and how to present your financial documentation effectively.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-3">
-            <AccordionTrigger>How do I prepare for a visa interview?</AccordionTrigger>
-            <AccordionContent>
-              Visa interviews assess your genuine intent to study and return to your home country after completing your
-              program. Our preparation includes multiple mock interviews covering likely questions about your academic
-              background, chosen program, career plans, ties to your home country, and financial situation. We'll help
-              you articulate clear, consistent answers that align with your application documents and demonstrate your
-              legitimate student status.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-4">
-            <AccordionTrigger>What happens if my visa application is rejected?</AccordionTrigger>
-            <AccordionContent>
-              While our high success rate minimizes rejections, we provide full support if this occurs. We'll analyze
-              the rejection reason, address any issues, strengthen your application, and guide you through the
-              reapplication process. Our team will help you understand what went wrong and develop a strategic plan to
-              overcome those specific concerns in your next application, significantly improving your chances of
-              approval.
-            </AccordionContent>
-          </AccordionItem>
-
-          <AccordionItem value="item-5">
-            <AccordionTrigger>Can I work while studying on a student visa?</AccordionTrigger>
-            <AccordionContent>
-              Work permissions vary significantly by country. For example, F-1 visa holders in the US can work on-campus
-              and may qualify for CPT/OPT. UK Student visa holders can typically work up to 20 hours per week during
-              term time. Canadian study permit holders may work up to 20 hours per week off-campus. Australian Student
-              visa holders can work up to 48 hours per fortnight. Our advisors will explain the specific work rights for
-              your destination country and how to maintain compliance with visa regulations.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
-
-      {/* CTA Section */}
-      <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-8 md:p-12 text-white text-center">
-        <h2 className="text-3xl font-bold mb-6">Ready to Begin Your Visa Journey?</h2>
-        <p className="text-lg mb-8 max-w-2xl mx-auto">
-          Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
-          with confidence.
-        </p>
-        <Link href="/pricing">
-          <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
-            <span>Get Started with Visa Support</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
-        </Link>
-      </div>
-    </div>
-  )
-} w-6 text-purple-600 dark:text-purple-400 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1-2 days</p>
                     <p className="text-xs text-muted-foreground">
                       We'll schedule your initial consultation within 24-48 hours of your request.
@@ -564,5 +565,4 @@ export default function VisaSupportPage() {
                   5
                 </div>
                 <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
-                  <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
-                    <Calendar className="h-6
+                  <div className
