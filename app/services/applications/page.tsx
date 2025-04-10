@@ -9,11 +9,11 @@ export default function ApplicationsPage() {
       {/* Header Section */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-6">
-          University <span className="text-gradient">Application</span> Services
+          University <span className="text-gradient">Applications</span> Journey
         </h1>
         <p className="text-lg text-muted-foreground">
-          Expert guidance to strengthen your university applications and increase your chances of acceptance to your
-          dream institutions.
+          At Elevate, we understand that your university application is more than just paperwork—it's the first step towards your future. Our expert team is dedicated to showcasing your unique potential to top institutions worldwide. 
+          We don't just assist with applications; we elevate your entire profile to stand out in a competitive environment.
         </p>
       </div>
 
