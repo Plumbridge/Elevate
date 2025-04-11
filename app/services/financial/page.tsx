@@ -23,56 +23,47 @@ import {
 export default function FinancialPlanningPage() {
   return (
     <div className="container mx-auto py-12 px-4">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden rounded-xl mb-16">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-teal-600 opacity-90"></div>
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full translate-x-1/3 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full -translate-x-1/3 translate-y-1/2"></div>
-          <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      {/* Hero Section with Split Design */}
+      <div className="grid md:grid-cols-2 gap-8 mb-16 items-center">
+        <div>
+          <Badge className="mb-4 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
+            Financial Planning
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Master Your <span className="text-gradient">Finances</span> for Study Abroad Success
+          </h1>
+          <p className="text-muted-foreground mb-8">
+            At Elevate, we believe that financial concerns shouldn't hold you back from your international education
+            dreams. Our expert financial planning services ensure you're prepared for every aspect of studying abroad.
+          </p>
+          <Button size="lg" variant="glow" className="gap-2">
+            <span>Start Your Financial Planning</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
         </div>
-        <div className="relative z-10 py-16 px-6 md:px-12 text-white">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge className="mb-4 px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100 rounded-full">
-                Financial Planning
-              </Badge>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Master Your <span className="text-emerald-200">Finances</span> for Study Abroad Success
-              </h1>
-              <p className="text-lg mb-8">
-                At Elevate, we believe that financial concerns shouldn't hold you back from your international education
-                dreams. Our expert financial planning services ensure you're prepared for every aspect of studying
-                abroad.
-              </p>
-              <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50 gap-2">
-                <span>Start Your Financial Planning</span>
-                <ChevronRight className="h-4 w-4" />
-              </Button>
+        <div className="relative">
+          <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
+          <div className="relative z-10 grid grid-cols-2 gap-4">
+            <div className="bg-card p-6 rounded-lg shadow-sm h-48 flex flex-col justify-center">
+              <DollarSign className="h-8 w-8 text-purple-500 mb-3" />
+              <h3 className="font-semibold mb-1">Tuition Planning</h3>
+              <p className="text-sm text-muted-foreground">Strategic approaches to manage education costs</p>
             </div>
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white/20 backdrop-blur-sm p-6 rounded-lg shadow-sm h-40 flex flex-col justify-center">
-                  <DollarSign className="h-8 w-8 text-emerald-200 mb-3" />
-                  <h3 className="font-semibold mb-1">Tuition Planning</h3>
-                  <p className="text-sm text-emerald-100">Strategic approaches to manage education costs</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm p-6 rounded-lg shadow-sm h-40 flex flex-col justify-center mt-8">
-                  <PiggyBank className="h-8 w-8 text-emerald-200 mb-3" />
-                  <h3 className="font-semibold mb-1">Savings Strategies</h3>
-                  <p className="text-sm text-emerald-100">Maximize your resources before and during studies</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm p-6 rounded-lg shadow-sm h-40 flex flex-col justify-center">
-                  <TrendingUp className="h-8 w-8 text-emerald-200 mb-3" />
-                  <h3 className="font-semibold mb-1">Investment Planning</h3>
-                  <p className="text-sm text-emerald-100">Long-term financial growth for education</p>
-                </div>
-                <div className="bg-white/20 backdrop-blur-sm p-6 rounded-lg shadow-sm h-40 flex flex-col justify-center mt-8">
-                  <BarChart className="h-8 w-8 text-emerald-200 mb-3" />
-                  <h3 className="font-semibold mb-1">Budget Management</h3>
-                  <p className="text-sm text-emerald-100">Daily expense tracking and optimization</p>
-                </div>
-              </div>
+            <div className="bg-card p-6 rounded-lg shadow-sm h-48 flex flex-col justify-center mt-8">
+              <PiggyBank className="h-8 w-8 text-purple-500 mb-3" />
+              <h3 className="font-semibold mb-1">Savings Strategies</h3>
+              <p className="text-sm text-muted-foreground">Maximize your resources before and during studies</p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-sm h-48 flex flex-col justify-center">
+              <TrendingUp className="h-8 w-8 text-purple-500 mb-3" />
+              <h3 className="font-semibold mb-1">Investment Planning</h3>
+              <p className="text-sm text-muted-foreground">Long-term financial growth for education</p>
+            </div>
+            <div className="bg-card p-6 rounded-lg shadow-sm h-48 flex flex-col justify-center mt-8">
+              <BarChart className="h-8 w-8 text-purple-500 mb-3" />
+              <h3 className="font-semibold mb-1">Budget Management</h3>
+              <p className="text-sm text-muted-foreground">Daily expense tracking and optimization</p>
             </div>
           </div>
         </div>
@@ -81,7 +72,7 @@ export default function FinancialPlanningPage() {
       {/* Key Benefits Section */}
       <div className="mb-16">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <Badge className="mb-2 px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100 rounded-full">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
             Why Choose Us
           </Badge>
           <h2 className="text-3xl font-bold mb-4">Financial Expertise for International Students</h2>
@@ -91,9 +82,9 @@ export default function FinancialPlanningPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl">
-            <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Globe className="h-6 w-6 text-emerald-600 dark:text-emerald-300" />
+          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <Globe className="h-6 w-6 text-purple-600 dark:text-purple-300" />
             </div>
             <h3 className="text-xl font-bold mb-3">International Financial Expertise</h3>
             <p className="text-muted-foreground">
@@ -102,9 +93,9 @@ export default function FinancialPlanningPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl">
-            <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Calculator className="h-6 w-6 text-emerald-600 dark:text-emerald-300" />
+          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <Calculator className="h-6 w-6 text-purple-600 dark:text-purple-300" />
             </div>
             <h3 className="text-xl font-bold mb-3">Personalized Financial Strategies</h3>
             <p className="text-muted-foreground">
@@ -113,9 +104,9 @@ export default function FinancialPlanningPage() {
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl">
-            <div className="bg-emerald-100 dark:bg-emerald-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Landmark className="h-6 w-6 text-emerald-600 dark:text-emerald-300" />
+          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
+            <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+              <Landmark className="h-6 w-6 text-purple-600 dark:text-purple-300" />
             </div>
             <h3 className="text-xl font-bold mb-3">Scholarship & Funding Access</h3>
             <p className="text-muted-foreground">
@@ -129,7 +120,7 @@ export default function FinancialPlanningPage() {
       {/* Financial Services Tabs */}
       <div className="mb-16">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <Badge className="mb-2 px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100 rounded-full">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
             Our Services
           </Badge>
           <h2 className="text-3xl font-bold mb-4">Comprehensive Financial Support</h2>
@@ -148,7 +139,7 @@ export default function FinancialPlanningPage() {
 
           <TabsContent
             value="planning"
-            className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -160,7 +151,7 @@ export default function FinancialPlanningPage() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Detailed Cost Analysis</span>
                       <p className="text-sm text-muted-foreground">
@@ -169,7 +160,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Financial Roadmapping</span>
                       <p className="text-sm text-muted-foreground">
@@ -178,7 +169,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Risk Assessment</span>
                       <p className="text-sm text-muted-foreground">
@@ -187,7 +178,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">ROI Analysis</span>
                       <p className="text-sm text-muted-foreground">
@@ -198,33 +189,33 @@ export default function FinancialPlanningPage() {
                 </div>
               </div>
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-                <h4 className="font-semibold mb-4 text-emerald-600 dark:text-emerald-300">
+                <h4 className="font-semibold mb-4 text-purple-600 dark:text-purple-300">
                   Sample Financial Planning Timeline
                 </h4>
                 <div className="space-y-6">
-                  <div className="relative pl-8 border-l-2 border-emerald-200 dark:border-emerald-800">
-                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600"></div>
+                  <div className="relative pl-8 border-l-2 border-purple-200 dark:border-purple-800">
+                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-600"></div>
                     <h5 className="font-medium">12-18 Months Before Departure</h5>
                     <p className="text-sm text-muted-foreground">
                       Initial assessment, goal setting, and long-term savings plan implementation
                     </p>
                   </div>
-                  <div className="relative pl-8 border-l-2 border-emerald-200 dark:border-emerald-800">
-                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600"></div>
+                  <div className="relative pl-8 border-l-2 border-purple-200 dark:border-purple-800">
+                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-600"></div>
                     <h5 className="font-medium">6-12 Months Before Departure</h5>
                     <p className="text-sm text-muted-foreground">
                       Scholarship applications, funding strategy refinement, and currency planning
                     </p>
                   </div>
-                  <div className="relative pl-8 border-l-2 border-emerald-200 dark:border-emerald-800">
-                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600"></div>
+                  <div className="relative pl-8 border-l-2 border-purple-200 dark:border-purple-800">
+                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-600"></div>
                     <h5 className="font-medium">3-6 Months Before Departure</h5>
                     <p className="text-sm text-muted-foreground">
                       International banking setup, insurance arrangements, and budget finalization
                     </p>
                   </div>
                   <div className="relative pl-8">
-                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-emerald-600"></div>
+                    <div className="absolute left-0 top-0 -translate-x-1/2 w-4 h-4 rounded-full bg-purple-600"></div>
                     <h5 className="font-medium">During Your Studies</h5>
                     <p className="text-sm text-muted-foreground">
                       Ongoing budget management, financial check-ins, and adjustment of strategies as needed
@@ -237,7 +228,7 @@ export default function FinancialPlanningPage() {
 
           <TabsContent
             value="funding"
-            className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -249,7 +240,7 @@ export default function FinancialPlanningPage() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Personalized Scholarship Matching</span>
                       <p className="text-sm text-muted-foreground">
@@ -258,7 +249,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Application Support</span>
                       <p className="text-sm text-muted-foreground">
@@ -267,7 +258,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Alternative Funding Sources</span>
                       <p className="text-sm text-muted-foreground">
@@ -276,7 +267,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Deadline Management</span>
                       <p className="text-sm text-muted-foreground">
@@ -287,15 +278,15 @@ export default function FinancialPlanningPage() {
                 </div>
               </div>
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-                <h4 className="font-semibold mb-4 text-emerald-600 dark:text-emerald-300">Funding Success Rates</h4>
+                <h4 className="font-semibold mb-4 text-purple-600 dark:text-purple-300">Funding Success Rates</h4>
                 <div className="space-y-6">
                   <div>
                     <div className="flex justify-between mb-2">
                       <span className="text-sm font-medium">Merit Scholarships</span>
                       <span className="text-sm font-medium">68%</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[68%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[68%]"></div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">
                       Success rate for students working with our advisors
@@ -306,8 +297,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm font-medium">Need-Based Grants</span>
                       <span className="text-sm font-medium">72%</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[72%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[72%]"></div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">
                       Success rate for students working with our advisors
@@ -318,8 +309,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm font-medium">Country-Specific Scholarships</span>
                       <span className="text-sm font-medium">54%</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[54%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[54%]"></div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">
                       Success rate for students working with our advisors
@@ -330,8 +321,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm font-medium">Research Assistantships</span>
                       <span className="text-sm font-medium">41%</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[41%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[41%]"></div>
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">
                       Success rate for students working with our advisors
@@ -344,7 +335,7 @@ export default function FinancialPlanningPage() {
 
           <TabsContent
             value="banking"
-            className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -355,7 +346,7 @@ export default function FinancialPlanningPage() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Bank Account Selection</span>
                       <p className="text-sm text-muted-foreground">
@@ -364,7 +355,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Currency Exchange Strategies</span>
                       <p className="text-sm text-muted-foreground">
@@ -373,7 +364,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">International Money Transfers</span>
                       <p className="text-sm text-muted-foreground">
@@ -382,7 +373,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Credit Building</span>
                       <p className="text-sm text-muted-foreground">
@@ -393,7 +384,7 @@ export default function FinancialPlanningPage() {
                 </div>
               </div>
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-                <h4 className="font-semibold mb-4 text-emerald-600 dark:text-emerald-300">
+                <h4 className="font-semibold mb-4 text-purple-600 dark:text-purple-300">
                   International Banking Comparison
                 </h4>
                 <div className="overflow-x-auto">
@@ -450,7 +441,7 @@ export default function FinancialPlanningPage() {
 
           <TabsContent
             value="budgeting"
-            className="bg-gradient-to-br from-emerald-50 to-emerald-50 dark:from-emerald-900/20 dark:to-emerald-900/20 p-8 rounded-xl"
+            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -462,7 +453,7 @@ export default function FinancialPlanningPage() {
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Personalized Budget Creation</span>
                       <p className="text-sm text-muted-foreground">
@@ -471,7 +462,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Expense Tracking Tools</span>
                       <p className="text-sm text-muted-foreground">
@@ -480,7 +471,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Local Savings Opportunities</span>
                       <p className="text-sm text-muted-foreground">
@@ -489,7 +480,7 @@ export default function FinancialPlanningPage() {
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300 mt-0.5 shrink-0" />
+                    <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-300 mt-0.5 shrink-0" />
                     <div>
                       <span className="font-medium">Emergency Fund Planning</span>
                       <p className="text-sm text-muted-foreground">
@@ -500,7 +491,7 @@ export default function FinancialPlanningPage() {
                 </div>
               </div>
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm">
-                <h4 className="font-semibold mb-4 text-emerald-600 dark:text-emerald-300">
+                <h4 className="font-semibold mb-4 text-purple-600 dark:text-purple-300">
                   Sample Monthly Student Budget
                 </h4>
                 <div className="space-y-4">
@@ -509,8 +500,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Housing</span>
                       <span className="text-sm font-medium">$800</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[40%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[40%]"></div>
                     </div>
                   </div>
                   <div>
@@ -518,8 +509,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Food</span>
                       <span className="text-sm font-medium">$400</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[20%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[20%]"></div>
                     </div>
                   </div>
                   <div>
@@ -527,8 +518,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Transportation</span>
                       <span className="text-sm font-medium">$150</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[7.5%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[7.5%]"></div>
                     </div>
                   </div>
                   <div>
@@ -536,8 +527,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Books & Supplies</span>
                       <span className="text-sm font-medium">$100</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[5%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[5%]"></div>
                     </div>
                   </div>
                   <div>
@@ -545,8 +536,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Entertainment</span>
                       <span className="text-sm font-medium">$200</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[10%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[10%]"></div>
                     </div>
                   </div>
                   <div>
@@ -554,8 +545,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Health Insurance</span>
                       <span className="text-sm font-medium">$150</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[7.5%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[7.5%]"></div>
                     </div>
                   </div>
                   <div>
@@ -563,8 +554,8 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm">Miscellaneous</span>
                       <span className="text-sm font-medium">$200</span>
                     </div>
-                    <div className="h-2 bg-emerald-100 rounded-full">
-                      <div className="h-2 bg-emerald-600 rounded-full w-[10%]"></div>
+                    <div className="h-2 bg-purple-100 rounded-full">
+                      <div className="h-2 bg-purple-600 rounded-full w-[10%]"></div>
                     </div>
                   </div>
                   <div className="pt-4 border-t">
@@ -587,7 +578,7 @@ export default function FinancialPlanningPage() {
       {/* Cost Comparison Section */}
       <div className="mb-16">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <Badge className="mb-2 px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100 rounded-full">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
             Cost Insights
           </Badge>
           <h2 className="text-3xl font-bold mb-4">Understanding Study Abroad Costs</h2>
@@ -600,8 +591,8 @@ export default function FinancialPlanningPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
-                  <span className="font-bold text-emerald-600 dark:text-emerald-300">US</span>
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">US</span>
                 </div>
                 <h3 className="text-xl font-bold">United States</h3>
               </div>
@@ -611,8 +602,8 @@ export default function FinancialPlanningPage() {
                     <span>Tuition (Public)</span>
                     <span className="font-medium">$20,000-$35,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[80%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[80%]"></div>
                   </div>
                 </div>
                 <div>
@@ -620,8 +611,8 @@ export default function FinancialPlanningPage() {
                     <span>Tuition (Private)</span>
                     <span className="font-medium">$35,000-$60,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[95%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[95%]"></div>
                   </div>
                 </div>
                 <div>
@@ -629,13 +620,13 @@ export default function FinancialPlanningPage() {
                     <span>Living Expenses</span>
                     <span className="font-medium">$15,000-$25,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[75%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[75%]"></div>
                   </div>
                 </div>
                 <div className="pt-3 border-t mt-3">
                   <div className="flex items-center gap-2">
-                    <CreditCard className="h-4 w-4 text-emerald-600" />
+                    <CreditCard className="h-4 w-4 text-purple-600" />
                     <span className="text-sm">Financial aid widely available</span>
                   </div>
                 </div>
@@ -644,8 +635,8 @@ export default function FinancialPlanningPage() {
 
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
-                  <span className="font-bold text-emerald-600 dark:text-emerald-300">UK</span>
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">UK</span>
                 </div>
                 <h3 className="text-xl font-bold">United Kingdom</h3>
               </div>
@@ -655,8 +646,8 @@ export default function FinancialPlanningPage() {
                     <span>Tuition</span>
                     <span className="font-medium">£15,000-£25,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[70%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[70%]"></div>
                   </div>
                 </div>
                 <div>
@@ -664,8 +655,8 @@ export default function FinancialPlanningPage() {
                     <span>London Living</span>
                     <span className="font-medium">£15,000-£20,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[65%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[65%]"></div>
                   </div>
                 </div>
                 <div>
@@ -673,13 +664,13 @@ export default function FinancialPlanningPage() {
                     <span>Other Cities</span>
                     <span className="font-medium">£10,000-£15,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[50%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[50%]"></div>
                   </div>
                 </div>
                 <div className="pt-3 border-t mt-3">
                   <div className="flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-emerald-600" />
+                    <Calendar className="h-4 w-4 text-purple-600" />
                     <span className="text-sm">Shorter programs (3 years)</span>
                   </div>
                 </div>
@@ -688,8 +679,8 @@ export default function FinancialPlanningPage() {
 
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
-                  <span className="font-bold text-emerald-600 dark:text-emerald-300">CA</span>
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">CA</span>
                 </div>
                 <h3 className="text-xl font-bold">Canada</h3>
               </div>
@@ -699,8 +690,8 @@ export default function FinancialPlanningPage() {
                     <span>Tuition</span>
                     <span className="font-medium">C$15,000-C$35,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[65%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[65%]"></div>
                   </div>
                 </div>
                 <div>
@@ -708,8 +699,8 @@ export default function FinancialPlanningPage() {
                     <span>Major Cities</span>
                     <span className="font-medium">C$12,000-C$18,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[55%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[55%]"></div>
                   </div>
                 </div>
                 <div>
@@ -717,13 +708,13 @@ export default function FinancialPlanningPage() {
                     <span>Smaller Cities</span>
                     <span className="font-medium">C$8,000-C$12,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[40%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[40%]"></div>
                   </div>
                 </div>
                 <div className="pt-3 border-t mt-3">
                   <div className="flex items-center gap-2">
-                    <Briefcase className="h-4 w-4 text-emerald-600" />
+                    <Briefcase className="h-4 w-4 text-purple-600" />
                     <span className="text-sm">Strong work opportunities</span>
                   </div>
                 </div>
@@ -732,8 +723,8 @@ export default function FinancialPlanningPage() {
 
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900 flex items-center justify-center">
-                  <span className="font-bold text-emerald-600 dark:text-emerald-300">AU</span>
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">AU</span>
                 </div>
                 <h3 className="text-xl font-bold">Australia</h3>
               </div>
@@ -743,8 +734,8 @@ export default function FinancialPlanningPage() {
                     <span>Tuition</span>
                     <span className="font-medium">A$20,000-A$45,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[75%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[75%]"></div>
                   </div>
                 </div>
                 <div>
@@ -752,8 +743,8 @@ export default function FinancialPlanningPage() {
                     <span>Living Expenses</span>
                     <span className="font-medium">A$15,000-A$25,000</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[65%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[65%]"></div>
                   </div>
                 </div>
                 <div>
@@ -761,13 +752,13 @@ export default function FinancialPlanningPage() {
                     <span>Health Insurance</span>
                     <span className="font-medium">A$500-A$700</span>
                   </div>
-                  <div className="h-2 bg-emerald-100 rounded-full">
-                    <div className="h-2 bg-emerald-600 rounded-full w-[20%]"></div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[20%]"></div>
                   </div>
                 </div>
                 <div className="pt-3 border-t mt-3">
                   <div className="flex items-center gap-2">
-                    <GraduationCap className="h-4 w-4 text-emerald-600" />
+                    <GraduationCap className="h-4 w-4 text-purple-600" />
                     <span className="text-sm">Strong scholarship options</span>
                   </div>
                 </div>
@@ -780,7 +771,7 @@ export default function FinancialPlanningPage() {
       {/* Testimonials */}
       <div className="mb-16">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <Badge className="mb-2 px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100 rounded-full">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
             Success Stories
           </Badge>
           <h2 className="text-3xl font-bold mb-4">Financial Planning Success Stories</h2>
@@ -790,10 +781,10 @@ export default function FinancialPlanningPage() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          <Card className="border border-emerald-100 dark:border-emerald-900/30">
+          <Card className="border border-purple-100 dark:border-purple-900/30">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-100"></div>
+                <div className="w-12 h-12 rounded-full bg-purple-100"></div>
                 <div>
                   <h4 className="font-bold">Raj P.</h4>
                   <p className="text-xs text-muted-foreground">MBA Student, Harvard Business School</p>
@@ -804,13 +795,13 @@ export default function FinancialPlanningPage() {
                 even know I was eligible for. Their guidance on international banking also saved me thousands in
                 unnecessary fees."
               </p>
-              <div className="pt-4 border-t border-emerald-100 dark:border-emerald-900/30">
+              <div className="pt-4 border-t border-purple-100 dark:border-purple-900/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-4 w-4 text-emerald-600" />
+                    <DollarSign className="h-4 w-4 text-purple-600" />
                     <span className="text-sm font-medium">$50,000+ in scholarships</span>
                   </div>
-                  <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
                     <span>Read full story</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -819,10 +810,10 @@ export default function FinancialPlanningPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-emerald-100 dark:border-emerald-900/30">
+          <Card className="border border-purple-100 dark:border-purple-900/30">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-100"></div>
+                <div className="w-12 h-12 rounded-full bg-purple-100"></div>
                 <div>
                   <h4 className="font-bold">Maria S.</h4>
                   <p className="text-xs text-muted-foreground">Undergraduate, University of Toronto</p>
@@ -833,13 +824,13 @@ export default function FinancialPlanningPage() {
                 step-by-step budgeting plan made everything manageable, and their advice on part-time work opportunities
                 helped me maintain financial stability throughout my program."
               </p>
-              <div className="pt-4 border-t border-emerald-100 dark:border-emerald-900/30">
+              <div className="pt-4 border-t border-purple-100 dark:border-purple-900/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <PiggyBank className="h-4 w-4 text-emerald-600" />
+                    <PiggyBank className="h-4 w-4 text-purple-600" />
                     <span className="text-sm font-medium">Saved 30% on living expenses</span>
                   </div>
-                  <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
                     <span>Read full story</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -848,10 +839,10 @@ export default function FinancialPlanningPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-emerald-100 dark:border-emerald-900/30">
+          <Card className="border border-purple-100 dark:border-purple-900/30">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-emerald-100"></div>
+                <div className="w-12 h-12 rounded-full bg-purple-100"></div>
                 <div>
                   <h4 className="font-bold">Chen W.</h4>
                   <p className="text-xs text-muted-foreground">PhD Student, University of Melbourne</p>
@@ -862,13 +853,13 @@ export default function FinancialPlanningPage() {
                 that accounted for research funding opportunities, teaching assistantships, and even conference travel
                 budgets. Their comprehensive approach made all the difference."
               </p>
-              <div className="pt-4 border-t border-emerald-100 dark:border-emerald-900/30">
+              <div className="pt-4 border-t border-purple-100 dark:border-purple-900/30">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <TrendingUp className="h-4 w-4 text-emerald-600" />
+                    <TrendingUp className="h-4 w-4 text-purple-600" />
                     <span className="text-sm font-medium">Secured full program funding</span>
                   </div>
-                  <div className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
                     <span>Read full story</span>
                     <ArrowRight className="h-4 w-4" />
                   </div>
@@ -882,7 +873,7 @@ export default function FinancialPlanningPage() {
       {/* FAQ Section */}
       <div className="mb-16">
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <Badge className="mb-2 px-3 py-1 bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-100 rounded-full">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
             FAQs
           </Badge>
           <h2 className="text-3xl font-bold mb-4">Common Financial Questions</h2>
@@ -956,13 +947,13 @@ export default function FinancialPlanningPage() {
       </div>
 
       {/* CTA Section */}
-      <div className="bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl p-8 md:p-12 text-white text-center">
+      <div className="bg-gradient-to-r from-purple-600 to-purple-600 rounded-xl p-8 md:p-12 text-white text-center">
         <h2 className="text-3xl font-bold mb-6">Ready to Create Your Financial Plan?</h2>
         <p className="text-lg mb-8 max-w-2xl mx-auto">
           Schedule a free consultation with our financial advisors to discuss your study abroad goals and learn how we
           can help you create a solid financial foundation for your international education.
         </p>
-        <Button size="lg" className="bg-white text-emerald-600 hover:bg-emerald-50 gap-2">
+        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
           <span>Schedule Your Free Financial Consultation</span>
           <ChevronRight className="h-4 w-4" />
         </Button>
