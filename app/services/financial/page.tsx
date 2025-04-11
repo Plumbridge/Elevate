@@ -546,7 +546,6 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm font-medium">$200</span>
                     </div>
                     <div className="h-2 bg-purple-100 rounded-full">
-                      <div className="h-2>
                       <div className="h-2 bg-purple-600 rounded-full w-[10%]"></div>
                     </div>
                   </div>
