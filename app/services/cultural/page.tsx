@@ -70,57 +70,43 @@ export default function CulturalPreparationPage() {
       </div>
 
       {/* Key Benefits Section */}
-      <div className="mb-16 bg-black py-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white">
-            Why Choose Our <span className="text-purple-400">Cultural Preparation</span> Services
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Why Choose Our <span className="text-gradient">Cultural Preparation</span> Services
           </h2>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
-            <div className="p-8 pt-10">
-              <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <BookOpen className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Beyond Language: Cultural Fluency</h3>
-              <p className="text-gray-400">
-                Language is just the beginning. Our comprehensive cultural preparation goes deeper, helping you
-                understand social norms, etiquette, and unwritten rules of your host country. We equip you with the
-                cultural intelligence to navigate your new environment with confidence.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-purple-600"></div>
+            <BookOpen className="h-10 w-10 text-purple-500 mb-4" />
+            <h3 className="text-xl font-bold mb-3">Beyond Language: Cultural Fluency</h3>
+            <p className="text-muted-foreground">
+            Language is just the beginning. Our comprehensive cultural preparation goes deeper, helping you
+            understand social norms, etiquette, and unwritten rules of your host country. We equip you with the
+            cultural intelligence to navigate your new environment with confidence.
+            </p>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
-            <div className="p-8 pt-10">
-              <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <Lightbulb className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Personalized Cultural Insights</h3>
-              <p className="text-gray-400">
-                Every culture is unique, and so is every student's background. Our team provides tailored cultural
-                insights, considering both your home culture and your destination, to help you bridge cultural gaps
-                effectively and avoid common pitfalls.
-              </p>
-            </div>
+          <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-purple-600"></div>
+            <Lightbulb className="h-10 w-10 text-purple-500 mb-4" />
+            <h3 className="text-xl font-bold mb-3">Personalized Cultural Insights</h3>
+            <p className="text-muted-foreground">
+              Every culture is unique, and so is every student's background. Our team provides tailored cultural
+              insights, considering both your home culture and your destination, to help you bridge cultural gaps
+              effectively and avoid common pitfalls.
+            </p>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
-            <div className="p-8 pt-10">
-              <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <MessageSquare className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Interactive Learning Experience</h3>
-              <p className="text-gray-400">
-                Our cultural preparation isn't just about reading materials – it's an interactive journey. Through
-                workshops, simulations, and guided discussions, you'll develop practical skills and strategies for
-                cultural adaptation that you can apply from day one in your new environment.
-              </p>
-            </div>
+          <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-purple-600"></div>
+            <MessageSquare className="h-10 w-10 text-purple-500 mb-4" />
+            <h3 className="text-xl font-bold mb-3">Interactive Learning Experience</h3>
+            <p className="text-muted-foreground">
+              Our cultural preparation isn't just about reading materials – it's an interactive journey. Through
+              workshops, simulations, and guided discussions, you'll develop practical skills and strategies for
+              cultural adaptation that you can apply from day one in your new environment.
+            </p>
           </div>
         </div>
       </div>
