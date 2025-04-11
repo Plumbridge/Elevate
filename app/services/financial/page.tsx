@@ -29,8 +29,9 @@ export default function FinancialPlanningPage() {
           <Badge className="mb-4 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
             Financial Planning
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Master Your <span className="text-gradient">Finances</span> for Study Abroad Success
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            Master Your <span className="text-gradient">Finances</span><br/> for 
+            <span className="text-blue-400">Study Abroad</span> Success
           </h1>
           <p className="text-muted-foreground mb-8">
             At Elevate, we believe that financial concerns shouldn't hold you back from your international education
