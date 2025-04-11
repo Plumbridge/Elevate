@@ -71,48 +71,53 @@ export default function FinancialPlanningPage() {
 
       {/* Key Benefits Section */}
       <div className="mb-16">
-        <div className="text-center max-w-3xl mx-auto mb-10">
-          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
-            Why Choose Us
-          </Badge>
-          <h2 className="text-3xl font-bold mb-4">Financial Expertise for International Students</h2>
-          <p className="text-muted-foreground">
-            Our specialized knowledge helps you navigate the complex financial landscape of studying abroad
-          </p>
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold">
+            Why Choose Our <span className="text-purple-600 dark:text-purple-300">Financial Planning</span> Services
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
-            <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Globe className="h-6 w-6 text-purple-600 dark:text-purple-300" />
+          <div className="relative rounded-xl overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 pt-10 rounded-xl">
+              <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                <Globe className="h-6 w-6 text-purple-600 dark:text-purple-300" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">International Financial Expertise</h3>
+              <p className="text-muted-foreground">
+                Our advisors specialize in cross-border financial planning, understanding the unique challenges and
+                opportunities of managing money across different countries and currencies.
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-3">International Financial Expertise</h3>
-            <p className="text-muted-foreground">
-              Our advisors specialize in cross-border financial planning, understanding the unique challenges and
-              opportunities of managing money across different countries and currencies.
-            </p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
-            <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Calculator className="h-6 w-6 text-purple-600 dark:text-purple-300" />
+          <div className="relative rounded-xl overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 pt-10 rounded-xl">
+              <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                <Calculator className="h-6 w-6 text-purple-600 dark:text-purple-300" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Personalized Financial Strategies</h3>
+              <p className="text-muted-foreground">
+                We create customized financial plans based on your specific situation, goals, and destination country,
+                ensuring that your financial strategy is as unique as your educational journey.
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-3">Personalized Financial Strategies</h3>
-            <p className="text-muted-foreground">
-              We create customized financial plans based on your specific situation, goals, and destination country,
-              ensuring that your financial strategy is as unique as your educational journey.
-            </p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl">
-            <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-              <Landmark className="h-6 w-6 text-purple-600 dark:text-purple-300" />
+          <div className="relative rounded-xl overflow-hidden">
+            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
+            <div className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 pt-10 rounded-xl">
+              <div className="bg-purple-100 dark:bg-purple-900 rounded-full w-12 h-12 flex items-center justify-center mb-4">
+                <Landmark className="h-6 w-6 text-purple-600 dark:text-purple-300" />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Scholarship & Funding Access</h3>
+              <p className="text-muted-foreground">
+                Our extensive database of scholarships, grants, and financial aid opportunities helps you discover and
+                secure funding sources that many students overlook, potentially saving you thousands.
+              </p>
             </div>
-            <h3 className="text-xl font-bold mb-3">Scholarship & Funding Access</h3>
-            <p className="text-muted-foreground">
-              Our extensive database of scholarships, grants, and financial aid opportunities helps you discover and
-              secure funding sources that many students overlook, potentially saving you thousands.
-            </p>
           </div>
         </div>
       </div>
