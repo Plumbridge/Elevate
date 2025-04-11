@@ -70,7 +70,7 @@ export default function CulturalPreparationPage() {
       </div>
 
       {/* Key Benefits Section */}
-      <div className="mb-16 bg-black py-16 px-4 rounded-xl">
+      <div className="mb-16 bg-black py-16">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white">
             Why Choose Our <span className="text-purple-400">Cultural Preparation</span> Services
@@ -79,7 +79,7 @@ export default function CulturalPreparationPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-purple-500 w-full absolute top-0 left-0"></div>
+            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
             <div className="p-8 pt-10">
               <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <BookOpen className="h-6 w-6 text-purple-400" />
@@ -94,7 +94,7 @@ export default function CulturalPreparationPage() {
           </div>
 
           <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-purple-500 w-full absolute top-0 left-0"></div>
+            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
             <div className="p-8 pt-10">
               <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <Lightbulb className="h-6 w-6 text-purple-400" />
@@ -109,7 +109,7 @@ export default function CulturalPreparationPage() {
           </div>
 
           <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-purple-500 w-full absolute top-0 left-0"></div>
+            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
             <div className="p-8 pt-10">
               <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
                 <MessageSquare className="h-6 w-6 text-purple-400" />
