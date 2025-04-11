@@ -62,55 +62,41 @@ export default function VisaSupportPage() {
         </div>
       </div>
 
-      {/* Key Benefits Section */}
-      <div className="mb-16 bg-black py-16">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white">
-            Why Choose Our <span className="text-purple-400">Visa Support</span> Services
-          </h2>
-        </div>
+      {/* Key Benefits Section - FIXED to match accommodation page style */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">
+          Why Choose Our <span className="text-gradient">Visa Support</span> Services
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
-            <div className="p-8 pt-10">
-              <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <Globe className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Global Expertise</h3>
-              <p className="text-gray-400">
-                Our visa specialists stay up-to-date with the latest requirements for every major study destination,
-                ensuring your application meets all necessary criteria.
-              </p>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-purple-600"></div>
+            <Globe className="h-10 w-10 text-purple-500 mb-4" />
+            <h3 className="text-xl font-bold mb-3">Global Expertise</h3>
+            <p className="text-muted-foreground">
+              Our visa specialists stay up-to-date with the latest requirements for every major study destination,
+              ensuring your application meets all necessary criteria.
+            </p>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
-            <div className="p-8 pt-10">
-              <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <FileCheck className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Personalized Support</h3>
-              <p className="text-gray-400">
-                We provide tailored guidance based on your specific circumstances, chosen study destination, and
-                program, ensuring no detail is overlooked.
-              </p>
-            </div>
+          <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-purple-600"></div>
+            <FileCheck className="h-10 w-10 text-purple-500 mb-4" />
+            <h3 className="text-xl font-bold mb-3">Personalized Support</h3>
+            <p className="text-muted-foreground">
+              We provide tailored guidance based on your specific circumstances, chosen study destination, and
+              program, ensuring no detail is overlooked.
+            </p>
           </div>
 
-          <div className="relative rounded-xl overflow-hidden border border-purple-700">
-            <div className="h-1 bg-gradient-to-r from-purple-400 to-pink-500 w-full absolute top-0 left-0"></div>
-            <div className="p-8 pt-10">
-              <div className="bg-purple-900/50 rounded-full w-12 h-12 flex items-center justify-center mb-4">
-                <MessageSquare className="h-6 w-6 text-purple-400" />
-              </div>
-              <h3 className="text-xl font-bold mb-3 text-white">Interview Coaching</h3>
-              <p className="text-gray-400">
-                Our comprehensive interview preparation helps you articulate your study plans confidently, approaching
-                your visa interview with poise and assurance.
-              </p>
-            </div>
+          <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
+            <div className="absolute top-0 left-0 w-full h-1 bg-purple-600"></div>
+            <MessageSquare className="h-10 w-10 text-purple-500 mb-4" />
+            <h3 className="text-xl font-bold mb-3">Interview Coaching</h3>
+            <p className="text-muted-foreground">
+              Our comprehensive interview preparation helps you articulate your study plans confidently, approaching
+              your visa interview with poise and assurance.
+            </p>
           </div>
         </div>
       </div>
@@ -118,7 +104,7 @@ export default function VisaSupportPage() {
       {/* Country-Specific Visa Information */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Expert Guidance for <span className="text-purple-600 dark:text-purple-300">Major Study Destinations</span>
+          Expert Guidance for <span className="text-gradient">Major Study Destinations</span>
         </h2>
 
         <Tabs defaultValue="usa" className="w-full">
@@ -131,7 +117,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="usa"
-            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
+            className="bg-card p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -164,7 +150,7 @@ export default function VisaSupportPage() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <div className="bg-background dark:bg-gray-800 p-6 rounded-lg shadow-sm">
                 <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-300">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">97%</p>
                 <p className="text-sm text-muted-foreground mb-6">
@@ -184,7 +170,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="uk"
-            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
+            className="bg-card p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -216,7 +202,7 @@ export default function VisaSupportPage() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <div className="bg-background dark:bg-gray-800 p-6 rounded-lg shadow-sm">
                 <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-300">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">98%</p>
                 <p className="text-sm text-muted-foreground mb-6">
@@ -236,7 +222,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="canada"
-            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
+            className="bg-card p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -268,7 +254,7 @@ export default function VisaSupportPage() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <div className="bg-background dark:bg-gray-800 p-6 rounded-lg shadow-sm">
                 <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-300">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">95%</p>
                 <p className="text-sm text-muted-foreground mb-6">
@@ -288,7 +274,7 @@ export default function VisaSupportPage() {
 
           <TabsContent
             value="australia"
-            className="bg-gradient-to-br from-purple-50 to-purple-50 dark:from-purple-900/20 dark:to-purple-900/20 p-8 rounded-xl"
+            className="bg-card p-8 rounded-xl"
           >
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -320,7 +306,7 @@ export default function VisaSupportPage() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm">
+              <div className="bg-background dark:bg-gray-800 p-6 rounded-lg shadow-sm">
                 <h4 className="font-semibold mb-2 text-purple-600 dark:text-purple-300">Success Rate</h4>
                 <p className="text-3xl font-bold mb-4">96%</p>
                 <p className="text-sm text-muted-foreground mb-6">
@@ -343,7 +329,7 @@ export default function VisaSupportPage() {
       {/* Process Timeline */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Our <span className="text-purple-600 dark:text-purple-300">Comprehensive</span> Visa Support Process
+          Our <span className="text-gradient">Comprehensive</span> Visa Support Process
         </h2>
 
         <div className="relative">
@@ -489,7 +475,7 @@ export default function VisaSupportPage() {
       {/* FAQ Accordion */}
       <div className="mb-16 max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Frequently Asked <span className="text-purple-600 dark:text-purple-300">Questions</span>
+          Frequently Asked <span className="text-gradient">Questions</span>
         </h2>
 
         <Accordion type="single" collapsible className="w-full">
@@ -563,4 +549,3 @@ export default function VisaSupportPage() {
       </div>
     </div>
   )
-}
