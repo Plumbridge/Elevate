@@ -546,4 +546,410 @@ export default function FinancialPlanningPage() {
                       <span className="text-sm font-medium">$200</span>
                     </div>
                     <div className="h-2 bg-purple-100 rounded-full">
-                      <div className="h-2
+                      <div className="h-2>
+                      <div className="h-2 bg-purple-600 rounded-full w-[10%]"></div>
+                    </div>
+                  </div>
+                  <div className="pt-4 border-t">
+                    <div className="flex justify-between">
+                      <span className="font-medium">Total Monthly Expenses</span>
+                      <span className="font-medium">$2,000</span>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4">
+                  This is a sample budget for a student in the United States. Actual expenses will vary by location and
+                  lifestyle.
+                </p>
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </div>
+
+      {/* Cost Comparison Section */}
+      <div className="mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
+            Cost Insights
+          </Badge>
+          <h2 className="text-3xl font-bold mb-4">Understanding Study Abroad Costs</h2>
+          <p className="text-muted-foreground">
+            Compare the financial requirements for popular study destinations to make informed decisions
+          </p>
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">US</span>
+                </div>
+                <h3 className="text-xl font-bold">United States</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Tuition (Public)</span>
+                    <span className="font-medium">$20,000-$35,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[80%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Tuition (Private)</span>
+                    <span className="font-medium">$35,000-$60,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[95%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Living Expenses</span>
+                    <span className="font-medium">$15,000-$25,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[75%]"></div>
+                  </div>
+                </div>
+                <div className="pt-3 border-t mt-3">
+                  <div className="flex items-center gap-2">
+                    <CreditCard className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm">Financial aid widely available</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">UK</span>
+                </div>
+                <h3 className="text-xl font-bold">United Kingdom</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Tuition</span>
+                    <span className="font-medium">£15,000-£25,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[70%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>London Living</span>
+                    <span className="font-medium">£15,000-£20,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[65%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Other Cities</span>
+                    <span className="font-medium">£10,000-£15,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[50%]"></div>
+                  </div>
+                </div>
+                <div className="pt-3 border-t mt-3">
+                  <div className="flex items-center gap-2">
+                    <Calendar className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm">Shorter programs (3 years)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">CA</span>
+                </div>
+                <h3 className="text-xl font-bold">Canada</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Tuition</span>
+                    <span className="font-medium">C$15,000-C$35,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[65%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Major Cities</span>
+                    <span className="font-medium">C$12,000-C$18,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[55%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Smaller Cities</span>
+                    <span className="font-medium">C$8,000-C$12,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[40%]"></div>
+                  </div>
+                </div>
+                <div className="pt-3 border-t mt-3">
+                  <div className="flex items-center gap-2">
+                    <Briefcase className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm">Strong work opportunities</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
+                  <span className="font-bold text-purple-600 dark:text-purple-300">AU</span>
+                </div>
+                <h3 className="text-xl font-bold">Australia</h3>
+              </div>
+              <div className="space-y-3">
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Tuition</span>
+                    <span className="font-medium">A$20,000-A$45,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[75%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Living Expenses</span>
+                    <span className="font-medium">A$15,000-A$25,000</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[65%]"></div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span>Health Insurance</span>
+                    <span className="font-medium">A$500-A$700</span>
+                  </div>
+                  <div className="h-2 bg-purple-100 rounded-full">
+                    <div className="h-2 bg-purple-600 rounded-full w-[20%]"></div>
+                  </div>
+                </div>
+                <div className="pt-3 border-t mt-3">
+                  <div className="flex items-center gap-2">
+                    <GraduationCap className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm">Strong scholarship options</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <div className="mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
+            Success Stories
+          </Badge>
+          <h2 className="text-3xl font-bold mb-4">Financial Planning Success Stories</h2>
+          <p className="text-muted-foreground">
+            Hear from students who achieved their study abroad goals with our financial guidance
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <Card className="border border-purple-100 dark:border-purple-900/30">
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-purple-100"></div>
+                <div>
+                  <h4 className="font-bold">Raj P.</h4>
+                  <p className="text-xs text-muted-foreground">MBA Student, Harvard Business School</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                "Elevate's financial advisors helped me secure over $50,000 in scholarships and grants that I didn't
+                even know I was eligible for. Their guidance on international banking also saved me thousands in
+                unnecessary fees."
+              </p>
+              <div className="pt-4 border-t border-purple-100 dark:border-purple-900/30">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm font-medium">$50,000+ in scholarships</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
+                    <span>Read full story</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-purple-100 dark:border-purple-900/30">
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-purple-100"></div>
+                <div>
+                  <h4 className="font-bold">Maria S.</h4>
+                  <p className="text-xs text-muted-foreground">Undergraduate, University of Toronto</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                "I was overwhelmed by the financial aspects of studying abroad until I worked with Elevate. Their
+                step-by-step budgeting plan made everything manageable, and their advice on part-time work opportunities
+                helped me maintain financial stability throughout my program."
+              </p>
+              <div className="pt-4 border-t border-purple-100 dark:border-purple-900/30">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <PiggyBank className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm font-medium">Saved 30% on living expenses</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
+                    <span>Read full story</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="border border-purple-100 dark:border-purple-900/30">
+            <CardContent className="pt-6">
+              <div className="flex items-center gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full bg-purple-100"></div>
+                <div>
+                  <h4 className="font-bold">Chen W.</h4>
+                  <p className="text-xs text-muted-foreground">PhD Student, University of Melbourne</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground mb-4">
+                "As a PhD student, I needed a long-term financial strategy. Elevate's advisors created a 5-year plan
+                that accounted for research funding opportunities, teaching assistantships, and even conference travel
+                budgets. Their comprehensive approach made all the difference."
+              </p>
+              <div className="pt-4 border-t border-purple-100 dark:border-purple-900/30">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <TrendingUp className="h-4 w-4 text-purple-600" />
+                    <span className="text-sm font-medium">Secured full program funding</span>
+                  </div>
+                  <div className="flex items-center gap-1 text-purple-600 dark:text-purple-400 text-sm font-medium">
+                    <span>Read full story</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <Badge className="mb-2 px-3 py-1 bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-100 rounded-full">
+            FAQs
+          </Badge>
+          <h2 className="text-3xl font-bold mb-4">Common Financial Questions</h2>
+          <p className="text-muted-foreground">
+            Answers to frequently asked questions about financing your international education
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>How early should I start financial planning for studying abroad?</AccordionTrigger>
+              <AccordionContent>
+                We recommend starting your financial planning at least 12-18 months before your intended program start
+                date. This timeline allows for thorough research of scholarship opportunities (many of which have early
+                deadlines), building savings, establishing credit if needed, and creating a comprehensive financial
+                strategy. For graduate programs or more expensive destinations, starting even earlier (18-24 months) can
+                provide additional advantages.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-2">
+              <AccordionTrigger>What financial documents will I need for student visa applications?</AccordionTrigger>
+              <AccordionContent>
+                Most countries require proof of sufficient funds to cover tuition and living expenses for at least one
+                year of study. Typically, you'll need bank statements showing the required amount maintained for 3-6
+                months, scholarship award letters, education loan approval documents, or sponsorship letters with
+                supporting financial evidence. Our advisors provide country-specific guidance on exact requirements and
+                how to properly prepare and present your financial documentation for visa success.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-3">
+              <AccordionTrigger>How can I find scholarships for international students?</AccordionTrigger>
+              <AccordionContent>
+                Scholarships for international students come from multiple sources: universities, government programs,
+                private foundations, and corporations. Our financial advisors conduct personalized scholarship searches
+                using our comprehensive database of over 5,000 funding opportunities. We match you with scholarships
+                based on your academic profile, country of origin, destination country, field of study, and personal
+                background. We also provide guidance on application strategies to maximize your chances of success.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-4">
+              <AccordionTrigger>Can I work while studying abroad to help cover expenses?</AccordionTrigger>
+              <AccordionContent>
+                Work permissions vary significantly by country. For example, in the US, F-1 visa holders can work
+                on-campus and may qualify for CPT/OPT. UK Student visa holders can typically work up to 20 hours per
+                week during term time. Canadian study permit holders may work up to 20 hours per week off-campus.
+                Australian Student visa holders have similar allowances. Our advisors will explain the specific work
+                rights for your destination country and help you incorporate potential work income into your financial
+                plan realistically.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-5">
+              <AccordionTrigger>
+                What are the most common financial mistakes international students make?
+              </AccordionTrigger>
+              <AccordionContent>
+                Common financial mistakes include underestimating total costs (especially hidden expenses like health
+                insurance, travel, and visa renewals), poor currency exchange timing, using expensive international
+                money transfer services, failing to establish local banking promptly, not budgeting for emergencies, and
+                missing scholarship application deadlines. Our financial planning services help you avoid these pitfalls
+                through comprehensive cost analysis, strategic timing of currency exchanges, and establishing proper
+                banking and emergency funds.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </div>
+
+      {/* CTA Section */}
+      <div className="bg-gradient-to-r from-purple-600 to-purple-600 rounded-xl p-8 md:p-12 text-white text-center">
+        <h2 className="text-3xl font-bold mb-6">Ready to Create Your Financial Plan?</h2>
+        <p className="text-lg mb-8 max-w-2xl mx-auto">
+          Schedule a free consultation with our financial advisors to discuss your study abroad goals and learn how we
+          can help you create a solid financial foundation for your international education.
+        </p>
+        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+          <span>Schedule Your Free Financial Consultation</span>
+          <ChevronRight className="h-4 w-4" />
+        </Button>
+      </div>
+    </div>
+  )
+}
