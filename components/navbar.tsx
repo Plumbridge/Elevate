@@ -55,7 +55,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-gradient">
-            Elevate
+            Elevate Ed
           </Link>
 
           {/* Desktop Navigation */}
