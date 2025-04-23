@@ -24,6 +24,7 @@ const navLinks = [
   // { name: "Universities", href: "/universities" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
+  { name: "AI", href: "#", isModal: true },
   // { name: "Resources", href: "/resources" },
 ]
 
@@ -31,6 +32,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+  const [isAIModalOpen, setIsAIModalOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +45,10 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const toggleAIModal = () => {
+    setIsAIModalOpen(!isAIModalOpen)
   }
 
   return (
@@ -94,6 +100,13 @@ export default function Navbar() {
                         </>
                       )}
                     </div>
+                  ) : link.isModal ? (
+                    <button
+                      onClick={toggleAIModal}
+                      className="text-muted-foreground hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </button>
                   ) : (
                     <Link
                       href={link.href}
@@ -184,6 +197,16 @@ export default function Navbar() {
                           </motion.div>
                         )}
                       </div>
+                    ) : link.isModal ? (
+                      <button
+                        onClick={() => {
+                          toggleMobileMenu()
+                          toggleAIModal()
+                        }}
+                        className="text-lg font-medium"
+                      >
+                        {link.name}
+                      </button>
                     ) : (
                       <Link
                         href={link.href}
@@ -205,6 +228,39 @@ export default function Navbar() {
                 </Button>
               </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* AI Modal with iframe */}
+      <AnimatePresence>
+        {isAIModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-background rounded-lg shadow-xl w-full max-w-6xl h-[80vh] flex flex-col"
+            >
+              <div className="flex justify-between items-center p-4 border-b">
+                <h2 className="text-xl font-semibold">AI Assistant</h2>
+                <Button variant="ghost" size="icon" onClick={toggleAIModal}>
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+              <div className="flex-grow relative">
+                <iframe
+                  src="https://lobe-chat-ashy-tau.vercel.app/chat?session=inbox"
+                  className="w-full h-full border-none"
+                  title="AI Assistant"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
