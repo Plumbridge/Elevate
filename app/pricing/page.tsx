@@ -129,7 +129,7 @@ export default function PricingPage() {
               <h2 className="text-2xl font-semibold mb-2">Basic</h2>
               <p className="text-muted-foreground h-12">Self-paced guidance with limited expert support</p>
               <div className="mt-4 mb-2">
-                <div className="text-3xl font-bold">$1,000</div>
+                <div className="text-3xl font-bold">$1,500</div>
               </div>
             </div>
             <div className="border-t border-border p-6 flex-1">
