@@ -149,9 +149,12 @@ export default function PricingPage() {
             </div>
           </div>
 
-          {/* Intermediate Package */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col">
-            <div className="p-6 pb-4">
+          {/* Intermediate Package - Most Popular */}
+          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col relative border-2 border-purple-600">
+            <div className="absolute top-0 right-0 bg-purple-600 text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
+              Most Popular
+            </div>
+            <div className="p-6 pb-4 bg-gradient-to-b from-purple-600/10 to-transparent">
               <h2 className="text-2xl font-semibold mb-2">Intermediate</h2>
               <p className="text-muted-foreground h-12">Hybrid approach with weekly human mentorship</p>
               <div className="mt-4 mb-2">
@@ -178,12 +181,9 @@ export default function PricingPage() {
             </div>
           </div>
 
-          {/* Advanced Package - Most Popular */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col relative border-2 border-purple-600">
-            <div className="absolute top-0 right-0 bg-purple-600 text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
-              Most Popular
-            </div>
-            <div className="p-6 pb-4 bg-gradient-to-b from-purple-600/10 to-transparent">
+          {/* Advanced Package */}
+          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col">
+            <div className="p-6 pb-4">
               <h2 className="text-2xl font-semibold mb-2">Advanced</h2>
               <p className="text-muted-foreground h-12">Premium end-to-end application management</p>
               <div className="mt-4 mb-2">
