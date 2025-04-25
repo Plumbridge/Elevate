@@ -122,9 +122,11 @@ export default function Navbar() {
               <Button variant="glass" size="sm">
                 Login
               </Button>
-              <Button variant="glow" size="sm">
-                Get Consultation
-              </Button>
+              <Link href="/signup">
+                <Button variant="glow" size="sm">
+                  Get Consultation
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -223,9 +225,11 @@ export default function Navbar() {
                 <Button variant="outline" className="w-full">
                   Login
                 </Button>
-                <Button variant="glow" className="w-full">
-                  Get Consultation
-                </Button>
+                <Link href="/signup">
+                  <Button variant="glow" className="w-full">
+                    Get Consultation
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
