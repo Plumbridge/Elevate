@@ -122,7 +122,7 @@ export default function Navbar() {
               <Button variant="glass" size="sm">
                 Login
               </Button>
-              <Link href="/app/signup">
+              <Link href="/signup">
                 <Button variant="glow" size="sm">
                   Get Consultation
                 </Button>
