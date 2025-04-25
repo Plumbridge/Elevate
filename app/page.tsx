@@ -124,10 +124,11 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 className="flex flex-wrap gap-4"
               >
-                <Button variant="glow" size="lg" className="gap-2">
-                  <span>Get Started</span>
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
+                <Link href="/pricing">
+                  <Button variant="glow" size="lg" className="gap-2">
+                    <span>Get Started</span>
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
                 <Button variant="outline" size="lg">
                   Explore Services
                 </Button>
