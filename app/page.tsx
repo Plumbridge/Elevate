@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, GraduationCap, FileText, Plane, Home, Coins, Globe } from "lucide-react"
 import dynamic from "next/dynamic"
@@ -129,6 +130,7 @@ export default function HomePage() {
                     <span>Get Started</span>
                     <ChevronRight className="h-4 w-4" />
                   </Button>
+                </Link>
                 <Link href="/services/applications">
                   <Button variant="outline" size="lg">
                     Explore Services
@@ -185,7 +187,6 @@ export default function HomePage() {
         <div className="absolute bottom-1/4 left-10 w-64 h-64 bg-secondary/20 rounded-full blur-[100px]" />
       </section>
 
-      {/* Rest of your code stays the same */}
       {/* Services Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
@@ -244,9 +245,11 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16 text-center">
-            <Button variant="glow" size="lg">
-              View All Services
-            </Button>
+            <Link href="/services/applications">
+              <Button variant="glow" size="lg">
+                View All Services
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -328,9 +331,11 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16 text-center">
-            <Button variant="outline" size="lg">
-              Read More Success Stories
-            </Button>
+            <Link href="/testimonials">
+              <Button variant="outline" size="lg">
+                Read More Success Stories
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -353,12 +358,16 @@ export default function HomePage() {
               global future together.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="glow" size="lg">
-                Schedule Consultation
-              </Button>
-              <Button variant="outline" size="lg">
-                Explore Universities
-              </Button>
+              <Link href="/contact">
+                <Button variant="glow" size="lg">
+                  Schedule Consultation
+                </Button>
+              </Link>
+              <Link href="/services/applications">
+                <Button variant="outline" size="lg">
+                  Explore Universities
+                </Button>
+              </Link>
             </div>
           </motion.div>
         </div>
