@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { CheckCircle, ChevronRight, FileText, Users, Award, BookOpen, GraduationCap } from "lucide-react"
+import Link from "next/link"
 
 export default function ApplicationsPage() {
   return (
@@ -20,10 +21,12 @@ export default function ApplicationsPage() {
             dream institutions. Our personalized approach ensures that every aspect of your application reflects your
             best self.
           </p>
-          <Button size="lg" variant="glow" className="gap-2">
-            <span>Start Your Application Journey</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button size="lg" variant="glow" className="gap-2">
+              <span>Start Your Application Journey</span>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
@@ -365,10 +368,12 @@ export default function ApplicationsPage() {
           Schedule a free consultation to discuss your goals and learn how we can help you craft a standout university
           application.
         </p>
-        <Button size="lg" variant="glow" className="gap-2">
-          <span>Schedule Your Free Consultation</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        <Link href="/signup">
+          <Button size="lg" variant="glow" className="gap-2">
+            <span>Schedule Your Free Consultation</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   )
