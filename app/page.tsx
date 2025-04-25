@@ -129,9 +129,11 @@ export default function HomePage() {
                     <span>Get Started</span>
                     <ChevronRight className="h-4 w-4" />
                   </Button>
-                <Button variant="outline" size="lg">
-                  Explore Services
-                </Button>
+                <Link href="/services/applications">
+                  <Button variant="outline" size="lg">
+                    Explore Services
+                  </Button>
+                </Link>
               </motion.div>
 
               <motion.div
