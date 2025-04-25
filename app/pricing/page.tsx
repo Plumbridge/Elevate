@@ -1,6 +1,7 @@
 import { Check } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 export default function PricingPage() {
   // Define all features that will be shown across all packages
@@ -91,9 +92,11 @@ export default function PricingPage() {
             </div>
             <div className="p-6 pt-0 mt-auto">
               <div className="text-sm text-muted-foreground mb-4">Free forever</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Try For Free
-              </Button>
+              <Link href="/signup">
+                <Button variant="glow" size="lg" className="w-full">
+                  Try For Free
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -117,9 +120,11 @@ export default function PricingPage() {
             </div>
             <div className="p-6 pt-0 mt-auto">
               <div className="text-sm text-muted-foreground mb-4">One-time service</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Pure Play
-              </Button>
+              <Link href="/signup">
+                <Button variant="glow" size="lg" className="w-full">
+                  Choose Pure Play
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -143,9 +148,11 @@ export default function PricingPage() {
             </div>
             <div className="p-6 pt-0 mt-auto">
               <div className="text-sm text-muted-foreground mb-4">1 month duration</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Basic
-              </Button>
+              <Link href="/signup">
+                <Button variant="glow" size="lg" className="w-full">
+                  Choose Basic
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -172,9 +179,11 @@ export default function PricingPage() {
             </div>
             <div className="p-6 pt-0 mt-auto">
               <div className="text-sm text-muted-foreground mb-4">3 months duration</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Intermediate
-              </Button>
+              <Link href="/signup">
+                <Button variant="glow" size="lg" className="w-full">
+                  Choose Intermediate
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -198,9 +207,11 @@ export default function PricingPage() {
             </div>
             <div className="p-6 pt-0 mt-auto">
               <div className="text-sm text-muted-foreground mb-4">6 months duration</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Advanced
-              </Button>
+              <Link href="/signup">
+                <Button variant="glow" size="lg" className="w-full">
+                  Choose Advanced
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
