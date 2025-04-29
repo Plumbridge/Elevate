@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, Calendar, MessageSquare } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
@@ -22,22 +21,18 @@ const navLinks = [
       { name: "Career Support", href: "/services/career" },
     ],
   },
+  // { name: "Universities", href: "/universities" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
   { name: "AI", href: "#", isModal: true },
+  // { name: "Resources", href: "/resources" },
 ]
 
 export default function Navbar() {
-  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
   const [isAIModalOpen, setIsAIModalOpen] = useState(false)
-
-  // Don't show the main navbar on dashboard pages
-  if (pathname?.startsWith("/dashboard")) {
-    return null
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,12 +75,7 @@ export default function Navbar() {
                       onMouseEnter={() => setActiveSubmenu(link.name)}
                       onMouseLeave={() => setActiveSubmenu(null)}
                     >
-                      <span className={cn(
-                        "transition-colors",
-                        pathname === link.href 
-                          ? "text-white" 
-                          : "text-muted-foreground hover:text-white"
-                      )}>
+                      <span className="text-muted-foreground hover:text-white transition-colors">
                         {link.name}
                       </span>
                       <ChevronDown className="ml-1 h-4 w-4 text-muted-foreground group-hover:text-white" />
@@ -100,12 +90,7 @@ export default function Navbar() {
                                 <Link
                                   key={sublink.name}
                                   href={sublink.href}
-                                  className={cn(
-                                    "block px-4 py-2 text-sm rounded-md hover:bg-accent/20 transition-colors",
-                                    pathname === sublink.href 
-                                      ? "text-white" 
-                                      : "text-muted-foreground hover:text-white"
-                                  )}
+                                  className="block px-4 py-2 text-sm rounded-md hover:bg-accent/20 text-muted-foreground hover:text-white transition-colors"
                                 >
                                   {sublink.name}
                                 </Link>
@@ -125,12 +110,7 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className={cn(
-                        "transition-colors",
-                        pathname === link.href 
-                          ? "text-white" 
-                          : "text-muted-foreground hover:text-white"
-                      )}
+                      className="text-muted-foreground hover:text-white transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -139,26 +119,12 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="flex space-x-3">
-              <Link href="/login">
-                <Button variant="glass" size="sm">
-                  Login
-                </Button>
-              </Link>
-              <Link href="/consultation">
+              <Button variant="glass" size="sm">
+                Login
+              </Button>
+              <Link href="/signup">
                 <Button variant="glow" size="sm">
                   Get Consultation
-                </Button>
-              </Link>
-              <Link href="/schedule">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>Schedule Call</span>
-                </Button>
-              </Link>
-              <Link href="/message">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <MessageSquare className="h-4 w-4" />
-                  <span>Message Advisor</span>
                 </Button>
               </Link>
             </div>
@@ -202,12 +168,7 @@ export default function Navbar() {
                             )
                           }
                         >
-                          <span className={cn(
-                            "text-lg font-medium",
-                            pathname === link.href 
-                              ? "text-white" 
-                              : "text-muted-foreground hover:text-white"
-                          )}>
+                          <span className="text-lg font-medium">
                             {link.name}
                           </span>
                           <ChevronDown
@@ -229,12 +190,7 @@ export default function Navbar() {
                               <Link
                                 key={sublink.name}
                                 href={sublink.href}
-                                className={cn(
-                                  "block py-2",
-                                  pathname === sublink.href 
-                                    ? "text-white" 
-                                    : "text-muted-foreground hover:text-white"
-                                )}
+                                className="block py-2 text-muted-foreground hover:text-white"
                                 onClick={toggleMobileMenu}
                               >
                                 {sublink.name}
@@ -256,12 +212,7 @@ export default function Navbar() {
                     ) : (
                       <Link
                         href={link.href}
-                        className={cn(
-                          "text-lg font-medium",
-                          pathname === link.href 
-                            ? "text-white" 
-                            : "text-muted-foreground"
-                        )}
+                        className="text-lg font-medium"
                         onClick={toggleMobileMenu}
                       >
                         {link.name}
@@ -271,26 +222,12 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-col space-y-3">
-                <Link href="/login">
-                  <Button variant="outline" className="w-full">
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/consultation">
+                <Button variant="outline" className="w-full">
+                  Login
+                </Button>
+                <Link href="/signup">
                   <Button variant="glow" className="w-full">
                     Get Consultation
-                  </Button>
-                </Link>
-                <Link href="/schedule">
-                  <Button variant="outline" size="sm" className="w-full gap-2 justify-center">
-                    <Calendar className="h-4 w-4" />
-                    <span>Schedule Call</span>
-                  </Button>
-                </Link>
-                <Link href="/message">
-                  <Button variant="outline" size="sm" className="w-full gap-2 justify-center">
-                    <MessageSquare className="h-4 w-4" />
-                    <span>Message Advisor</span>
                   </Button>
                 </Link>
               </div>
