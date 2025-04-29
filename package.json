@@ -40,6 +40,8 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@react-three/drei": "9.92.7",
     "@react-three/fiber": "8.15.12",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.49.4",
     "@types/react": "latest",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
