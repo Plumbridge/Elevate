@@ -33,9 +33,15 @@ export default function DashboardPage() {
       <header className="border-b border-primary/10">
         <div className="container py-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl font-bold">Dashboard</h1>
-              <p className="text-sm text-muted-foreground">Welcome back, John Doe</p>
+            <div className="flex items-center gap-6">
+              {/* Added Link to home page with Elevate Ed text */}
+              <Link href="/" className="text-2xl font-bold text-gradient">
+                Elevate Ed
+              </Link>
+              <div>
+                <h1 className="text-2xl font-bold">Dashboard</h1>
+                <p className="text-sm text-muted-foreground">Welcome back, John Doe</p>
+              </div>
             </div>
             <div className="flex items-center gap-4">
               <Button variant="outline" size="sm" className="gap-2">
