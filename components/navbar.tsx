@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
@@ -21,18 +22,22 @@ const navLinks = [
       { name: "Career Support", href: "/services/career" },
     ],
   },
-  // { name: "Universities", href: "/universities" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
   { name: "AI", href: "#", isModal: true },
-  // { name: "Resources", href: "/resources" },
 ]
 
 export default function Navbar() {
+  const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
   const [isAIModalOpen, setIsAIModalOpen] = useState(false)
+
+  // Don't show the main navbar on dashboard pages
+  if (pathname?.startsWith("/dashboard")) {
+    return null
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +80,12 @@ export default function Navbar() {
                       onMouseEnter={() => setActiveSubmenu(link.name)}
                       onMouseLeave={() => setActiveSubmenu(null)}
                     >
-                      <span className="text-muted-foreground hover:text-white transition-colors">
+                      <span className={cn(
+                        "transition-colors",
+                        pathname === link.href 
+                          ? "text-white" 
+                          : "text-muted-foreground hover:text-white"
+                      )}>
                         {link.name}
                       </span>
                       <ChevronDown className="ml-1 h-4 w-4 text-muted-foreground group-hover:text-white" />
@@ -90,7 +100,12 @@ export default function Navbar() {
                                 <Link
                                   key={sublink.name}
                                   href={sublink.href}
-                                  className="block px-4 py-2 text-sm rounded-md hover:bg-accent/20 text-muted-foreground hover:text-white transition-colors"
+                                  className={cn(
+                                    "block px-4 py-2 text-sm rounded-md hover:bg-accent/20 transition-colors",
+                                    pathname === sublink.href 
+                                      ? "text-white" 
+                                      : "text-muted-foreground hover:text-white"
+                                  )}
                                 >
                                   {sublink.name}
                                 </Link>
@@ -110,7 +125,12 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-muted-foreground hover:text-white transition-colors"
+                      className={cn(
+                        "transition-colors",
+                        pathname === link.href 
+                          ? "text-white" 
+                          : "text-muted-foreground hover:text-white"
+                      )}
                     >
                       {link.name}
                     </Link>
@@ -168,7 +188,12 @@ export default function Navbar() {
                             )
                           }
                         >
-                          <span className="text-lg font-medium">
+                          <span className={cn(
+                            "text-lg font-medium",
+                            pathname === link.href 
+                              ? "text-white" 
+                              : "text-muted-foreground hover:text-white"
+                          )}>
                             {link.name}
                           </span>
                           <ChevronDown
@@ -190,7 +215,12 @@ export default function Navbar() {
                               <Link
                                 key={sublink.name}
                                 href={sublink.href}
-                                className="block py-2 text-muted-foreground hover:text-white"
+                                className={cn(
+                                  "block py-2",
+                                  pathname === sublink.href 
+                                    ? "text-white" 
+                                    : "text-muted-foreground hover:text-white"
+                                )}
                                 onClick={toggleMobileMenu}
                               >
                                 {sublink.name}
@@ -212,7 +242,12 @@ export default function Navbar() {
                     ) : (
                       <Link
                         href={link.href}
-                        className="text-lg font-medium"
+                        className={cn(
+                          "text-lg font-medium",
+                          pathname === link.href 
+                            ? "text-white" 
+                            : "text-muted-foreground"
+                        )}
                         onClick={toggleMobileMenu}
                       >
                         {link.name}
