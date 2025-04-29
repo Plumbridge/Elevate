@@ -17,11 +17,11 @@ export default function SignupPage() {
   })
 
   const packages = [
-    { id: "freemium", name: "Freemium", price: "$0" },
-    { id: "purePlay", name: "Pure Play", price: "$500" },
-    { id: "basic", name: "Basic", price: "$1,500" },
-    { id: "intermediate", name: "Intermediate", price: "$3,000" },
-    { id: "advanced", name: "Advanced", price: "$5,000" },
+    { id: "freemium", name: "Freemium : ", price: "$0" },
+    { id: "purePlay", name: "Pure Play : ", price: "$500" },
+    { id: "basic", name: "Basic : ", price: "$1,500" },
+    { id: "intermediate", name: "Intermediate : ", price: "$3,000" },
+    { id: "advanced", name: "Advanced : ", price: "$5,000" },
   ]
 
   const handleChange = (e) => {
