@@ -2,21 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, ChevronDown, LogOut, User } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { supabase } from "@/lib/supabase"
-import { useAuth } from "@/contexts/auth-context"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -32,15 +22,13 @@ const navLinks = [
       { name: "Career Support", href: "/services/career" },
     ],
   },
-  { name: "Student Dashboard", href: "/dashboard", requiresAuth: true },
+  { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
   { name: "AI", href: "#", isModal: true },
 ]
 
 export default function Navbar() {
   const pathname = usePathname()
-  const router = useRouter()
-  const { user, isLoading, signOut } = useAuth()
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
@@ -76,17 +64,6 @@ export default function Navbar() {
     setIsAIModalOpen(!isAIModalOpen)
   }
 
-  const handleSignOut = async () => {
-    await signOut()
-    router.push('/')
-  }
-
-  // Get username from email
-  const getUsername = (email) => {
-    if (!email) return ''
-    return email.split('@')[0]
-  }
-
   return (
     <header>
       <nav
@@ -103,123 +80,83 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             <ul className="flex space-x-6">
-              {navLinks.map((link) => {
-                // Skip links that require auth if user isn't logged in
-                if (link.requiresAuth && !user) {
-                  return null
-                }
-                
-                return (
-                  <li key={link.name} className="relative">
-                    {link.submenu ? (
-                      <div
-                        className="flex items-center cursor-pointer group relative"
-                        onMouseEnter={() => setActiveSubmenu(link.name)}
-                        onMouseLeave={() => setActiveSubmenu(null)}
-                      >
-                        <span className={cn(
-                          "transition-colors",
-                          pathname === link.href 
-                            ? "text-white" 
-                            : "text-muted-foreground hover:text-white"
-                        )}>
-                          {link.name}
-                        </span>
-                        <ChevronDown className="ml-1 h-4 w-4 text-muted-foreground group-hover:text-white" />
+              {navLinks.map((link) => (
+                <li key={link.name} className="relative">
+                  {link.submenu ? (
+                    <div
+                      className="flex items-center cursor-pointer group relative"
+                      onMouseEnter={() => setActiveSubmenu(link.name)}
+                      onMouseLeave={() => setActiveSubmenu(null)}
+                    >
+                      <span className={cn(
+                        "transition-colors",
+                        pathname === link.href 
+                          ? "text-white" 
+                          : "text-muted-foreground hover:text-white"
+                      )}>
+                        {link.name}
+                      </span>
+                      <ChevronDown className="ml-1 h-4 w-4 text-muted-foreground group-hover:text-white" />
 
-                        {activeSubmenu === link.name && (
-                          <>
-                            {/* Invisible bridge for hover */}
-                            <div className="absolute h-3 w-full bottom-0 left-0 translate-y-full" />
-                            <div className="absolute top-full left-0 pt-3 w-48 z-50">
-                              <div className="glass rounded-lg shadow-lg p-2">
-                                {link.submenu.map((sublink) => (
-                                  <Link
-                                    key={sublink.name}
-                                    href={sublink.href}
-                                    className={cn(
-                                      "block px-4 py-2 text-sm rounded-md hover:bg-accent/20 transition-colors",
-                                      pathname === sublink.href 
-                                        ? "text-white" 
-                                        : "text-muted-foreground hover:text-white"
-                                    )}
-                                  >
-                                    {sublink.name}
-                                  </Link>
-                                ))}
-                              </div>
+                      {activeSubmenu === link.name && (
+                        <>
+                          {/* Invisible bridge for hover */}
+                          <div className="absolute h-3 w-full bottom-0 left-0 translate-y-full" />
+                          <div className="absolute top-full left-0 pt-3 w-48 z-50">
+                            <div className="glass rounded-lg shadow-lg p-2">
+                              {link.submenu.map((sublink) => (
+                                <Link
+                                  key={sublink.name}
+                                  href={sublink.href}
+                                  className={cn(
+                                    "block px-4 py-2 text-sm rounded-md hover:bg-accent/20 transition-colors",
+                                    pathname === sublink.href 
+                                      ? "text-white" 
+                                      : "text-muted-foreground hover:text-white"
+                                  )}
+                                >
+                                  {sublink.name}
+                                </Link>
+                              ))}
                             </div>
-                          </>
-                        )}
-                      </div>
-                    ) : link.isModal ? (
-                      <button
-                        onClick={toggleAIModal}
-                        className="text-muted-foreground hover:text-white transition-colors"
-                      >
-                        {link.name}
-                      </button>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className={cn(
-                          "transition-colors",
-                          pathname === link.href 
-                            ? "text-white" 
-                            : "text-muted-foreground hover:text-white"
-                        )}
-                      >
-                        {link.name}
-                      </Link>
-                    )}
-                  </li>
-                )
-              })}
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  ) : link.isModal ? (
+                    <button
+                      onClick={toggleAIModal}
+                      className="text-muted-foreground hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className={cn(
+                        "transition-colors",
+                        pathname === link.href 
+                          ? "text-white" 
+                          : "text-muted-foreground hover:text-white"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  )}
+                </li>
+              ))}
             </ul>
             <div className="flex space-x-3">
-              {isLoading ? (
-                // Loading state
-                <div className="w-24 h-9 bg-muted/30 rounded-md animate-pulse"></div>
-              ) : user ? (
-                // Logged in state
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="glass" size="sm" className="space-x-2">
-                      <User className="h-4 w-4" />
-                      <span>{getUsername(user.email)}</span>
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="glass">
-                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard">Dashboard</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link href="/dashboard/profile">Profile</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleSignOut} className="text-red-500">
-                      <LogOut className="h-4 w-4 mr-2" />
-                      <span>Sign out</span>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              ) : (
-                // Logged out state
-                <>
-                  <Link href="/login">
-                    <Button variant="glass" size="sm">
-                      Login
-                    </Button>
-                  </Link>
-                  <Link href="/signup">
-                    <Button variant="glow" size="sm">
-                      Get Consultation
-                    </Button>
-                  </Link>
-                </>
-              )}
+              <Link href="/login">
+                <Button variant="glass" size="sm">
+                  Login
+                </Button>
+              </Link>
+              <Link href="/signup">
+                <Button variant="glow" size="sm">
+                  Get Consultation
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -249,126 +186,97 @@ export default function Navbar() {
           >
             <div className="container mx-auto py-8 px-4">
               <ul className="flex flex-col space-y-4">
-                {navLinks.map((link) => {
-                  // Skip links that require auth if user isn't logged in
-                  if (link.requiresAuth && !user) {
-                    return null
-                  }
-                  
-                  return (
-                    <li key={link.name} className="py-2">
-                      {link.submenu ? (
-                        <div className="space-y-2">
-                          <div
-                            className="flex items-center justify-between"
-                            onClick={() =>
-                              setActiveSubmenu(
-                                activeSubmenu === link.name ? null : link.name,
-                              )
-                            }
-                          >
-                            <span className={cn(
-                              "text-lg font-medium",
-                              pathname === link.href 
-                                ? "text-white" 
-                                : "text-muted-foreground hover:text-white"
-                            )}>
-                              {link.name}
-                            </span>
-                            <ChevronDown
-                              className={cn(
-                                "h-5 w-5 transition-transform",
-                                activeSubmenu === link.name ? "rotate-180" : "",
-                              )}
-                            />
-                          </div>
-
-                          {activeSubmenu === link.name && (
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: "auto", opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="pl-4 space-y-2 border-l-2 border-primary/30"
-                            >
-                              {link.submenu.map((sublink) => (
-                                <Link
-                                  key={sublink.name}
-                                  href={sublink.href}
-                                  className={cn(
-                                    "block py-2",
-                                    pathname === sublink.href 
-                                      ? "text-white" 
-                                      : "text-muted-foreground hover:text-white"
-                                  )}
-                                  onClick={toggleMobileMenu}
-                                >
-                                  {sublink.name}
-                                </Link>
-                              ))}
-                            </motion.div>
-                          )}
-                        </div>
-                      ) : link.isModal ? (
-                        <button
-                          onClick={() => {
-                            toggleMobileMenu()
-                            toggleAIModal()
-                          }}
-                          className="text-lg font-medium"
+                {navLinks.map((link) => (
+                  <li key={link.name} className="py-2">
+                    {link.submenu ? (
+                      <div className="space-y-2">
+                        <div
+                          className="flex items-center justify-between"
+                          onClick={() =>
+                            setActiveSubmenu(
+                              activeSubmenu === link.name ? null : link.name,
+                            )
+                          }
                         >
-                          {link.name}
-                        </button>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          className={cn(
+                          <span className={cn(
                             "text-lg font-medium",
                             pathname === link.href 
                               ? "text-white" 
-                              : "text-muted-foreground"
-                          )}
-                          onClick={toggleMobileMenu}
-                        >
-                          {link.name}
-                        </Link>
-                      )}
-                    </li>
-                  )
-                })}
+                              : "text-muted-foreground hover:text-white"
+                          )}>
+                            {link.name}
+                          </span>
+                          <ChevronDown
+                            className={cn(
+                              "h-5 w-5 transition-transform",
+                              activeSubmenu === link.name ? "rotate-180" : "",
+                            )}
+                          />
+                        </div>
+
+                        {activeSubmenu === link.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="pl-4 space-y-2 border-l-2 border-primary/30"
+                          >
+                            {link.submenu.map((sublink) => (
+                              <Link
+                                key={sublink.name}
+                                href={sublink.href}
+                                className={cn(
+                                  "block py-2",
+                                  pathname === sublink.href 
+                                    ? "text-white" 
+                                    : "text-muted-foreground hover:text-white"
+                                )}
+                                onClick={toggleMobileMenu}
+                              >
+                                {sublink.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </div>
+                    ) : link.isModal ? (
+                      <button
+                        onClick={() => {
+                          toggleMobileMenu()
+                          toggleAIModal()
+                        }}
+                        className="text-lg font-medium"
+                      >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className={cn(
+                          "text-lg font-medium",
+                          pathname === link.href 
+                            ? "text-white" 
+                            : "text-muted-foreground"
+                        )}
+                        onClick={toggleMobileMenu}
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
               </ul>
               <div className="mt-8 flex flex-col space-y-3">
-                {isLoading ? (
-                  // Loading state
-                  <div className="w-full h-10 bg-muted/30 rounded-md animate-pulse"></div>
-                ) : user ? (
-                  // Logged in state - mobile
-                  <>
-                    <Link href="/dashboard" onClick={toggleMobileMenu}>
-                      <Button variant="outline" className="w-full justify-start">
-                        <User className="h-4 w-4 mr-2" />
-                        <span>{getUsername(user.email)}</span>
-                      </Button>
-                    </Link>
-                    <Button variant="ghost" className="w-full text-red-500" onClick={handleSignOut}>
-                      <LogOut className="h-4 w-4 mr-2" />
-                      <span>Sign out</span>
-                    </Button>
-                  </>
-                ) : (
-                  // Logged out state - mobile
-                  <>
-                    <Link href="/login" onClick={toggleMobileMenu}>
-                      <Button variant="outline" className="w-full">
-                        Login
-                      </Button>
-                    </Link>
-                    <Link href="/signup" onClick={toggleMobileMenu}>
-                      <Button variant="glow" className="w-full">
-                        Get Consultation
-                      </Button>
-                    </Link>
-                  </>
-                )}
+                <Link href="/login">
+                  <Button variant="outline" className="w-full">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/signup">
+                  <Button variant="glow" className="w-full">
+                    Get Consultation
+                  </Button>
+                </Link>
               </div>
             </div>
           </motion.div>
