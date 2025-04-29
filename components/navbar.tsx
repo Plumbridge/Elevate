@@ -35,7 +35,8 @@ export default function Navbar() {
   const [isAIModalOpen, setIsAIModalOpen] = useState(false)
 
   // Don't show the main navbar on dashboard pages
-  if (pathname?.startsWith("/dashboard")) {
+  // Make sure pathname is available before checking
+  if (pathname && pathname.startsWith("/dashboard")) {
     return null
   }
 
@@ -139,9 +140,11 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="flex space-x-3">
-              <Button variant="glass" size="sm">
-                Login
-              </Button>
+              <Link href="/login">
+                <Button variant="glass" size="sm">
+                  Login
+                </Button>
+              </Link>
               <Link href="/signup">
                 <Button variant="glow" size="sm">
                   Get Consultation
@@ -257,9 +260,11 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-col space-y-3">
-                <Button variant="outline" className="w-full">
-                  Login
-                </Button>
+                <Link href="/login">
+                  <Button variant="outline" className="w-full">
+                    Login
+                  </Button>
+                </Link>
                 <Link href="/signup">
                   <Button variant="glow" className="w-full">
                     Get Consultation
