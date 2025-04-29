@@ -34,20 +34,27 @@ export default function Navbar() {
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
   const [isAIModalOpen, setIsAIModalOpen] = useState(false)
 
-  // Don't show the main navbar on dashboard pages
-  // Make sure pathname is available before checking
-  if (pathname && pathname.startsWith("/dashboard")) {
-    return null
-  }
-
+  // Check if we're on a dashboard page - moved inside useEffect to ensure pathname is available
+  const [isDashboardPage, setIsDashboardPage] = useState(false)
+  
   useEffect(() => {
+    // Now we only check the pathname when it's available (client-side)
+    if (pathname) {
+      setIsDashboardPage(pathname.startsWith("/dashboard"))
+    }
+    
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [pathname])
+
+  // Don't render the navbar on dashboard pages
+  if (isDashboardPage) {
+    return null
+  }
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
