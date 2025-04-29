@@ -257,6 +257,7 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-col space-y-3">
+                <Link href="/login">
                 <Button variant="outline" className="w-full">
                   Login
                 </Button>
