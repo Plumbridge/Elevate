@@ -25,7 +25,6 @@ const navLinks = [
   { name: "Rankings", href: "/rankings" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
-  { name: "AI", href: "#", isModal: true },
 ]
 
 export default function Navbar() {
@@ -51,10 +50,6 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
-  }
-
-  const toggleAIModal = () => {
-    setIsAIModalOpen(!isAIModalOpen)
   }
 
   if (!showNavbar) {
@@ -226,38 +221,6 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* AI Modal with iframe */}
-      <AnimatePresence>
-        {isAIModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-background rounded-lg shadow-xl w-full max-w-6xl h-[80vh] flex flex-col"
-            >
-              <div className="flex justify-between items-center p-4 border-b">
-                <h2 className="text-xl font-semibold">AI Assistant</h2>
-                <Button variant="ghost" size="icon" onClick={toggleAIModal}>
-                  <X className="h-5 w-5" />
-                </Button>
-              </div>
-              <div className="flex-grow relative">
-                <iframe
-                  src="https://lobe-chat-ashy-tau.vercel.app/chat?session=inbox"
-                  className="w-full h-full border-none"
-                  title="AI Assistant"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   )
 }
