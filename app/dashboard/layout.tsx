@@ -156,27 +156,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Main content wrapper */}
       <div className={cn("flex-1 transition-all duration-300 ease-in-out", isSidebarOpen ? "md:ml-64" : "ml-0")}>
-        {/* Custom dashboard header - completely separate from the main site navigation */}
-        <header className="border-b border-primary/10 bg-background py-4">
-          <div className="container">
-            <div className="flex items-center justify-between">
-              <div>
-                <h1 className="text-2xl font-bold">Dashboard</h1>
-                <p className="text-sm text-muted-foreground">Welcome back, John Doe</p>
-              </div>
-              <div className="flex items-center gap-4">
-                <button className="flex items-center gap-2 rounded-md border border-primary/20 bg-transparent px-3 py-1 text-sm">
-                  <Calendar className="h-4 w-4" />
-                  <span className="hidden sm:inline">Schedule Call</span>
-                </button>
-                <button className="flex items-center gap-2 rounded-md bg-primary px-3 py-1 text-sm text-white">
-                  <MessageSquare className="h-4 w-4" />
-                  <span className="hidden sm:inline">Message Advisor</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </header>
 
         {/* Main content */}
         <main>{children}</main>
