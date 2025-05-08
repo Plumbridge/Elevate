@@ -24,7 +24,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardFooter } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Progress } from "@/components/ui/progress"
+import { Badge } from "@/components/ui/badge"
 
 // Import from separate ranking files
 import { qsUniversities, qsMetrics, type QSUniversity } from "@/data/qs-rankings"
@@ -124,6 +124,32 @@ export default function RankingsPage() {
         return <Leaf className="h-4 w-4" />
       default:
         return <Star className="h-4 w-4" />
+    }
+  }
+
+  // Helper function to get a color for each metric
+  const getMetricColor = (metricId: string) => {
+    switch (metricId) {
+      case "academicReputation":
+        return "bg-blue-500"
+      case "employerReputation":
+        return "bg-purple-500"
+      case "facultyStudentRatio":
+        return "bg-green-500"
+      case "citationsPerFaculty":
+        return "bg-amber-500"
+      case "internationalFaculty":
+        return "bg-red-500"
+      case "internationalStudents":
+        return "bg-teal-500"
+      case "internationalResearchNetwork":
+        return "bg-indigo-500"
+      case "employmentOutcomes":
+        return "bg-pink-500"
+      case "sustainability":
+        return "bg-emerald-500"
+      default:
+        return "bg-primary"
     }
   }
 
@@ -279,9 +305,25 @@ export default function RankingsPage() {
                       </div>
                     </div>
                     <div className="mt-4 md:mt-0">
-                      <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium">Overall Score:</span>
-                        <span className="text-lg font-bold">{uni.overallScore.toFixed(1)}</span>
+                      <div className="flex flex-col items-end">
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-sm font-medium">Overall Score:</span>
+                          <span className="text-lg font-bold">{uni.overallScore.toFixed(1)}</span>
+                        </div>
+                        <div className="flex gap-2">
+                          <Badge variant="outline" className="flex items-center gap-1">
+                            <Star className="h-3 w-3 text-yellow-500" />
+                            <span>QS: #{uni.qsRank}</span>
+                          </Badge>
+                          <Badge variant="outline" className="flex items-center gap-1">
+                            <BookOpen className="h-3 w-3 text-blue-500" />
+                            <span>THE: #{uni.timesRank || "N/A"}</span>
+                          </Badge>
+                          <Badge variant="outline" className="flex items-center gap-1">
+                            <Award className="h-3 w-3 text-red-500" />
+                            <span>Shanghai: #{uni.shanghaiRank || "N/A"}</span>
+                          </Badge>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -291,26 +333,29 @@ export default function RankingsPage() {
                     <div className="mt-4">
                       <h4 className="text-sm font-medium mb-3">QS Ranking Metrics</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        {qsMetrics.map((metric) => (
-                          <div key={metric.id} className="flex flex-col">
-                            <div className="flex items-center gap-2 mb-1">
-                              {getMetricIcon(metric.id)}
-                              <span className="text-xs text-muted-foreground">{metric.name}</span>
+                        {qsMetrics.map((metric) => {
+                          const metricData = uni.metrics[metric.id as keyof typeof uni.metrics]
+                          const colorClass = getMetricColor(metric.id)
+
+                          return (
+                            <div key={metric.id} className="flex flex-col">
+                              <div className="flex items-center gap-2 mb-1">
+                                {getMetricIcon(metric.id)}
+                                <span className="text-xs text-muted-foreground">{metric.name}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <div className="relative flex-1 h-2 overflow-hidden rounded-full bg-gray-200">
+                                  <div
+                                    className={`h-full ${colorClass} transition-all`}
+                                    style={{ width: `${metricData?.score || 0}%` }}
+                                  />
+                                </div>
+                                <span className="text-xs font-medium">{metricData?.score.toFixed(1) || "N/A"}</span>
+                                <span className="text-xs text-muted-foreground">(#{metricData?.rank || "N/A"})</span>
+                              </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                              <Progress
-                                value={uni.metrics[metric.id as keyof typeof uni.metrics]?.score || 0}
-                                className="h-2 flex-1"
-                              />
-                              <span className="text-xs font-medium">
-                                {uni.metrics[metric.id as keyof typeof uni.metrics]?.score.toFixed(1) || "N/A"}
-                              </span>
-                              <span className="text-xs text-muted-foreground">
-                                (#{uni.metrics[metric.id as keyof typeof uni.metrics]?.rank || "N/A"})
-                              </span>
-                            </div>
-                          </div>
-                        ))}
+                          )
+                        })}
                       </div>
                     </div>
                   )}
