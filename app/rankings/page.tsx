@@ -17,6 +17,11 @@ import {
   Network,
   TrendingUp,
   Leaf,
+  School,
+  Lightbulb,
+  BarChart,
+  Building,
+  Plane,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -28,10 +33,11 @@ import { Badge } from "@/components/ui/badge"
 
 // Import from separate ranking files
 import { qsUniversities, qsMetrics, type QSUniversity } from "@/data/qs-rankings"
+import { timesUniversities, timesMetrics, type TimesUniversity } from "@/data/times-rankings"
 import { regions, countries, rankingTypes } from "@/data/rankings-common"
 
 // This will be a union type as we add more ranking systems
-type University = QSUniversity // | TimesUniversity | ShanghaiUniversity
+type University = QSUniversity | TimesUniversity // | ShanghaiUniversity
 
 export default function RankingsPage() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -47,8 +53,7 @@ export default function RankingsPage() {
       case "qs":
         return qsUniversities
       case "times":
-        // return timesUniversities when available
-        return []
+        return timesUniversities
       case "shanghai":
         // return shanghaiUniversities when available
         return []
@@ -83,6 +88,8 @@ export default function RankingsPage() {
     // Sort based on rank (all ranking types have a rank field)
     if (currentRanking === "qs") {
       filtered.sort((a, b) => (a as QSUniversity).qsRank - (b as QSUniversity).qsRank)
+    } else if (currentRanking === "times") {
+      filtered.sort((a, b) => (a as TimesUniversity).timesRank - (b as TimesUniversity).timesRank)
     }
     // Add sorting for other ranking types when available
 
@@ -92,6 +99,8 @@ export default function RankingsPage() {
   const getRankDisplay = (uni: University) => {
     if (currentRanking === "qs") {
       return (uni as QSUniversity).qsRank
+    } else if (currentRanking === "times") {
+      return (uni as TimesUniversity).timesRank
     }
     // Add handling for other ranking types when available
     return 0
@@ -103,7 +112,9 @@ export default function RankingsPage() {
 
   // Helper function to get the appropriate icon for a metric
   const getMetricIcon = (metricId: string) => {
+    // QS metrics
     switch (metricId) {
+      // QS metrics
       case "academicReputation":
         return <BookOpen className="h-4 w-4" />
       case "employerReputation":
@@ -122,6 +133,19 @@ export default function RankingsPage() {
         return <TrendingUp className="h-4 w-4" />
       case "sustainability":
         return <Leaf className="h-4 w-4" />
+
+      // Times metrics
+      case "teaching":
+        return <School className="h-4 w-4" />
+      case "research":
+        return <Lightbulb className="h-4 w-4" />
+      case "citations":
+        return <BarChart className="h-4 w-4" />
+      case "industryIncome":
+        return <Building className="h-4 w-4" />
+      case "internationalOutlook":
+        return <Plane className="h-4 w-4" />
+
       default:
         return <Star className="h-4 w-4" />
     }
@@ -129,7 +153,9 @@ export default function RankingsPage() {
 
   // Helper function to get a color for each metric
   const getMetricColor = (metricId: string) => {
+    // QS metrics
     switch (metricId) {
+      // QS metrics
       case "academicReputation":
         return "bg-blue-500"
       case "employerReputation":
@@ -148,6 +174,19 @@ export default function RankingsPage() {
         return "bg-pink-500"
       case "sustainability":
         return "bg-emerald-500"
+
+      // Times metrics
+      case "teaching":
+        return "bg-orange-500"
+      case "research":
+        return "bg-cyan-500"
+      case "citations":
+        return "bg-violet-500"
+      case "industryIncome":
+        return "bg-rose-500"
+      case "internationalOutlook":
+        return "bg-lime-500"
+
       default:
         return "bg-primary"
     }
@@ -277,30 +316,34 @@ export default function RankingsPage() {
       {/* University Rankings List */}
       <div className="grid grid-cols-1 gap-6">
         {filteredUniversities.map((university) => {
-          // Cast to QS university type for now
-          const uni = university as QSUniversity
+          // Handle different university types based on current ranking
+          const isQS = currentRanking === "qs"
+          const isTimes = currentRanking === "times"
 
           return (
-            <Card key={uni.id} className="overflow-hidden border border-border hover:border-primary/50 transition-all">
+            <Card
+              key={university.id}
+              className="overflow-hidden border border-border hover:border-primary/50 transition-all"
+            >
               <div className="flex flex-col md:flex-row">
                 <div className="p-6 flex items-center justify-center md:w-1/6 bg-muted/30">
                   <div className="relative w-20 h-20 flex items-center justify-center">
                     <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center text-xl font-bold">
-                      {uni.id}
+                      {university.id}
                     </div>
                     <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                      {getRankDisplay(uni)}
+                      {getRankDisplay(university)}
                     </div>
                   </div>
                 </div>
                 <div className="flex-1 p-6">
                   <div className="flex flex-col md:flex-row justify-between">
                     <div>
-                      <h3 className="text-xl font-bold mb-1">{uni.name}</h3>
+                      <h3 className="text-xl font-bold mb-1">{university.name}</h3>
                       <div className="flex items-center gap-2 mb-3">
                         <Globe className="h-4 w-4 text-muted-foreground" />
                         <span className="text-muted-foreground text-sm">
-                          {uni.country}, {uni.region}
+                          {university.country}, {university.region}
                         </span>
                       </div>
                     </div>
@@ -308,20 +351,27 @@ export default function RankingsPage() {
                       <div className="flex flex-col items-end">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-sm font-medium">Overall Score:</span>
-                          <span className="text-lg font-bold">{uni.overallScore.toFixed(1)}</span>
+                          <span className="text-lg font-bold">{university.overallScore.toFixed(1)}</span>
                         </div>
                         <div className="flex gap-2">
                           <Badge variant="outline" className="flex items-center gap-1">
                             <Star className="h-3 w-3 text-yellow-500" />
-                            <span>QS: #{uni.qsRank}</span>
+                            <span>
+                              QS: #{isQS ? (university as QSUniversity).qsRank : (university as any).qsRank || "N/A"}
+                            </span>
                           </Badge>
                           <Badge variant="outline" className="flex items-center gap-1">
                             <BookOpen className="h-3 w-3 text-blue-500" />
-                            <span>THE: #{uni.timesRank || "N/A"}</span>
+                            <span>
+                              THE: #
+                              {isTimes
+                                ? (university as TimesUniversity).timesRank
+                                : (university as any).timesRank || "N/A"}
+                            </span>
                           </Badge>
                           <Badge variant="outline" className="flex items-center gap-1">
                             <Award className="h-3 w-3 text-red-500" />
-                            <span>Shanghai: #{uni.shanghaiRank || "N/A"}</span>
+                            <span>Shanghai: #{(university as any).shanghaiRank || "N/A"}</span>
                           </Badge>
                         </div>
                       </div>
@@ -329,12 +379,13 @@ export default function RankingsPage() {
                   </div>
 
                   {/* QS Metrics Section */}
-                  {currentRanking === "qs" && (
+                  {isQS && (
                     <div className="mt-4">
                       <h4 className="text-sm font-medium mb-3">QS Ranking Metrics</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {qsMetrics.map((metric) => {
-                          const metricData = uni.metrics[metric.id as keyof typeof uni.metrics]
+                          const qsUni = university as QSUniversity
+                          const metricData = qsUni.metrics[metric.id as keyof typeof qsUni.metrics]
                           const colorClass = getMetricColor(metric.id)
 
                           return (
@@ -360,13 +411,40 @@ export default function RankingsPage() {
                     </div>
                   )}
 
-                  {/* Placeholder for other ranking metrics */}
-                  {currentRanking === "times" && (
+                  {/* Times Higher Education Metrics Section */}
+                  {isTimes && (
                     <div className="mt-4">
-                      <p className="text-center text-muted-foreground">Times Higher Education metrics coming soon</p>
+                      <h4 className="text-sm font-medium mb-3">Times Higher Education Metrics</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        {timesMetrics.map((metric) => {
+                          const timesUni = university as TimesUniversity
+                          const metricData = timesUni.metrics[metric.id as keyof typeof timesUni.metrics]
+                          const colorClass = getMetricColor(metric.id)
+
+                          return (
+                            <div key={metric.id} className="flex flex-col">
+                              <div className="flex items-center gap-2 mb-1">
+                                {getMetricIcon(metric.id)}
+                                <span className="text-xs text-muted-foreground">{metric.name}</span>
+                              </div>
+                              <div className="flex items-center gap-2">
+                                <div className="relative flex-1 h-2 overflow-hidden rounded-full bg-gray-200">
+                                  <div
+                                    className={`h-full ${colorClass} transition-all`}
+                                    style={{ width: `${metricData?.score || 0}%` }}
+                                  />
+                                </div>
+                                <span className="text-xs font-medium">{metricData?.score.toFixed(1) || "N/A"}</span>
+                                <span className="text-xs text-muted-foreground">(#{metricData?.rank || "N/A"})</span>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
                     </div>
                   )}
 
+                  {/* Placeholder for Shanghai ranking metrics */}
                   {currentRanking === "shanghai" && (
                     <div className="mt-4">
                       <p className="text-center text-muted-foreground">Shanghai Academic Ranking metrics coming soon</p>
@@ -378,7 +456,7 @@ export default function RankingsPage() {
                 <div className="flex items-center gap-4">
                   <div>
                     <p className="text-xs text-muted-foreground">Rank</p>
-                    <p className="text-sm font-medium">#{getRankDisplay(uni)}</p>
+                    <p className="text-sm font-medium">#{getRankDisplay(university)}</p>
                   </div>
                 </div>
                 <Button size="sm" variant="default">
