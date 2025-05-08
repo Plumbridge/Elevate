@@ -1,12 +1,12 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { usePathname } from "next/navigation"
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -22,8 +22,10 @@ const navLinks = [
       { name: "Career Support", href: "/services/career" },
     ],
   },
+  { name: "Rankings", href: "/rankings" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
+  { name: "AI", href: "#", isModal: true },
 ]
 
 export default function Navbar() {
@@ -31,31 +33,32 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+  const [isAIModalOpen, setIsAIModalOpen] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(true)
 
-  // Check if we're on a dashboard page - moved inside useEffect to ensure pathname is available
-  const [isDashboardPage, setIsDashboardPage] = useState(false)
-  
   useEffect(() => {
-    // Now we only check the pathname when it's available (client-side)
-    if (pathname) {
-      setIsDashboardPage(pathname.startsWith("/dashboard"))
-    }
-    
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    setShowNavbar(!pathname?.startsWith("/dashboard"))
   }, [pathname])
 
-  // Don't render the navbar on dashboard pages
-  if (isDashboardPage) {
-    return null
-  }
+  const handleScroll = useCallback(() => {
+    setIsScrolled(window.scrollY > 10)
+  }, [])
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [handleScroll])
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
+  }
+
+  const toggleAIModal = () => {
+    setIsAIModalOpen(!isAIModalOpen)
+  }
+
+  if (!showNavbar) {
+    return null
   }
 
   return (
@@ -82,14 +85,7 @@ export default function Navbar() {
                       onMouseEnter={() => setActiveSubmenu(link.name)}
                       onMouseLeave={() => setActiveSubmenu(null)}
                     >
-                      <span className={cn(
-                        "transition-colors",
-                        pathname === link.href 
-                          ? "text-white" 
-                          : "text-muted-foreground hover:text-white"
-                      )}>
-                        {link.name}
-                      </span>
+                      <span className="text-muted-foreground hover:text-white transition-colors">{link.name}</span>
                       <ChevronDown className="ml-1 h-4 w-4 text-muted-foreground group-hover:text-white" />
 
                       {activeSubmenu === link.name && (
@@ -102,12 +98,7 @@ export default function Navbar() {
                                 <Link
                                   key={sublink.name}
                                   href={sublink.href}
-                                  className={cn(
-                                    "block px-4 py-2 text-sm rounded-md hover:bg-accent/20 transition-colors",
-                                    pathname === sublink.href 
-                                      ? "text-white" 
-                                      : "text-muted-foreground hover:text-white"
-                                  )}
+                                  className="block px-4 py-2 text-sm rounded-md hover:bg-accent/20 text-muted-foreground hover:text-white transition-colors"
                                 >
                                   {sublink.name}
                                 </Link>
@@ -117,16 +108,15 @@ export default function Navbar() {
                         </>
                       )}
                     </div>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "transition-colors",
-                        pathname === link.href 
-                          ? "text-white" 
-                          : "text-muted-foreground hover:text-white"
-                      )}
+                  ) : link.isModal ? (
+                    <button
+                      onClick={toggleAIModal}
+                      className="text-muted-foreground hover:text-white transition-colors"
                     >
+                      {link.name}
+                    </button>
+                  ) : (
+                    <Link href={link.href} className="text-muted-foreground hover:text-white transition-colors">
                       {link.name}
                     </Link>
                   )}
@@ -134,11 +124,9 @@ export default function Navbar() {
               ))}
             </ul>
             <div className="flex space-x-3">
-              <Link href="/login">
-                <Button variant="glass" size="sm">
-                  Login
-                </Button>
-              </Link>
+              <Button variant="glass" size="sm">
+                Login
+              </Button>
               <Link href="/signup">
                 <Button variant="glow" size="sm">
                   Get Consultation
@@ -149,12 +137,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleMobileMenu}
-              className="text-white"
-            >
+            <Button variant="ghost" size="icon" onClick={toggleMobileMenu} className="text-white">
               {mobileMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>
@@ -179,20 +162,9 @@ export default function Navbar() {
                       <div className="space-y-2">
                         <div
                           className="flex items-center justify-between"
-                          onClick={() =>
-                            setActiveSubmenu(
-                              activeSubmenu === link.name ? null : link.name,
-                            )
-                          }
+                          onClick={() => setActiveSubmenu(activeSubmenu === link.name ? null : link.name)}
                         >
-                          <span className={cn(
-                            "text-lg font-medium",
-                            pathname === link.href 
-                              ? "text-white" 
-                              : "text-muted-foreground hover:text-white"
-                          )}>
-                            {link.name}
-                          </span>
+                          <span className="text-lg font-medium">{link.name}</span>
                           <ChevronDown
                             className={cn(
                               "h-5 w-5 transition-transform",
@@ -212,12 +184,7 @@ export default function Navbar() {
                               <Link
                                 key={sublink.name}
                                 href={sublink.href}
-                                className={cn(
-                                  "block py-2",
-                                  pathname === sublink.href 
-                                    ? "text-white" 
-                                    : "text-muted-foreground hover:text-white"
-                                )}
+                                className="block py-2 text-muted-foreground hover:text-white"
                                 onClick={toggleMobileMenu}
                               >
                                 {sublink.name}
@@ -226,17 +193,18 @@ export default function Navbar() {
                           </motion.div>
                         )}
                       </div>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className={cn(
-                          "text-lg font-medium",
-                          pathname === link.href 
-                            ? "text-white" 
-                            : "text-muted-foreground"
-                        )}
-                        onClick={toggleMobileMenu}
+                    ) : link.isModal ? (
+                      <button
+                        onClick={() => {
+                          toggleMobileMenu()
+                          toggleAIModal()
+                        }}
+                        className="text-lg font-medium"
                       >
+                        {link.name}
+                      </button>
+                    ) : (
+                      <Link href={link.href} className="text-lg font-medium" onClick={toggleMobileMenu}>
                         {link.name}
                       </Link>
                     )}
@@ -244,11 +212,9 @@ export default function Navbar() {
                 ))}
               </ul>
               <div className="mt-8 flex flex-col space-y-3">
-                <Link href="/login">
-                  <Button variant="outline" className="w-full">
-                    Login
-                  </Button>
-                </Link>
+                <Button variant="outline" className="w-full">
+                  Login
+                </Button>
                 <Link href="/signup">
                   <Button variant="glow" className="w-full">
                     Get Consultation
@@ -256,6 +222,39 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* AI Modal with iframe */}
+      <AnimatePresence>
+        {isAIModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="bg-background rounded-lg shadow-xl w-full max-w-6xl h-[80vh] flex flex-col"
+            >
+              <div className="flex justify-between items-center p-4 border-b">
+                <h2 className="text-xl font-semibold">AI Assistant</h2>
+                <Button variant="ghost" size="icon" onClick={toggleAIModal}>
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+              <div className="flex-grow relative">
+                <iframe
+                  src="https://lobe-chat-ashy-tau.vercel.app/chat?session=inbox"
+                  className="w-full h-full border-none"
+                  title="AI Assistant"
+                />
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
