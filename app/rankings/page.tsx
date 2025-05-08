@@ -9,7 +9,7 @@ import { Card, CardFooter } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import { universities, regions, countries, rankingTypes, type University } from "@/data/university-rankings"
+import { qsUniversities, type QSUniversity } from "@/data/qs-rankings"
 
 export default function RankingsPage() {
   const [searchTerm, setSearchTerm] = useState("")
