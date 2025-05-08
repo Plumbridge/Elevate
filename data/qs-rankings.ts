@@ -100,8 +100,14 @@ export const countries = [
   "France",
 ]
 
-export const rankingTypes = [
-  { id: "qs", name: "QS World University Rankings" },
-  { id: "times", name: "Times Higher Education Rankings" },
-  { id: "shanghai", name: "Shanghai Academic Ranking" },
+export const qsMetrics = [
+  { id: "academicReputation", name: "Academic Reputation", icon: "BookOpen" },
+  { id: "employerReputation", name: "Employer Reputation", icon: "Briefcase" },
+  { id: "facultyStudentRatio", name: "Faculty/Student Ratio", icon: "Users" },
+  { id: "citationsPerFaculty", name: "Citations per Faculty", icon: "FileText" },
+  { id: "internationalFaculty", name: "International Faculty", icon: "Globe" },
+  { id: "internationalStudents", name: "International Students", icon: "GraduationCap" },
+  { id: "internationalResearchNetwork", name: "International Research Network", icon: "Network" },
+  { id: "employmentOutcomes", name: "Employment Outcomes", icon: "TrendingUp" },
+  { id: "sustainability", name: "Sustainability", icon: "Leaf" },
 ]
