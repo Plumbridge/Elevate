@@ -6,7 +6,6 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { cn } from "@/lib/utils"
 import EventSuppressor from "@/components/EventSuppressor"
-import Script from "next/script"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -35,26 +34,6 @@ export default function RootLayout({
         <main className="flex-1 relative z-10">{children}</main>
         <Footer />
         <EventSuppressor />
-        
-        {/* Chatwoot Customer Support Widget */}
-        <Script id="chatwoot-widget-script" strategy="afterInteractive">
-          {`
-            (function(d,t) {
-              var BASE_URL="https://app.chatwoot.com";
-              var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-              g.src=BASE_URL+"/packs/js/sdk.js";
-              g.defer = true;
-              g.async = true;
-              s.parentNode.insertBefore(g,s);
-              g.onload=function(){
-                window.chatwootSDK.run({
-                  websiteToken: 'rpHppDdZCwKNvndCjTvwxKcB',
-                  baseUrl: BASE_URL
-                })
-              }
-            })(document,"script");
-          `}
-        </Script>
       </body>
     </html>
   )
