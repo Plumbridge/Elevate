@@ -29,7 +29,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardFooter } from "@/components/ui/card"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Badge } from "@/components/ui/badge"
 
 // Import from separate ranking files
 import { qsUniversities, qsMetrics, type QSUniversity } from "@/data/qs-rankings"
@@ -50,7 +49,7 @@ const universityNameMap: Record<string, string[]> = {
   "Stanford University": ["Stanford University"],
   "ETH Zurich - Swiss Federal Institute of Technology": ["ETH Zurich"],
   "National University of Singapore (NUS)": ["National University of Singapore"],
-  "UCL": ["University College London"],
+  UCL: ["University College London"],
   "California Institute of Technology (Caltech)": ["California Institute of Technology"],
   "University of Pennsylvania": ["University of Pennsylvania"],
   "The University of Edinburgh": ["University of Edinburgh"],
@@ -308,6 +307,20 @@ export default function RankingsPage() {
     }
   }
 
+  // Get the current ranking system name
+  const getCurrentRankingName = () => {
+    switch (currentRanking) {
+      case "qs":
+        return "QS"
+      case "times":
+        return "THE"
+      case "shanghai":
+        return "Shanghai"
+      default:
+        return "QS"
+    }
+  }
+
   return (
     <div className="container mx-auto py-24 px-4">
       <div className="text-center max-w-3xl mx-auto mb-12">
@@ -448,12 +461,12 @@ export default function RankingsPage() {
             >
               <div className="flex flex-col md:flex-row">
                 <div className="p-6 flex items-center justify-center md:w-1/6 bg-muted/30">
-                  <div className="relative w-20 h-20 flex items-center justify-center">
-                    <div className="w-20 h-20 rounded-full bg-background flex items-center justify-center text-xl font-bold">
-                      {university.id}
-                    </div>
-                    <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
-                      {getRankDisplay(university)}
+                  <div className="relative w-24 h-24 flex items-center justify-center">
+                    <div className="w-24 h-24 rounded-full bg-background flex flex-col items-center justify-center">
+                      <span className="text-xs text-muted-foreground uppercase tracking-wider">
+                        {getCurrentRankingName()}
+                      </span>
+                      <span className="text-3xl font-bold">{getRankDisplay(university)}</span>
                     </div>
                   </div>
                 </div>
@@ -470,23 +483,9 @@ export default function RankingsPage() {
                     </div>
                     <div className="mt-4 md:mt-0">
                       <div className="flex flex-col items-end">
-                        <div className="flex items-center gap-2 mb-2">
+                        <div className="flex items-center gap-2">
                           <span className="text-sm font-medium">Overall Score:</span>
                           <span className="text-lg font-bold">{university.overallScore.toFixed(1)}</span>
-                        </div>
-                        <div className="flex gap-2">
-                          <Badge variant="outline" className="flex items-center gap-1">
-                            <Star className="h-3 w-3 text-yellow-500" />
-                            <span>QS: #{qsRank}</span>
-                          </Badge>
-                          <Badge variant="outline" className="flex items-center gap-1">
-                            <BookOpen className="h-3 w-3 text-blue-500" />
-                            <span>THE: #{timesRank}</span>
-                          </Badge>
-                          <Badge variant="outline" className="flex items-center gap-1">
-                            <Award className="h-3 w-3 text-red-500" />
-                            <span>Shanghai: #{shanghaiRank}</span>
-                          </Badge>
                         </div>
                       </div>
                     </div>
@@ -568,9 +567,31 @@ export default function RankingsPage() {
               </div>
               <CardFooter className="bg-muted/20 px-6 py-3 flex justify-between">
                 <div className="flex items-center gap-4">
-                  <div>
-                    <p className="text-xs text-muted-foreground">Rank</p>
-                    <p className="text-sm font-medium">#{getRankDisplay(university)}</p>
+                  <div className="flex items-center gap-3">
+                    {qsRank !== "N/A" && (
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <span className="text-xs">
+                          QS <span className="font-medium">#{qsRank}</span>
+                        </span>
+                      </div>
+                    )}
+                    {timesRank !== "N/A" && (
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+                        <span className="text-xs">
+                          THE <span className="font-medium">#{timesRank}</span>
+                        </span>
+                      </div>
+                    )}
+                    {shanghaiRank !== "N/A" && (
+                      <div className="flex items-center gap-1">
+                        <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                        <span className="text-xs">
+                          SH <span className="font-medium">#{shanghaiRank}</span>
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <Button size="sm" variant="default">
