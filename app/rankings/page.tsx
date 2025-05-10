@@ -50,7 +50,7 @@ const universityNameMap: Record<string, string[]> = {
   "Stanford University": ["Stanford University"],
   "ETH Zurich - Swiss Federal Institute of Technology": ["ETH Zurich"],
   "National University of Singapore (NUS)": ["National University of Singapore"],
-  UCL: ["University College London"],
+  "UCL": ["University College London"],
   "California Institute of Technology (Caltech)": ["California Institute of Technology"],
   "University of Pennsylvania": ["University of Pennsylvania"],
   "The University of Edinburgh": ["University of Edinburgh"],
