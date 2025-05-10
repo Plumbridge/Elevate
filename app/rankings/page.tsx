@@ -93,6 +93,14 @@ const universityNameMap: Record<string, string[]> = {
   "University of Amsterdam": ["University of Amsterdam"],
 }
 
+// Reverse mapping: Times name -> QS name (for logo lookup)
+const timesToQsNameMap: Record<string, string> = {}
+for (const [qsName, timesNames] of Object.entries(universityNameMap)) {
+  for (const timesName of timesNames) {
+    timesToQsNameMap[timesName] = qsName
+  }
+}
+
 // Helper function to find a university by name across different ranking systems
 const findUniversityByName = (name: string, rankingType: string) => {
   if (rankingType === "qs") {
@@ -125,7 +133,13 @@ const findUniversityByName = (name: string, rankingType: string) => {
 }
 
 // Helper function to get logo filename from university name
-const getLogoFilename = (universityName: string): string => {
+const getLogoFilename = (universityName: string, rankingType: string): string => {
+  // When in Times ranking, try to get the corresponding QS name first
+  let nameToUse = universityName;
+  if (rankingType === "times" && timesToQsNameMap[universityName]) {
+    nameToUse = timesToQsNameMap[universityName];
+  }
+
   // Map of university names to corresponding logo filenames
   const nameToFilenameMap: Record<string, string> = {
     "Massachusetts Institute of Technology (MIT)": "massachusetts-institute-of-technology-mit",
@@ -137,31 +151,45 @@ const getLogoFilename = (universityName: string): string => {
     "ETH Zurich - Swiss Federal Institute of Technology": "eth-zurich-swiss-federal-institute-of-technology",
     "National University of Singapore (NUS)": "national-university-of-singapore-nus",
     "UCL": "ucl",
+    "University College London": "ucl", // Times name
     "California Institute of Technology (Caltech)": "california-institute-of-technology-caltech",
+    "California Institute of Technology": "california-institute-of-technology-caltech", // Times name
     "University of Pennsylvania": "university-of-pennsylvania",
     "The University of Edinburgh": "the-university-of-edinburgh",
+    "University of Edinburgh": "the-university-of-edinburgh", // Times name
     "Technical University of Munich": "technical-university-of-munich",
     "University of Toronto": "university-of-toronto",
     "The University of Tokyo": "university-of-tokyo",
+    "University of Tokyo": "university-of-tokyo", // Times name
     "Cornell University": "cornell-university",
     "Tsinghua University": "tsinghua-university",
     "EPFL - Ecole Polytechnique Federale de Lausanne": "epfl-ecole-polytechnique-federale-de-lausanne",
+    "EPFL": "epfl-ecole-polytechnique-federale-de-lausanne", // Times name
     "Nanyang Technological University, Singapore (NTU)": "nanyang-technological-university-singapore-ntu",
+    "Nanyang Technological University, Singapore": "nanyang-technological-university-singapore-ntu", // Times name
     "Yale University": "yale-university",
     "Princeton University": "princeton-university",
     "The University of New South Wales (UNSW Sydney)": "the-university-of-new-south-wales-unsw-sydney",
+    "University of New South Wales": "the-university-of-new-south-wales-unsw-sydney", // Times name
     "Peking University": "peking-university",
     "The University of Melbourne": "the-university-of-melbourne",
+    "University of Melbourne": "the-university-of-melbourne", // Times name
     "Columbia University": "columbia-university",
     "University of California, Berkeley (UCB)": "university-of-california-berkeley-ucb",
+    "University of California, Berkeley": "university-of-california-berkeley-ucb", // Times name
     "The University of Sydney": "the-university-of-sydney",
+    "University of Sydney": "the-university-of-sydney", // Times name
     "The University of Hong Kong": "the-university-of-hong-kong",
+    "University of Hong Kong": "the-university-of-hong-kong", // Times name
     "McGill University": "mcgill-university",
     "King's College London": "kings-college-london",
     "The Australian National University": "the-australian-national-university",
+    "Australian National University": "the-australian-national-university", // Times name
     "Delft University of Technology": "delft-university-of-technology",
     "The University of British Columbia": "the-university-of-british-columbia",
+    "University of British Columbia": "the-university-of-british-columbia", // Times name
     "University of Michigan-Ann Arbor": "university-of-michigan-ann-arbor",
+    "University of Michigan": "university-of-michigan-ann-arbor", // Times name
     "Northwestern University": "northwestern-university",
     "Zhejiang University": "zhejiang-university",
     "Shanghai Jiao Tong University": "shanghai-jiao-tong-university",
@@ -170,23 +198,39 @@ const getLogoFilename = (universityName: string): string => {
     "Fudan University": "fudan-university",
     "KU Leuven": "ku-leuven",
     "The Chinese University of Hong Kong (CUHK)": "the-chinese-university-of-hong-kong-cuhk",
+    "Chinese University of Hong Kong": "the-chinese-university-of-hong-kong-cuhk", // Times name
     "New York University (NYU)": "new-york-university-nyu",
+    "New York University": "new-york-university-nyu", // Times name
     "University of California, Los Angeles (UCLA)": "university-of-california-los-angeles-ucla",
+    "University of California, Los Angeles": "university-of-california-los-angeles-ucla", // Times name
     "Ludwig-Maximilians-Universität München": "ludwig-maximilians-universitat-munchen",
+    "LMU Munich": "ludwig-maximilians-universitat-munchen", // Times name
     "Kyoto University": "kyoto-university",
     "The Hong Kong University of Science and Technology": "the-hong-kong-university-of-science-and-technology",
+    "Hong Kong University of Science and Technology": "the-hong-kong-university-of-science-and-technology", // Times name
     "University of Illinois at Urbana-Champaign": "university-of-illinois-at-urbana-champaign",
     "Carnegie Mellon University": "carnegie-mellon-university",
     "University of Amsterdam": "university-of-amsterdam",
+    "University of Chicago": "university-of-chicago",
+    "Johns Hopkins University": "johns-hopkins-university",
+    "University of California, San Diego": "university-of-california-san-diego",
+    "University of Washington": "university-of-washington",
+    "London School of Economics and Political Science": "london-school-of-economics-and-political-science",
+    "Duke University": "duke-university",
+    "Wageningen University & Research": "wageningen-university-research",
+    "Georgia Institute of Technology": "georgia-institute-of-technology",
+    "University of Wisconsin-Madison": "university-of-wisconsin-madison",
+    "University of Manchester": "university-of-manchester",
+    "Paris Sciences et Lettres – PSL Research University": "paris-sciences-et-lettres-psl-research-university",
   };
   
   // If we have a specific mapping for this university, use it
-  if (nameToFilenameMap[universityName]) {
-    return nameToFilenameMap[universityName];
+  if (nameToFilenameMap[nameToUse]) {
+    return nameToFilenameMap[nameToUse];
   }
   
   // Otherwise generate a filename by converting to lowercase and replacing spaces with hyphens
-  return universityName
+  return nameToUse
     .toLowerCase()
     .replace(/[(),.]/g, '')
     .replace(/\s+/g, '-');
@@ -522,8 +566,8 @@ export default function RankingsPage() {
           const timesRank = getTimesRank(university)
           const shanghaiRank = getShanghaiRank(university)
           
-          // Get the logo path for the university
-          const logoPath = `/logos/${getLogoFilename(university.name)}.png`
+          // Get the logo path for the university, passing the current ranking type to handle name differences
+          const logoPath = `/logos/${getLogoFilename(university.name, currentRanking)}.png`
 
           return (
             <Card

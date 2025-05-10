@@ -531,21 +531,9 @@ export default function RankingsPage() {
               className="overflow-hidden border border-border hover:border-primary/50 transition-all"
             >
               <div className="flex flex-col md:flex-row">
-                <div className="p-6 flex items-center justify-center md:w-1/6 bg-muted/30 relative">
-                  {/* University logo */}
-                  <div className="absolute inset-0 flex items-center justify-center p-2">
-                    <img 
-                      src={logoPath}
-                      alt={`${university.name} logo`}
-                      className="max-w-full max-h-full object-contain opacity-15"
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/placeholder-logo.svg';
-                      }}
-                    />
-                  </div>
-                  
-                  {/* Rank circle */}
-                  <div className="relative z-10 w-24 h-24 flex items-center justify-center">
+                {/* Rank circle section - removed the background logo */}
+                <div className="p-6 flex items-center justify-center md:w-1/6 bg-muted/30">
+                  <div className="w-24 h-24 flex items-center justify-center">
                     <div className="w-24 h-24 rounded-full bg-background flex flex-col items-center justify-center">
                       <span className="text-xs text-muted-foreground uppercase tracking-wider">
                         {getCurrentRankingName()}
