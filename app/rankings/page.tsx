@@ -46,53 +46,19 @@ export default function RankingsPage() {
   const [currentRanking, setCurrentRanking] = useState("qs")
   const [filteredUniversities, setFilteredUniversities] = useState<University[]>([])
   const [isFilterOpen, setIsFilterOpen] = useState(false)
-  const [allUniversities, setAllUniversities] = useState<University[]>([])
-
-  // Initialize and merge university data on component mount
-  useEffect(() => {
-    // Create a map of universities by ID to merge data from different ranking systems
-    const universityMap = new Map<string, any>();
-    
-    // First, add all QS universities to the map
-    qsUniversities.forEach((uni) => {
-      universityMap.set(uni.id.toString(), {
-        ...uni,
-      });
-    });
-    
-    // Then, merge in THE universities
-    timesUniversities.forEach((uni) => {
-      if (universityMap.has(uni.id.toString())) {
-        // If university already exists, add THE data to it
-        const existingUni = universityMap.get(uni.id.toString());
-        universityMap.set(uni.id.toString(), {
-          ...existingUni,
-          timesRank: uni.timesRank,
-          metrics: {
-            ...existingUni.metrics,
-            ...uni.metrics,
-          },
-        });
-      } else {
-        // If university doesn't exist yet, add it
-        universityMap.set(uni.id.toString(), uni);
-      }
-    });
-    
-    // Convert map back to array
-    setAllUniversities(Array.from(universityMap.values()));
-  }, []);
 
   // Get the appropriate university list based on the selected ranking
   const getUniversityList = () => {
-    // Return the merged university data filtered by the current tab
-    if (currentRanking === "qs") {
-      return allUniversities.filter(uni => "qsRank" in uni);
-    } else if (currentRanking === "times") {
-      return allUniversities.filter(uni => "timesRank" in uni);
-    } else {
-      // For shanghai, when implemented
-      return [];
+    switch (currentRanking) {
+      case "qs":
+        return qsUniversities
+      case "times":
+        return timesUniversities
+      case "shanghai":
+        // return shanghaiUniversities when available
+        return []
+      default:
+        return qsUniversities
     }
   }
 
@@ -121,31 +87,23 @@ export default function RankingsPage() {
 
     // Sort based on rank (all ranking types have a rank field)
     if (currentRanking === "qs") {
-      filtered.sort((a, b) => {
-        const aRank = "qsRank" in a ? a.qsRank : Infinity;
-        const bRank = "qsRank" in b ? b.qsRank : Infinity;
-        return aRank - bRank;
-      });
+      filtered.sort((a, b) => (a as QSUniversity).qsRank - (b as QSUniversity).qsRank)
     } else if (currentRanking === "times") {
-      filtered.sort((a, b) => {
-        const aRank = "timesRank" in a ? a.timesRank : Infinity;
-        const bRank = "timesRank" in b ? b.timesRank : Infinity;
-        return aRank - bRank;
-      });
+      filtered.sort((a, b) => (a as TimesUniversity).timesRank - (b as TimesUniversity).timesRank)
     }
     // Add sorting for other ranking types when available
 
     setFilteredUniversities(filtered)
-  }, [searchTerm, selectedRegion, selectedCountry, currentRanking, allUniversities])
+  }, [searchTerm, selectedRegion, selectedCountry, currentRanking])
 
   const getRankDisplay = (uni: University) => {
-    if (currentRanking === "qs" && "qsRank" in uni) {
-      return uni.qsRank;
-    } else if (currentRanking === "times" && "timesRank" in uni) {
-      return uni.timesRank;
+    if (currentRanking === "qs") {
+      return (uni as QSUniversity).qsRank
+    } else if (currentRanking === "times") {
+      return (uni as TimesUniversity).timesRank
     }
     // Add handling for other ranking types when available
-    return 0;
+    return 0
   }
 
   const toggleFilter = () => {
@@ -399,32 +357,21 @@ export default function RankingsPage() {
                           <Badge variant="outline" className="flex items-center gap-1">
                             <Star className="h-3 w-3 text-yellow-500" />
                             <span>
-                              QS: #{
-                                "qsRank" in university
-                                  ? university.qsRank
-                                  : "N/A"
-                              }
+                              QS: #{isQS ? (university as QSUniversity).qsRank : (university as any).qsRank || "N/A"}
                             </span>
                           </Badge>
                           <Badge variant="outline" className="flex items-center gap-1">
                             <BookOpen className="h-3 w-3 text-blue-500" />
                             <span>
-                              THE: #{
-                                "timesRank" in university
-                                  ? university.timesRank
-                                  : "N/A"
-                              }
+                              THE: #
+                              {isTimes
+                                ? (university as TimesUniversity).timesRank
+                                : (university as any).timesRank || "N/A"}
                             </span>
                           </Badge>
                           <Badge variant="outline" className="flex items-center gap-1">
                             <Award className="h-3 w-3 text-red-500" />
-                            <span>
-                              Shanghai: #{
-                                "shanghaiRank" in university
-                                  ? university.shanghaiRank
-                                  : "N/A"
-                              }
-                            </span>
+                            <span>Shanghai: #{(university as any).shanghaiRank || "N/A"}</span>
                           </Badge>
                         </div>
                       </div>
@@ -432,18 +379,14 @@ export default function RankingsPage() {
                   </div>
 
                   {/* QS Metrics Section */}
-                  {isQS && "metrics" in university && (
+                  {isQS && (
                     <div className="mt-4">
                       <h4 className="text-sm font-medium mb-3">QS Ranking Metrics</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {qsMetrics.map((metric) => {
-                          // Only proceed if this university has QS metrics
-                          if (!("metrics" in university) || !university.metrics) return null;
-                          
-                          const metricData = university.metrics[metric.id as keyof typeof university.metrics];
-                          if (!metricData) return null;
-                          
-                          const colorClass = getMetricColor(metric.id);
+                          const qsUni = university as QSUniversity
+                          const metricData = qsUni.metrics[metric.id as keyof typeof qsUni.metrics]
+                          const colorClass = getMetricColor(metric.id)
 
                           return (
                             <div key={metric.id} className="flex flex-col">
@@ -458,7 +401,7 @@ export default function RankingsPage() {
                                     style={{ width: `${metricData?.score || 0}%` }}
                                   />
                                 </div>
-                                <span className="text-xs font-medium">{metricData?.score?.toFixed(1) || "N/A"}</span>
+                                <span className="text-xs font-medium">{metricData?.score.toFixed(1) || "N/A"}</span>
                                 <span className="text-xs text-muted-foreground">(#{metricData?.rank || "N/A"})</span>
                               </div>
                             </div>
@@ -469,18 +412,14 @@ export default function RankingsPage() {
                   )}
 
                   {/* Times Higher Education Metrics Section */}
-                  {isTimes && "metrics" in university && (
+                  {isTimes && (
                     <div className="mt-4">
                       <h4 className="text-sm font-medium mb-3">Times Higher Education Metrics</h4>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         {timesMetrics.map((metric) => {
-                          // Only proceed if this university has Times metrics
-                          if (!("metrics" in university) || !university.metrics) return null;
-                          
-                          const metricData = university.metrics[metric.id as keyof typeof university.metrics];
-                          if (!metricData) return null;
-                          
-                          const colorClass = getMetricColor(metric.id);
+                          const timesUni = university as TimesUniversity
+                          const metricData = timesUni.metrics[metric.id as keyof typeof timesUni.metrics]
+                          const colorClass = getMetricColor(metric.id)
 
                           return (
                             <div key={metric.id} className="flex flex-col">
@@ -495,7 +434,7 @@ export default function RankingsPage() {
                                     style={{ width: `${metricData?.score || 0}%` }}
                                   />
                                 </div>
-                                <span className="text-xs font-medium">{metricData?.score?.toFixed(1) || "N/A"}</span>
+                                <span className="text-xs font-medium">{metricData?.score.toFixed(1) || "N/A"}</span>
                                 <span className="text-xs text-muted-foreground">(#{metricData?.rank || "N/A"})</span>
                               </div>
                             </div>
