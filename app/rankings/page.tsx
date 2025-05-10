@@ -39,6 +39,17 @@ import { regions, countries, rankingTypes } from "@/data/rankings-common"
 // This will be a union type as we add more ranking systems
 type University = QSUniversity | TimesUniversity // | ShanghaiUniversity
 
+// Helper function to find a university by name across different ranking systems
+const findUniversityByName = (name: string, rankingType: string) => {
+  if (rankingType === "qs") {
+    return qsUniversities.find((uni) => uni.name === name)
+  } else if (rankingType === "times") {
+    return timesUniversities.find((uni) => uni.name === name)
+  }
+  // Add more ranking systems as they become available
+  return null
+}
+
 export default function RankingsPage() {
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedRegion, setSelectedRegion] = useState("All Regions")
@@ -104,6 +115,36 @@ export default function RankingsPage() {
     }
     // Add handling for other ranking types when available
     return 0
+  }
+
+  // Get QS rank for a university, looking it up if necessary
+  const getQSRank = (university: University) => {
+    if ("qsRank" in university) {
+      return university.qsRank
+    }
+
+    // If we're viewing a Times university, try to find the matching QS university
+    const qsUni = findUniversityByName(university.name, "qs")
+    return qsUni ? qsUni.qsRank : "N/A"
+  }
+
+  // Get Times rank for a university, looking it up if necessary
+  const getTimesRank = (university: University) => {
+    if ("timesRank" in university) {
+      return university.timesRank
+    }
+
+    // If we're viewing a QS university, try to find the matching Times university
+    const timesUni = findUniversityByName(university.name, "times")
+    return timesUni ? timesUni.timesRank : "N/A"
+  }
+
+  // Get Shanghai rank for a university (placeholder for now)
+  const getShanghaiRank = (university: University) => {
+    if ("shanghaiRank" in university) {
+      return university.shanghaiRank
+    }
+    return "N/A"
   }
 
   const toggleFilter = () => {
@@ -320,6 +361,11 @@ export default function RankingsPage() {
           const isQS = currentRanking === "qs"
           const isTimes = currentRanking === "times"
 
+          // Get ranks for all ranking systems
+          const qsRank = getQSRank(university)
+          const timesRank = getTimesRank(university)
+          const shanghaiRank = getShanghaiRank(university)
+
           return (
             <Card
               key={university.id}
@@ -356,22 +402,15 @@ export default function RankingsPage() {
                         <div className="flex gap-2">
                           <Badge variant="outline" className="flex items-center gap-1">
                             <Star className="h-3 w-3 text-yellow-500" />
-                            <span>
-                              QS: #{isQS ? (university as QSUniversity).qsRank : (university as any).qsRank || "N/A"}
-                            </span>
+                            <span>QS: #{qsRank}</span>
                           </Badge>
                           <Badge variant="outline" className="flex items-center gap-1">
                             <BookOpen className="h-3 w-3 text-blue-500" />
-                            <span>
-                              THE: #
-                              {isTimes
-                                ? (university as TimesUniversity).timesRank
-                                : (university as any).timesRank || "N/A"}
-                            </span>
+                            <span>THE: #{timesRank}</span>
                           </Badge>
                           <Badge variant="outline" className="flex items-center gap-1">
                             <Award className="h-3 w-3 text-red-500" />
-                            <span>Shanghai: #{(university as any).shanghaiRank || "N/A"}</span>
+                            <span>Shanghai: #{shanghaiRank}</span>
                           </Badge>
                         </div>
                       </div>
