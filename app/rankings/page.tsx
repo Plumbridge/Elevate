@@ -39,14 +39,89 @@ import { regions, countries, rankingTypes } from "@/data/rankings-common"
 // This will be a union type as we add more ranking systems
 type University = QSUniversity | TimesUniversity // | ShanghaiUniversity
 
+// Mapping between university names in different ranking systems
+const universityNameMap: Record<string, string[]> = {
+  // QS name -> [Times name, Shanghai name]
+  "Massachusetts Institute of Technology (MIT)": ["Massachusetts Institute of Technology"],
+  "Imperial College London": ["Imperial College London"],
+  "University of Oxford": ["University of Oxford"],
+  "Harvard University": ["Harvard University"],
+  "University of Cambridge": ["University of Cambridge"],
+  "Stanford University": ["Stanford University"],
+  "ETH Zurich - Swiss Federal Institute of Technology": ["ETH Zurich"],
+  "National University of Singapore (NUS)": ["National University of Singapore"],
+  UCL: ["University College London"],
+  "California Institute of Technology (Caltech)": ["California Institute of Technology"],
+  "University of Pennsylvania": ["University of Pennsylvania"],
+  "The University of Edinburgh": ["University of Edinburgh"],
+  "Technical University of Munich": ["Technical University of Munich"],
+  "University of Toronto": ["University of Toronto"],
+  "The University of Tokyo": ["University of Tokyo"],
+  "Cornell University": ["Cornell University"],
+  "Tsinghua University": ["Tsinghua University"],
+  "EPFL - Ecole Polytechnique Federale de Lausanne": ["EPFL"],
+  "Nanyang Technological University, Singapore (NTU)": ["Nanyang Technological University, Singapore"],
+  "Yale University": ["Yale University"],
+  "Princeton University": ["Princeton University"],
+  "The University of New South Wales (UNSW Sydney)": ["University of New South Wales"],
+  "Peking University": ["Peking University"],
+  "The University of Melbourne": ["University of Melbourne"],
+  "Columbia University": ["Columbia University"],
+  "University of California, Berkeley (UCB)": ["University of California, Berkeley"],
+  "The University of Sydney": ["University of Sydney"],
+  "The University of Hong Kong": ["University of Hong Kong"],
+  "McGill University": ["McGill University"],
+  "King's College London": ["King's College London"],
+  "The Australian National University": ["Australian National University"],
+  "Delft University of Technology": ["Delft University of Technology"],
+  "The University of British Columbia": ["University of British Columbia"],
+  "University of Michigan-Ann Arbor": ["University of Michigan-Ann Arbor"],
+  "Northwestern University": ["Northwestern University"],
+  "Zhejiang University": ["Zhejiang University"],
+  "Shanghai Jiao Tong University": ["Shanghai Jiao Tong University"],
+  "Seoul National University": ["Seoul National University"],
+  "Monash University": ["Monash University"],
+  "Fudan University": ["Fudan University"],
+  "KU Leuven": ["KU Leuven"],
+  "The Chinese University of Hong Kong (CUHK)": ["Chinese University of Hong Kong"],
+  "New York University (NYU)": ["New York University"],
+  "University of California, Los Angeles (UCLA)": ["University of California, Los Angeles"],
+  "Ludwig-Maximilians-Universität München": ["LMU Munich"],
+  "Kyoto University": ["Kyoto University"],
+  "The Hong Kong University of Science and Technology": ["Hong Kong University of Science and Technology"],
+  "University of Illinois at Urbana-Champaign": ["University of Illinois at Urbana-Champaign"],
+  "Carnegie Mellon University": ["Carnegie Mellon University"],
+  "University of Amsterdam": ["University of Amsterdam"],
+}
+
 // Helper function to find a university by name across different ranking systems
 const findUniversityByName = (name: string, rankingType: string) => {
   if (rankingType === "qs") {
-    return qsUniversities.find((uni) => uni.name === name)
+    // Direct match in QS rankings
+    const directMatch = qsUniversities.find((uni) => uni.name === name)
+    if (directMatch) return directMatch
+
+    // Check if this is a Times name that maps to a QS name
+    for (const [qsName, alternateNames] of Object.entries(universityNameMap)) {
+      if (alternateNames.includes(name)) {
+        return qsUniversities.find((uni) => uni.name === qsName)
+      }
+    }
   } else if (rankingType === "times") {
-    return timesUniversities.find((uni) => uni.name === name)
+    // Direct match in Times rankings
+    const directMatch = timesUniversities.find((uni) => uni.name === name)
+    if (directMatch) return directMatch
+
+    // Check if this is a QS name that has a mapping to Times
+    if (name in universityNameMap) {
+      const timesNames = universityNameMap[name]
+      for (const timesName of timesNames) {
+        const match = timesUniversities.find((uni) => uni.name === timesName)
+        if (match) return match
+      }
+    }
   }
-  // Add more ranking systems as they become available
+
   return null
 }
 
