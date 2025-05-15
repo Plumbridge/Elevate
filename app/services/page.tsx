@@ -83,11 +83,11 @@ export default function ServicesPage() {
         <h2 className="text-2xl md:text-3xl font-bold mb-4">Not sure which service you need?</h2>
         <p className="text-muted-foreground mb-6">
           Our education consultants can help you identify the right services based on your specific needs and goals.
-          Schedule a free consultation to get personalized guidance.
+          Contact us now to get personalised guidance.
         </p>
-        <Link href="/signup">
+        <Link href="/contact">
           <Button variant="glow" size="lg">
-            Get Free Consultation
+            Contact Us
           </Button>
         </Link>
       </div>
