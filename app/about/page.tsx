@@ -121,27 +121,21 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
-              name: "Sarah Johnson",
-              role: "Founder & CEO",
-              bio: "Former international student with 15+ years in education consulting",
+              name: "Jordan van der Meulen",
+              role: "CEO",
+              bio: "Former international student with 5+ years in education planning",
               image: "/placeholder.svg?height=400&width=400",
             },
             {
-              name: "Michael Chen",
+              name: "Alex Plumbridge",
               role: "Chief Operations Officer",
               bio: "Expert in global education systems with background in university administration",
               image: "/placeholder.svg?height=400&width=400",
             },
             {
-              name: "Priya Sharma",
-              role: "Head of Student Success",
-              bio: "Dedicated to creating supportive pathways for international students",
-              image: "/placeholder.svg?height=400&width=400",
-            },
-            {
-              name: "James Wilson",
-              role: "Director of University Partnerships",
-              bio: "Builds strong relationships with top universities worldwide",
+              name: "Rutish Krishna",
+              role: "CTO",
+              bio: "6+ years in coding and education",
               image: "/placeholder.svg?height=400&width=400",
             },
           ].map((member, index) => (
@@ -165,7 +159,7 @@ export default function AboutPage() {
             <div className="space-y-4">
               <h3 className="text-2xl font-semibold">We're Worldwide</h3>
               <p className="text-muted-foreground">
-                With offices in 6 countries and a network of partners in over 30 countries, Elevate provides localized
+                With coverage in multiple countries and a network of partners, Elevate provides localised
                 support with global expertise.
               </p>
               <ul className="space-y-2">
@@ -175,7 +169,7 @@ export default function AboutPage() {
                 </li>
                 <li className="flex items-center gap-2">
                   <ChevronRight className="h-4 w-4 text-primary" />
-                  <span>Regional Offices: New York, Singapore, Sydney, Toronto, Dubai</span>
+                  <span>Regional Offices: New York, Dubai</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <ChevronRight className="h-4 w-4 text-primary" />
