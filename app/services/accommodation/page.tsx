@@ -1,19 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Badge } from "@/components/ui/badge"
-import {
-  ChevronRight,
-  Home,
-  Building,
-  Users,
-  Bed,
-  MapPin,
-  Clock,
-  Wallet,
-  Shield,
-  Star,
-  CheckCircle,
-} from "lucide-react"
+import Link from "next/link"
+import { ChevronRight, Home, Building, Users, Bed, MapPin, Clock, Wallet, Shield, Star, CheckCircle } from 'lucide-react'
 
 export default function AccommodationPage() {
   return (
@@ -25,23 +14,18 @@ export default function AccommodationPage() {
             Student Housing
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Find Your Perfect{" "}
-            <span className="text-gradient">
-              Home Away From Home
-            </span>
+            Find Your Perfect <span className="text-gradient">Home Away From Home</span>
           </h1>
           <p className="text-muted-foreground mb-8">
             At Elevate, we understand that the right accommodation is crucial for your study abroad experience. Let us
             guide you to a living space that feels like home and supports your academic journey.
           </p>
-          <Button
-            size="lg"
-            variant="glow"
-            className="gap-2"
-          >
-            <span>Start Your Accommodation Search</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button size="lg" variant="glow" className="gap-2">
+              <span>Start Your Accommodation Search</span>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
@@ -74,10 +58,7 @@ export default function AccommodationPage() {
       {/* Key Benefits Section */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Why Choose Our{" "}
-          <span className="text-gradient">
-            Accommodation Services
-          </span>
+          Why Choose Our <span className="text-gradient">Accommodation Services</span>
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -118,10 +99,7 @@ export default function AccommodationPage() {
       {/* Accommodation Types Tabs */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Find Your{" "}
-          <span className="text-gradient">
-            Ideal Living Space
-          </span>
+          Find Your <span className="text-gradient">Ideal Living Space</span>
         </h2>
 
         <Tabs defaultValue="dorms" className="w-full">
@@ -132,10 +110,7 @@ export default function AccommodationPage() {
             <TabsTrigger value="homestays">Homestays</TabsTrigger>
           </TabsList>
 
-          <TabsContent
-            value="dorms"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="dorms" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">University Dormitories</h3>
@@ -215,10 +190,7 @@ export default function AccommodationPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="apartments"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="apartments" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Private Apartments</h3>
@@ -296,10 +268,7 @@ export default function AccommodationPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="shared"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="shared" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Shared Housing</h3>
@@ -381,10 +350,7 @@ export default function AccommodationPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="homestays"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="homestays" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Homestays</h3>
@@ -472,11 +438,7 @@ export default function AccommodationPage() {
       {/* Our Process Section */}
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
-          Our{" "}
-          <span className="text-gradient">
-            Comprehensive
-          </span>{" "}
-          Accommodation Support
+          Our <span className="text-gradient">Comprehensive</span> Accommodation Support
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
@@ -607,14 +569,12 @@ export default function AccommodationPage() {
           Schedule a free consultation to discuss your accommodation needs and preferences. Our housing experts are
           ready to help you find the perfect place to call home during your studies.
         </p>
-        <Button
-          size="lg"
-          variant="glow"
-          className="gap-2"
-        >
-          <span>Start Your Accommodation Search</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        <Link href="/signup">
+          <Button size="lg" variant="glow" className="gap-2">
+            <span>Start Your Accommodation Search</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   )
