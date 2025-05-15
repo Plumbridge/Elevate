@@ -1,16 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import {
-  ChevronRight,
-  CheckCircle2,
-  FileCheck,
-  Globe,
-  MessageSquare,
-  Calendar,
-  StampIcon as Passport,
-  Clock,
-} from "lucide-react"
+import Link from "next/link"
+import { ChevronRight, CheckCircle2, FileCheck, Globe, MessageSquare, Calendar, StampIcon as Passport, Clock } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 
 export default function VisaSupportPage() {
@@ -86,8 +78,8 @@ export default function VisaSupportPage() {
             <FileCheck className="h-10 w-10 text-purple-500 mb-4" />
             <h3 className="text-xl font-bold mb-3">Personalized Support</h3>
             <p className="text-muted-foreground">
-              We provide tailored guidance based on your specific circumstances, chosen study destination, and
-              program, ensuring no detail is overlooked.
+              We provide tailored guidance based on your specific circumstances, chosen study destination, and program,
+              ensuring no detail is overlooked.
             </p>
           </div>
 
@@ -117,10 +109,7 @@ export default function VisaSupportPage() {
             <TabsTrigger value="australia">Australia</TabsTrigger>
           </TabsList>
 
-          <TabsContent
-            value="usa"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="usa" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">F-1 Student Visa</h3>
@@ -170,10 +159,7 @@ export default function VisaSupportPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="uk"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="uk" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Student Visa (formerly Tier 4)</h3>
@@ -222,10 +208,7 @@ export default function VisaSupportPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="canada"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="canada" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Study Permit</h3>
@@ -274,10 +257,7 @@ export default function VisaSupportPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="australia"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="australia" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Student Visa (Subclass 500)</h3>
@@ -544,12 +524,13 @@ export default function VisaSupportPage() {
           Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
           with confidence.
         </p>
-        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
-          <span>Get Started with Visa Support</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        <Link href="/signup">
+          <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+            <span>Get Started with Visa Support</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   )
 }
-
