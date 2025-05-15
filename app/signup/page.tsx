@@ -5,11 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { useRouter } from "next/navigation"
-import { Alert, AlertDescription } from "@/components/ui/alert"
 
 export default function SignupPage() {
-  const router = useRouter()
   const [selectedPackage, setSelectedPackage] = useState("")
   const [formData, setFormData] = useState({
     firstName: "",
@@ -18,59 +15,24 @@ export default function SignupPage() {
     password: "",
     confirmPassword: "",
   })
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState("")
-  const [success, setSuccess] = useState(false)
 
   const packages = [
-    { id: "freemium", name: "Freemium : ", price: "$0" },
-    { id: "purePlay", name: "Pure Play : ", price: "$500" },
-    { id: "basic", name: "Basic : ", price: "$1,500" },
-    { id: "intermediate", name: "Intermediate : ", price: "$3,000" },
-    { id: "advanced", name: "Advanced : ", price: "$5,000" },
+    { id: "freemium", name: "Freemium", price: "$0" },
+    { id: "purePlay", name: "Pure Play", price: "$500" },
+    { id: "basic", name: "Basic", price: "$1,500" },
+    { id: "intermediate", name: "Intermediate", price: "$3,000" },
+    { id: "advanced", name: "Advanced", price: "$5,000" },
   ]
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
-    setError("") // Clear any errors when user makes changes
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    setLoading(true)
-    setError("")
-    
-    try {
-      // Call the API endpoint
-      const response = await fetch("/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...formData,
-          package: selectedPackage,
-        }),
-      })
-      
-      const data = await response.json()
-      
-      if (!response.ok) {
-        throw new Error(data.error || "Something went wrong")
-      }
-      
-      // Success - show success message and redirect after delay
-      setSuccess(true)
-      setTimeout(() => {
-        router.push("/login")
-      }, 2000)
-      
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "An unknown error occurred")
-    } finally {
-      setLoading(false)
-    }
+    console.log({ ...formData, package: selectedPackage })
+    // Handle form submission logic here
   }
 
   return (
@@ -85,18 +47,6 @@ export default function SignupPage() {
       </div>
 
       <div className="max-w-2xl mx-auto">
-        {error && (
-          <Alert variant="destructive" className="mb-6">
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
-        
-        {success && (
-          <Alert className="mb-6 bg-green-50 text-green-800 border-green-200">
-            <AlertDescription>Account created successfully! Redirecting to login...</AlertDescription>
-          </Alert>
-        )}
-
         <div className="bg-card rounded-2xl shadow-lg overflow-hidden">
           <div className="p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -110,7 +60,6 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="Enter your first name"
                     required
-                    disabled={loading || success}
                   />
                 </div>
                 <div className="space-y-2">
@@ -122,7 +71,6 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="Enter your last name"
                     required
-                    disabled={loading || success}
                   />
                 </div>
               </div>
@@ -137,7 +85,6 @@ export default function SignupPage() {
                   onChange={handleChange}
                   placeholder="Enter your email address"
                   required
-                  disabled={loading || success}
                 />
               </div>
 
@@ -152,7 +99,6 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="Create a password"
                     required
-                    disabled={loading || success}
                   />
                 </div>
                 <div className="space-y-2">
@@ -165,18 +111,13 @@ export default function SignupPage() {
                     onChange={handleChange}
                     placeholder="Confirm your password"
                     required
-                    disabled={loading || success}
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="package">Select Package</Label>
-                <Select 
-                  value={selectedPackage} 
-                  onValueChange={setSelectedPackage}
-                  disabled={loading || success}
-                >
+                <Select value={selectedPackage} onValueChange={setSelectedPackage}>
                   <SelectTrigger id="package" className="w-full">
                     <SelectValue placeholder="Choose your package" />
                   </SelectTrigger>
@@ -216,24 +157,18 @@ export default function SignupPage() {
               )}
 
               <div className="pt-4">
-                <Button 
-                  variant="glow" 
-                  size="lg" 
-                  className="w-full" 
-                  type="submit"
-                  disabled={loading || success}
-                >
-                  {loading ? "Creating Account..." : "Create Account"}
+                <Button variant="glow" size="lg" className="w-full" type="submit">
+                  Create Account
                 </Button>
               </div>
 
               <p className="text-center text-sm text-muted-foreground">
                 By creating an account, you agree to our{" "}
-                <a href="/terms" className="underline hover:text-primary">
+                <a href="#" className="underline hover:text-primary">
                   Terms of Service
                 </a>{" "}
                 and{" "}
-                <a href="/privacy" className="underline hover:text-primary">
+                <a href="#" className="underline hover:text-primary">
                   Privacy Policy
                 </a>
                 .
