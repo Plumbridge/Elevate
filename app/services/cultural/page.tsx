@@ -3,22 +3,8 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import {
-  ChevronRight,
-  Globe,
-  BookOpen,
-  Users,
-  MessageSquare,
-  School,
-  Map,
-  Lightbulb,
-  Utensils,
-  Home,
-  Bus,
-  ShoppingBag,
-  Calendar,
-  CheckCircle,
-} from "lucide-react"
+import Link from "next/link"
+import { ChevronRight, Globe, BookOpen, Users, MessageSquare, School, Map, Lightbulb, Utensils, Home, Bus, ShoppingBag, Calendar, CheckCircle } from 'lucide-react'
 
 export default function CulturalPreparationPage() {
   return (
@@ -36,10 +22,12 @@ export default function CulturalPreparationPage() {
             At Elevate, we believe that cultural understanding is key to a successful and enriching study abroad
             experience. Our cultural preparation services ensure you're ready to thrive in your new environment.
           </p>
-          <Button size="lg" variant="glow" className="gap-2">
-            <span>Start Your Cultural Preparation</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button size="lg" variant="glow" className="gap-2">
+              <span>Start Your Cultural Preparation</span>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
@@ -73,7 +61,7 @@ export default function CulturalPreparationPage() {
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">
           Why Choose Our <span className="text-gradient">Cultural Preparation</span> Services
-          </h2>
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="relative overflow-hidden rounded-xl border border-purple-100 dark:border-purple-900/30 p-8">
@@ -81,9 +69,9 @@ export default function CulturalPreparationPage() {
             <BookOpen className="h-10 w-10 text-purple-500 mb-4" />
             <h3 className="text-xl font-bold mb-3">Beyond Language: Cultural Fluency</h3>
             <p className="text-muted-foreground">
-            Language is just the beginning. Our comprehensive cultural preparation goes deeper, helping you
-            understand social norms, etiquette, and unwritten rules of your host country. We equip you with the
-            cultural intelligence to navigate your new environment with confidence.
+              Language is just the beginning. Our comprehensive cultural preparation goes deeper, helping you understand
+              social norms, etiquette, and unwritten rules of your host country. We equip you with the cultural
+              intelligence to navigate your new environment with confidence.
             </p>
           </div>
 
@@ -840,10 +828,12 @@ export default function CulturalPreparationPage() {
           Schedule a free consultation to discuss your cultural preparation needs and learn how we can help you thrive
           in your new cultural environment.
         </p>
-        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
-          <span>Start Your Cultural Preparation</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        <Link href="/signup">
+          <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+            <span>Start Your Cultural Preparation</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   )
