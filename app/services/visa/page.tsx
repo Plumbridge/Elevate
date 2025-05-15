@@ -29,10 +29,12 @@ export default function VisaSupportPage() {
             At Elevate, we transform the complex visa application process into a smooth, stress-free experience. Let us
             guide you towards your international education dreams.
           </p>
-          <Button size="lg" variant="glow" className="gap-2">
-            <span>Get Started with Visa Support</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button size="lg" variant="glow" className="gap-2">
+              <span>Get Started with Visa Support</span>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
