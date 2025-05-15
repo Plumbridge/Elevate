@@ -1,4 +1,7 @@
-import { Check } from "lucide-react"
+"use client"
+
+import Link from "next/link"
+import { Check } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -68,142 +71,162 @@ export default function PricingPage() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {/* Freemium Package */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col">
-            <div className="p-6 pb-4">
-              <h2 className="text-2xl font-semibold mb-2">Freemium</h2>
-              <p className="text-muted-foreground h-12">Try our AI-powered guidance before you commit</p>
-              <div className="mt-4 mb-2">
-                <div className="text-3xl font-bold">$0</div>
+          <div className="group relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 group-hover:scale-105 group-hover:shadow-purple-500/20">
+              <div className="p-6 pb-4">
+                <h2 className="text-2xl font-semibold mb-2">Freemium</h2>
+                <p className="text-muted-foreground h-12">Try our AI-powered guidance before you commit</p>
+                <div className="mt-4 mb-2">
+                  <div className="text-3xl font-bold">$0</div>
+                </div>
               </div>
-            </div>
-            <div className="border-t border-border p-6 flex-1">
-              <ul className="space-y-4 mb-8">
-                {allFeatures.map((feature) => (
-                  <FeatureItem
-                    key={`freemium-${feature}`}
-                    included={featuresByPackage.freemium.includes(feature)}
-                    limited={feature === "Personal statement support"}
-                  >
-                    {feature}
-                  </FeatureItem>
-                ))}
-              </ul>
-            </div>
-            <div className="p-6 pt-0 mt-auto">
-              <div className="text-sm text-muted-foreground mb-4">Free forever</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Try For Free
-              </Button>
+              <div className="border-t border-border p-6 flex-1">
+                <ul className="space-y-4 mb-8">
+                  {allFeatures.map((feature) => (
+                    <FeatureItem
+                      key={`freemium-${feature}`}
+                      included={featuresByPackage.freemium.includes(feature)}
+                      limited={feature === "Personal statement support"}
+                    >
+                      {feature}
+                    </FeatureItem>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <div className="text-sm text-muted-foreground mb-4">Free forever</div>
+                <Link href="/signup?package=freemium">
+                  <Button variant="glow" size="lg" className="w-full">
+                    Try For Free
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Pure Play Package */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col">
-            <div className="p-6 pb-4">
-              <h2 className="text-2xl font-semibold mb-2">Pure Play</h2>
-              <p className="text-muted-foreground h-12">Direct and once-off specialized services</p>
-              <div className="mt-4 mb-2">
-                <div className="text-3xl font-bold">$500</div>
+          <div className="group relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 group-hover:scale-105 group-hover:shadow-purple-500/20">
+              <div className="p-6 pb-4">
+                <h2 className="text-2xl font-semibold mb-2">Pure Play</h2>
+                <p className="text-muted-foreground h-12">Direct and once-off specialized services</p>
+                <div className="mt-4 mb-2">
+                  <div className="text-3xl font-bold">$500</div>
+                </div>
               </div>
-            </div>
-            <div className="border-t border-border p-6 flex-1">
-              <ul className="space-y-4 mb-8">
-                {allFeatures.map((feature) => (
-                  <FeatureItem key={`purePlay-${feature}`} included={featuresByPackage.purePlay.includes(feature)}>
-                    {feature}
-                  </FeatureItem>
-                ))}
-              </ul>
-            </div>
-            <div className="p-6 pt-0 mt-auto">
-              <div className="text-sm text-muted-foreground mb-4">One-time service</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Pure Play
-              </Button>
+              <div className="border-t border-border p-6 flex-1">
+                <ul className="space-y-4 mb-8">
+                  {allFeatures.map((feature) => (
+                    <FeatureItem key={`purePlay-${feature}`} included={featuresByPackage.purePlay.includes(feature)}>
+                      {feature}
+                    </FeatureItem>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <div className="text-sm text-muted-foreground mb-4">One-time service</div>
+                <Link href="/signup?package=purePlay">
+                  <Button variant="glow" size="lg" className="w-full">
+                    Choose Pure Play
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Basic Package */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col">
-            <div className="p-6 pb-4">
-              <h2 className="text-2xl font-semibold mb-2">Basic</h2>
-              <p className="text-muted-foreground h-12">Self-paced guidance with limited expert support</p>
-              <div className="mt-4 mb-2">
-                <div className="text-3xl font-bold">$1,500</div>
+          <div className="group relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 group-hover:scale-105 group-hover:shadow-purple-500/20">
+              <div className="p-6 pb-4">
+                <h2 className="text-2xl font-semibold mb-2">Basic</h2>
+                <p className="text-muted-foreground h-12">Self-paced guidance with limited expert support</p>
+                <div className="mt-4 mb-2">
+                  <div className="text-3xl font-bold">$1,500</div>
+                </div>
               </div>
-            </div>
-            <div className="border-t border-border p-6 flex-1">
-              <ul className="space-y-4 mb-8">
-                {allFeatures.map((feature) => (
-                  <FeatureItem key={`basic-${feature}`} included={featuresByPackage.basic.includes(feature)}>
-                    {feature}
-                  </FeatureItem>
-                ))}
-              </ul>
-            </div>
-            <div className="p-6 pt-0 mt-auto">
-              <div className="text-sm text-muted-foreground mb-4">1 month duration</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Basic
-              </Button>
+              <div className="border-t border-border p-6 flex-1">
+                <ul className="space-y-4 mb-8">
+                  {allFeatures.map((feature) => (
+                    <FeatureItem key={`basic-${feature}`} included={featuresByPackage.basic.includes(feature)}>
+                      {feature}
+                    </FeatureItem>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <div className="text-sm text-muted-foreground mb-4">1 month duration</div>
+                <Link href="/signup?package=basic">
+                  <Button variant="glow" size="lg" className="w-full">
+                    Choose Basic
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Intermediate Package - Most Popular */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col relative border-2 border-purple-600">
-            <div className="absolute top-0 right-0 bg-purple-600 text-white px-4 py-1 rounded-bl-lg text-sm font-medium">
-              Most Popular
-            </div>
-            <div className="p-6 pb-4 bg-gradient-to-b from-purple-600/10 to-transparent">
-              <h2 className="text-2xl font-semibold mb-2">Intermediate</h2>
-              <p className="text-muted-foreground h-12">Hybrid approach with weekly human mentorship</p>
-              <div className="mt-4 mb-2">
-                <div className="text-3xl font-bold">$3,000</div>
+          <div className="group relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col relative border-2 border-purple-600 transition-all duration-300 group-hover:scale-105 group-hover:shadow-purple-500/30">
+              <div className="absolute top-0 right-0 bg-purple-600 text-white px-4 py-1 rounded-bl-lg text-sm font-medium z-10">
+                Most Popular
               </div>
-            </div>
-            <div className="border-t border-border p-6 flex-1">
-              <ul className="space-y-4 mb-8">
-                {allFeatures.map((feature) => (
-                  <FeatureItem
-                    key={`intermediate-${feature}`}
-                    included={featuresByPackage.intermediate.includes(feature)}
-                  >
-                    {feature}
-                  </FeatureItem>
-                ))}
-              </ul>
-            </div>
-            <div className="p-6 pt-0 mt-auto">
-              <div className="text-sm text-muted-foreground mb-4">3 months duration</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Intermediate
-              </Button>
+              <div className="p-6 pb-4 bg-gradient-to-b from-purple-600/10 to-transparent">
+                <h2 className="text-2xl font-semibold mb-2">Intermediate</h2>
+                <p className="text-muted-foreground h-12">Hybrid approach with weekly human mentorship</p>
+                <div className="mt-4 mb-2">
+                  <div className="text-3xl font-bold">$3,000</div>
+                </div>
+              </div>
+              <div className="border-t border-border p-6 flex-1">
+                <ul className="space-y-4 mb-8">
+                  {allFeatures.map((feature) => (
+                    <FeatureItem
+                      key={`intermediate-${feature}`}
+                      included={featuresByPackage.intermediate.includes(feature)}
+                    >
+                      {feature}
+                    </FeatureItem>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <div className="text-sm text-muted-foreground mb-4">3 months duration</div>
+                <Link href="/signup?package=intermediate">
+                  <Button variant="glow" size="lg" className="w-full">
+                    Choose Intermediate
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
 
           {/* Advanced Package */}
-          <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col">
-            <div className="p-6 pb-4">
-              <h2 className="text-2xl font-semibold mb-2">Advanced</h2>
-              <p className="text-muted-foreground h-12">Premium end-to-end application management</p>
-              <div className="mt-4 mb-2">
-                <div className="text-3xl font-bold">$5,000</div>
+          <div className="group relative transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+            <div className="bg-card rounded-2xl shadow-lg overflow-hidden flex flex-col transition-all duration-300 group-hover:scale-105 group-hover:shadow-purple-500/20">
+              <div className="p-6 pb-4">
+                <h2 className="text-2xl font-semibold mb-2">Advanced</h2>
+                <p className="text-muted-foreground h-12">Premium end-to-end application management</p>
+                <div className="mt-4 mb-2">
+                  <div className="text-3xl font-bold">$5,000</div>
+                </div>
               </div>
-            </div>
-            <div className="border-t border-border p-6 flex-1">
-              <ul className="space-y-4 mb-8">
-                {allFeatures.map((feature) => (
-                  <FeatureItem key={`advanced-${feature}`} included={featuresByPackage.advanced.includes(feature)}>
-                    {feature}
-                  </FeatureItem>
-                ))}
-              </ul>
-            </div>
-            <div className="p-6 pt-0 mt-auto">
-              <div className="text-sm text-muted-foreground mb-4">6 months duration</div>
-              <Button variant="glow" size="lg" className="w-full">
-                Choose Advanced
-              </Button>
+              <div className="border-t border-border p-6 flex-1">
+                <ul className="space-y-4 mb-8">
+                  {allFeatures.map((feature) => (
+                    <FeatureItem key={`advanced-${feature}`} included={featuresByPackage.advanced.includes(feature)}>
+                      {feature}
+                    </FeatureItem>
+                  ))}
+                </ul>
+              </div>
+              <div className="p-6 pt-0 mt-auto">
+                <div className="text-sm text-muted-foreground mb-4">6 months duration</div>
+                <Link href="/signup?package=advanced">
+                  <Button variant="glow" size="lg" className="w-full">
+                    Choose Advanced
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
