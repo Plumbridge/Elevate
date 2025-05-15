@@ -16,6 +16,7 @@ export default function SignupPage() {
     email: "",
     password: "",
     confirmPassword: "",
+    country: "",
   })
 
   const packages = [
@@ -37,6 +38,10 @@ export default function SignupPage() {
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+  }
+
+  const handleCountryChange = (value) => {
+    setFormData((prev) => ({ ...prev, country: value }))
   }
 
   const handleSubmit = (e) => {
@@ -96,6 +101,28 @@ export default function SignupPage() {
                   placeholder="Enter your email address"
                   required
                 />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="country">Country of Residence</Label>
+                <Select value={formData.country} onValueChange={handleCountryChange}>
+                  <SelectTrigger id="country" className="w-full">
+                    <SelectValue placeholder="Select your country" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="us">United States</SelectItem>
+                    <SelectItem value="uk">United Kingdom</SelectItem>
+                    <SelectItem value="ca">Canada</SelectItem>
+                    <SelectItem value="au">Australia</SelectItem>
+                    <SelectItem value="in">India</SelectItem>
+                    <SelectItem value="cn">China</SelectItem>
+                    <SelectItem value="de">Germany</SelectItem>
+                    <SelectItem value="fr">France</SelectItem>
+                    <SelectItem value="jp">Japan</SelectItem>
+                    <SelectItem value="br">Brazil</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
