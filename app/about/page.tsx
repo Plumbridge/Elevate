@@ -118,11 +118,11 @@ export default function AboutPage() {
           Meet the dedicated professionals who lead Elevate with passion, expertise, and a commitment to student
           success.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
               name: "Jordan van der Meulen",
-              role: "CEO",
+              role: "Chief Executive Officer",
               bio: "Former international student with 5+ years in education planning",
               image: "/placeholder.svg?height=400&width=400",
             },
@@ -134,7 +134,7 @@ export default function AboutPage() {
             },
             {
               name: "Rutish Krishna",
-              role: "CTO",
+              role: "Chief Technical Officer",
               bio: "6+ years in coding and education",
               image: "/placeholder.svg?height=400&width=400",
             },
