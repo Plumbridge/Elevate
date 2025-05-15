@@ -14,6 +14,7 @@ const navLinks = [
     name: "Services",
     href: "/services",
     submenu: [
+      { name: "All Services", href: "/services" },
       { name: "University Applications", href: "/services/applications" },
       { name: "Visa Support", href: "/services/visa" },
       { name: "Accommodation", href: "/services/accommodation" },
@@ -32,7 +33,6 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
-  const [isAIModalOpen, setIsAIModalOpen] = useState(false)
   const [showNavbar, setShowNavbar] = useState(true)
 
   useEffect(() => {
@@ -103,13 +103,6 @@ export default function Navbar() {
                         </>
                       )}
                     </div>
-                  ) : link.isModal ? (
-                    <button
-                      onClick={toggleAIModal}
-                      className="text-muted-foreground hover:text-white transition-colors"
-                    >
-                      {link.name}
-                    </button>
                   ) : (
                     <Link href={link.href} className="text-muted-foreground hover:text-white transition-colors">
                       {link.name}
@@ -188,16 +181,6 @@ export default function Navbar() {
                           </motion.div>
                         )}
                       </div>
-                    ) : link.isModal ? (
-                      <button
-                        onClick={() => {
-                          toggleMobileMenu()
-                          toggleAIModal()
-                        }}
-                        className="text-lg font-medium"
-                      >
-                        {link.name}
-                      </button>
                     ) : (
                       <Link href={link.href} className="text-lg font-medium" onClick={toggleMobileMenu}>
                         {link.name}
@@ -220,7 +203,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </header>
   )
 }
