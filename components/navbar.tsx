@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils"
 import { usePathname } from "next/navigation"
 
 const navLinks = [
-  { name: "Home", href: "/" },
   {
     name: "Services",
     href: "/services",
@@ -26,6 +25,7 @@ const navLinks = [
   { name: "Rankings", href: "/rankings" },
   { name: "Student Dashboard", href: "/dashboard" },
   { name: "Packages & Pricing", href: "/pricing" },
+  { name: "Contact", href: "/contact" },
 ]
 
 export default function Navbar() {
@@ -117,7 +117,7 @@ export default function Navbar() {
               </Button>
               <Link href="/signup">
                 <Button variant="glow" size="sm">
-                  Get Consultation
+                  Signup
                 </Button>
               </Link>
             </div>
@@ -195,7 +195,7 @@ export default function Navbar() {
                 </Button>
                 <Link href="/signup">
                   <Button variant="glow" className="w-full">
-                    Get Consultation
+                    Signup
                   </Button>
                 </Link>
               </div>
