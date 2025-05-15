@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import Link from "next/link"
 import {
   ChevronRight,
   Globe,
@@ -10,7 +11,6 @@ import {
   FileText,
   MessageSquare,
   ArrowRight,
-  ExternalLink,
   MapPin,
   CheckCircle,
   LineChart,
@@ -33,10 +33,12 @@ export default function CareerSupportPage() {
             Your international education is just the beginning. We've partnered with CareerLaunch International to help
             you transform your global experience into a successful career.
           </p>
-          <Button size="lg" variant="glow" className="gap-2">
-            <span>Explore Career Services</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button size="lg" variant="glow" className="gap-2">
+              <span>Explore Career Services</span>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
@@ -396,14 +398,18 @@ export default function CareerSupportPage() {
             International. Take the first step toward your international career today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2 px-6">
-              <span>Visit CareerLaunch International</span>
-              <ExternalLink className="h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-purple-700 gap-2">
-              <span>Schedule a Consultation</span>
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+            <Link href="/signup?service=career">
+              <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2 px-6">
+                <span>Get Started with Career Services</span>
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </Link>
+            <Link href="/signup">
+              <Button size="lg" variant="outline" className="border-white text-white hover:bg-purple-700 gap-2">
+                <span>Schedule a Consultation</span>
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
           <p className="text-sm text-purple-200 mt-6">
             Elevate students receive a 15% discount on all CareerLaunch International services
