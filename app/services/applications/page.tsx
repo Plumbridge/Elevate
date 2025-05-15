@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle, ChevronRight, FileText, Users, Award, BookOpen, GraduationCap } from "lucide-react"
+import { CheckCircle, ChevronRight, FileText, Users, Award, BookOpen, GraduationCap } from 'lucide-react'
 import Link from "next/link"
 
 export default function ApplicationsPage() {
