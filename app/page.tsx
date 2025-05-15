@@ -139,7 +139,7 @@ export default function HomePage() {
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </Link>
-                <Link href="/services/applications">
+                <Link href="/services">
                   <Button variant="outline" size="lg">
                     Explore Services
                   </Button>
