@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, MessageCircle } from "lucide-react"
+import { Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react"
 
 const studyAbroadTips = [
   "Start your application process at least 12 months before your planned departure",
@@ -59,18 +59,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/universities" className="text-muted-foreground hover:text-white">
-                    University Partners
-                  </Link>
-                </li>
-                <li>
                   <Link href="/testimonials" className="text-muted-foreground hover:text-white">
                     Student Success Stories
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-muted-foreground hover:text-white">
-                    Blog & Resources
                   </Link>
                 </li>
                 <li>
@@ -133,10 +123,6 @@ export default function Footer() {
                   ))}
                 </div>
               </div>
-              <Button variant="glass" className="w-full gap-2">
-                <MessageCircle className="h-4 w-4" />
-                <span>Ask Our Advisors</span>
-              </Button>
             </div>
           </div>
 
@@ -160,4 +146,3 @@ export default function Footer() {
     </footer>
   )
 }
-
