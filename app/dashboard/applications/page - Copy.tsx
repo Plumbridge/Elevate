@@ -1,111 +1,15 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { ArrowRight, CheckCircle2, Clock, Download, FileText, GraduationCap, Plus, Upload } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { motion } from "framer-motion"
-import FileUpload from "@/components/file-upload"
-import { createClient } from "@/lib/supabase"
-import { getSignedUrl } from "@/lib/google-cloud"
-
-interface Document {
-  id: string;
-  name: string;
-  document_type: string;
-  file_url: string;
-  file_size: number;
-  uploaded_at: string;
-}
 
 export default function ApplicationsPage() {
   const [progress, setProgress] = useState(75)
-  const [documents, setDocuments] = useState<Document[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchDocuments()
-  }, [])
-
-  const fetchDocuments = async () => {
-    try {
-      const supabase = createClient()
-      const { data: { user } } = await supabase.auth.getUser()
-      
-      if (!user) return
-
-      const { data, error } = await supabase
-        .from('documents')
-        .select('*')
-        .eq('user_id', user.id)
-        .order('uploaded_at', { ascending: false })
-
-      if (error) {
-        console.error('Error fetching documents:', error)
-        return
-      }
-
-      setDocuments(data || [])
-    } catch (error) {
-      console.error('Error:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const handleUploadSuccess = () => {
-    fetchDocuments() // Refresh the documents list
-  }
-
-  const handleDownload = async (document: Document) => {
-    try {
-      // Create a temporary anchor element to trigger download
-      const link = document.createElement('a')
-      link.href = document.file_url
-      link.download = document.name
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    } catch (error) {
-      console.error('Download error:', error)
-    }
-  }
-
-  const formatFileSize = (bytes: number) => {
-    if (bytes === 0) return '0 Bytes'
-    const k = 1024
-    const sizes = ['Bytes', 'KB', 'MB', 'GB']
-    const i = Math.floor(Math.log(bytes) / Math.log(k))
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i]
-  }
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString)
-    const now = new Date()
-    const diffTime = Math.abs(now.getTime() - date.getTime())
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
-    
-    if (diffDays === 1) return '1 day ago'
-    if (diffDays < 7) return `${diffDays} days ago`
-    if (diffDays < 30) return `${Math.ceil(diffDays / 7)} weeks ago`
-    return date.toLocaleDateString()
-  }
-
-  const getDocumentTypeLabel = (type: string) => {
-    const typeMap: Record<string, string> = {
-      'transcript': 'Academic Transcript',
-      'cv': 'CV/Resume',
-      'passport': 'Passport Copy',
-      'sop': 'Statement of Purpose',
-      'recommendation': 'Recommendation Letter',
-      'portfolio': 'Portfolio',
-      'certificate': 'Certificate',
-      'other': 'Other Document'
-    }
-    return typeMap[type] || type
-  }
 
   return (
     <div className="flex flex-col">
@@ -118,15 +22,10 @@ export default function ApplicationsPage() {
               <p className="text-sm text-muted-foreground">Manage your university applications</p>
             </div>
             <div className="flex items-center gap-4">
-              <FileUpload 
-                onUploadSuccess={handleUploadSuccess}
-                trigger={
-                  <Button variant="outline" size="sm" className="gap-2">
-                    <Upload className="h-4 w-4" />
-                    <span>Upload Document</span>
-                  </Button>
-                }
-              />
+              <Button variant="outline" size="sm" className="gap-2">
+                <Upload className="h-4 w-4" />
+                <span>Upload Document</span>
+              </Button>
               <Button variant="glow" size="sm" className="gap-2">
                 <Plus className="h-4 w-4" />
                 <span>New Application</span>
@@ -334,58 +233,56 @@ export default function ApplicationsPage() {
           <h2 className="text-xl font-bold mb-4">Application Documents</h2>
           <Card className="border-primary/10 glass">
             <CardContent className="p-6">
-              {loading ? (
-                <div className="text-center py-4">Loading documents...</div>
-              ) : documents.length > 0 ? (
-                <div className="space-y-4">
-                  {documents.map((document) => (
-                    <div
-                      key={document.id}
-                      className="flex items-center justify-between p-3 rounded-lg border border-primary/10"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                          <FileText className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium">{getDocumentTypeLabel(document.document_type)}</p>
-                          <p className="text-xs text-muted-foreground">
-                            {document.name} • {formatFileSize(document.file_size)} • {formatDate(document.uploaded_at)}
-                          </p>
-                        </div>
-                      </div>
-                      <Button 
-                        variant="ghost" 
-                        size="icon"
-                        onClick={() => handleDownload(document)}
-                      >
-                        <Download className="h-4 w-4" />
-                      </Button>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between p-3 rounded-lg border border-primary/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                      <FileText className="h-5 w-5" />
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mx-auto mb-4">
-                    <FileText className="h-6 w-6" />
+                    <div>
+                      <p className="text-sm font-medium">Academic Transcript</p>
+                      <p className="text-xs text-muted-foreground">Uploaded 2 weeks ago</p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-medium mb-2">No Documents Uploaded</h3>
-                  <p className="text-sm text-muted-foreground max-w-md mx-auto">
-                    Upload your application documents to get started.
-                  </p>
+                  <Button variant="ghost" size="icon">
+                    <Download className="h-4 w-4" />
+                  </Button>
                 </div>
-              )}
+                <div className="flex items-center justify-between p-3 rounded-lg border border-primary/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                      <FileText className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">CV/Resume</p>
+                      <p className="text-xs text-muted-foreground">Uploaded 2 weeks ago</p>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="icon">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </div>
+                <div className="flex items-center justify-between p-3 rounded-lg border border-primary/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                      <FileText className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">Passport Copy</p>
+                      <p className="text-xs text-muted-foreground">Uploaded 1 week ago</p>
+                    </div>
+                  </div>
+                  <Button variant="ghost" size="icon">
+                    <Download className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
             </CardContent>
             <CardFooter>
-              <FileUpload 
-                onUploadSuccess={handleUploadSuccess}
-                trigger={
-                  <Button variant="outline" size="sm" className="w-full gap-1">
-                    <Upload className="h-4 w-4" />
-                    <span>Upload New Document</span>
-                  </Button>
-                }
-              />
+              <Button variant="outline" size="sm" className="w-full gap-1">
+                <Upload className="h-4 w-4" />
+                <span>Upload New Document</span>
+              </Button>
             </CardFooter>
           </Card>
         </div>
