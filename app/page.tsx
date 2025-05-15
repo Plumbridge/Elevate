@@ -11,33 +11,33 @@ import ServiceCard from "@/components/service-card"
 import { testimonials } from "@/data/testimonials"
 
 // Import Globe3D with no SSR to prevent server-side rendering issues
-const Globe3D = dynamic(() => import("@/components/globe-3d"), { 
+const Globe3D = dynamic(() => import("@/components/globe-3d"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
       <div className="w-32 h-32 rounded-full bg-primary/20 animate-pulse" />
     </div>
-  )
+  ),
 })
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
-  
+
   // Initialize with default values
   const [scrollProps, setScrollProps] = useState({
     y: 0,
-    opacity: 1
+    opacity: 1,
   })
-  
+
   // Important: useScroll must be called at the top level, not inside useEffect
   // We'll conditionally use its values based on mounted state
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
-    layoutEffect: false  // Prevents warning during hydration
+    layoutEffect: false, // Prevents warning during hydration
   })
-  
+
   // Create transform values
   const yTransform = useTransform(scrollYProgress, [0, 1], [0, 200])
   const opacityTransform = useTransform(scrollYProgress, [0, 0.8], [1, 0])
@@ -45,18 +45,18 @@ export default function HomePage() {
   // Subscribe to changes after component is mounted
   useEffect(() => {
     if (!mounted) return
-    
+
     const unsubscribeY = yTransform.on("change", (latest) => {
-      setScrollProps(prev => ({
+      setScrollProps((prev) => ({
         ...prev,
-        y: latest
+        y: latest,
       }))
     })
-    
+
     const unsubscribeOpacity = opacityTransform.on("change", (latest) => {
-      setScrollProps(prev => ({
+      setScrollProps((prev) => ({
         ...prev,
-        opacity: latest
+        opacity: latest,
       }))
     })
 
@@ -75,14 +75,6 @@ export default function HomePage() {
     return null
   }
 
-  // Student avatars for the hero section
-  const studentAvatars = [
-    "/images/students/student-1.jpg", 
-    "/images/students/student-2.jpg", 
-    "/images/students/student-3.jpg", 
-    "/images/students/student-4.jpg"
-  ]
-
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
@@ -90,11 +82,11 @@ export default function HomePage() {
         ref={heroRef}
         className="relative min-h-[calc(100vh-64px)] flex items-center justify-center pt-16 pb-16 overflow-hidden"
       >
-        <motion.div 
-          style={{ 
-            y: scrollProps.y, 
-            opacity: scrollProps.opacity 
-          }} 
+        <motion.div
+          style={{
+            y: scrollProps.y,
+            opacity: scrollProps.opacity,
+          }}
           className="container mx-auto relative z-10 px-4"
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -152,19 +144,6 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 className="flex items-center gap-6"
               >
-                <div className="flex -space-x-3">
-                  {studentAvatars.map((avatar, i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-background overflow-hidden">
-                      <Image
-                        src={avatar}
-                        alt={`Student ${i + 1}`}
-                        width={40}
-                        height={40}
-                        className="object-cover"
-                      />
-                    </div>
-                  ))}
-                </div>
                 <div>
                   <p className="text-sm font-medium">Trusted by 2000+ students</p>
                   <div className="flex items-center gap-1 text-amber-400">
@@ -302,212 +281,40 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Updated testimonials with real data from the screenshot */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0 * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl border border-primary/10"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/testimonials/emma-johnson.jpg"
-                    alt="Emma Johnson"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
+            {testimonials.slice(0, 6).map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="glass p-6 rounded-xl border border-primary/10"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-full overflow-hidden">
+                    <Image
+                      src={testimonial.avatar || `/placeholder.svg?height=48&width=48`}
+                      alt={testimonial.name}
+                      width={48}
+                      height={48}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">{testimonial.name}</h4>
+                    <p className="text-sm text-muted-foreground">{testimonial.program}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold">Emma Johnson</h4>
-                  <p className="text-sm text-muted-foreground">MSc in Computer Science, ETH Zurich</p>
+                <p className="text-muted-foreground mb-4">{testimonial.content}</p>
+                <div className="flex items-center gap-1 text-amber-400">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <span key={i} className={i <= testimonial.rating ? "text-amber-400" : "text-muted"}>
+                      ★
+                    </span>
+                  ))}
                 </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Elevate guided me through every step of my application to ETH Zurich. Their personalized approach and attention to detail made a complex process feel manageable.
-              </p>
-              <div className="flex items-center gap-1 text-amber-400">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className="text-amber-400">
-                    ★
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1 * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl border border-primary/10"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/testimonials/miguel-sanchez.jpg"
-                    alt="Miguel Sanchez"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold">Miguel Sanchez</h4>
-                  <p className="text-sm text-muted-foreground">MBA, London Business School</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                From GMAT preparation to interview coaching, Elevate's consultants were exceptional. Their financial planning service helped me secure a scholarship that made my MBA possible.
-              </p>
-              <div className="flex items-center gap-1 text-amber-400">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className="text-amber-400">
-                    ★
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 2 * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl border border-primary/10"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/testimonials/aisha-patel.jpg"
-                    alt="Aisha Patel"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold">Aisha Patel</h4>
-                  <p className="text-sm text-muted-foreground">BA in International Relations, Sciences Po</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                The cultural preparation program was invaluable. Arriving in Paris, I felt confident and ready to embrace my new environment thanks to Elevate's comprehensive support.
-              </p>
-              <div className="flex items-center gap-1 text-amber-400">
-                {[1, 2, 3, 4].map((i) => (
-                  <span key={i} className="text-amber-400">
-                    ★
-                  </span>
-                ))}
-                <span className="text-muted">★</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 3 * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl border border-primary/10"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/testimonials/liu-wei.jpg"
-                    alt="Liu Wei"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold">Liu Wei</h4>
-                  <p className="text-sm text-muted-foreground">PhD in Biotechnology, UC Berkeley</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Navigating the US visa process seemed daunting until Elevate stepped in. Their visa specialists anticipated every requirement and prepared me thoroughly for my embassy interview.
-              </p>
-              <div className="flex items-center gap-1 text-amber-400">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className="text-amber-400">
-                    ★
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 4 * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl border border-primary/10"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/testimonials/sarah-williams.jpg"
-                    alt="Sarah Williams"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold">Sarah Williams</h4>
-                  <p className="text-sm text-muted-foreground">BEng in Aerospace Engineering, University of Toronto</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                Elevate's accommodation service found me the perfect student housing near campus. Their virtual tour feature let me see my apartment before arriving in Canada.
-              </p>
-              <div className="flex items-center gap-1 text-amber-400">
-                {[1, 2, 3, 4].map((i) => (
-                  <span key={i} className="text-amber-400">
-                    ★
-                  </span>
-                ))}
-                <span className="text-muted">★</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 5 * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl border border-primary/10"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <Image
-                    src="/images/testimonials/raj-mehta.jpg"
-                    alt="Raj Mehta"
-                    width={48}
-                    height={48}
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <h4 className="font-semibold">Raj Mehta</h4>
-                  <p className="text-sm text-muted-foreground">MSc in Finance, HEC Paris</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-4">
-                The career support team at Elevate helped me land an internship during my studies. Their resume building workshop and interview preparation were game-changers.
-              </p>
-              <div className="flex items-center gap-1 text-amber-400">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <span key={i} className="text-amber-400">
-                    ★
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
 
           <div className="mt-16 text-center">
@@ -543,7 +350,7 @@ export default function HomePage() {
                   Schedule Consultation
                 </Button>
               </Link>
-              <Link href="/services/applications">
+              <Link href="/rankings">
                 <Button variant="outline" size="lg">
                   Explore Universities
                 </Button>
