@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import Link from "next/link"
 import {
   ChevronRight,
   DollarSign,
@@ -36,10 +37,12 @@ export default function FinancialPlanningPage() {
             At Elevate, we believe that financial concerns shouldn't hold you back from your international education
             dreams. Our expert financial planning services ensure you're prepared for every aspect of studying abroad.
           </p>
-          <Button size="lg" variant="glow" className="gap-2">
-            <span>Start Your Financial Planning</span>
-            <ChevronRight className="h-4 w-4" />
-          </Button>
+          <Link href="/signup">
+            <Button size="lg" variant="glow" className="gap-2">
+              <span>Start Your Financial Planning</span>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -top-6 -left-6 w-24 h-24 bg-purple-100 dark:bg-purple-900/30 rounded-full z-0"></div>
@@ -128,10 +131,7 @@ export default function FinancialPlanningPage() {
             <TabsTrigger value="budgeting">Budgeting & Savings</TabsTrigger>
           </TabsList>
 
-          <TabsContent
-            value="planning"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="planning" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Comprehensive Financial Assessment</h3>
@@ -217,10 +217,7 @@ export default function FinancialPlanningPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="funding"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="funding" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Scholarship & Funding Opportunities</h3>
@@ -324,10 +321,7 @@ export default function FinancialPlanningPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="banking"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="banking" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">International Banking Solutions</h3>
@@ -430,10 +424,7 @@ export default function FinancialPlanningPage() {
             </div>
           </TabsContent>
 
-          <TabsContent
-            value="budgeting"
-            className="bg-card p-8 rounded-xl"
-          >
+          <TabsContent value="budgeting" className="bg-card p-8 rounded-xl">
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-2xl font-bold mb-4">Budgeting & Savings Strategies</h3>
@@ -944,10 +935,12 @@ export default function FinancialPlanningPage() {
           Schedule a free consultation with our financial advisors to discuss your study abroad goals and learn how we
           can help you create a solid financial foundation for your international education.
         </p>
-        <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
-          <span>Schedule Your Free Financial Consultation</span>
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        <Link href="/signup">
+          <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
+            <span>Schedule Your Free Financial Consultation</span>
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+        </Link>
       </div>
     </div>
   )
