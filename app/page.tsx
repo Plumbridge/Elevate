@@ -253,7 +253,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-16 text-center">
-            <Link href="/services/applications">
+            <Link href="/services">
               <Button variant="glow" size="lg">
                 View All Services
               </Button>
