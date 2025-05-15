@@ -1,12 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 export default function SignupPage() {
+  const searchParams = useSearchParams()
   const [selectedPackage, setSelectedPackage] = useState("")
   const [formData, setFormData] = useState({
     firstName: "",
@@ -23,6 +25,14 @@ export default function SignupPage() {
     { id: "intermediate", name: "Intermediate", price: "$3,000" },
     { id: "advanced", name: "Advanced", price: "$5,000" },
   ]
+
+  // Set the selected package from URL parameter
+  useEffect(() => {
+    const packageParam = searchParams.get("package")
+    if (packageParam && packages.some((pkg) => pkg.id === packageParam)) {
+      setSelectedPackage(packageParam)
+    }
+  }, [searchParams])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -164,11 +174,11 @@ export default function SignupPage() {
 
               <p className="text-center text-sm text-muted-foreground">
                 By creating an account, you agree to our{" "}
-                <a href="#" className="underline hover:text-primary">
+                <a href="/terms" className="underline hover:text-primary">
                   Terms of Service
                 </a>{" "}
                 and{" "}
-                <a href="#" className="underline hover:text-primary">
+                <a href="/privacy" className="underline hover:text-primary">
                   Privacy Policy
                 </a>
                 .
