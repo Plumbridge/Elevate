@@ -2,7 +2,16 @@ import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Link from "next/link"
-import { ChevronRight, CheckCircle2, FileCheck, Globe, MessageSquare, Calendar, StampIcon as Passport, Clock } from 'lucide-react'
+import {
+  ChevronRight,
+  CheckCircle2,
+  FileCheck,
+  Globe,
+  MessageSquare,
+  Calendar,
+  StampIcon as Passport,
+  Clock,
+} from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 export default function VisaSupportPage() {
@@ -21,7 +30,7 @@ export default function VisaSupportPage() {
             At Elevate, we transform the complex visa application process into a smooth, stress-free experience. Let us
             guide you towards your international education dreams.
           </p>
-          <Link href="/signup">
+          <Link href="/signup?service=visa">
             <Button size="lg" variant="glow" className="gap-2">
               <span>Get Started with Visa Support</span>
               <ChevronRight className="h-4 w-4" />
@@ -321,8 +330,8 @@ export default function VisaSupportPage() {
           <div className="space-y-12">
             {/* Step 1 */}
             <div className="relative">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0">
+              <div className="flex flex-col md:flex-row items-start gap-12">
+                <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0 md:pr-8">
                   <h3 className="text-xl font-bold mb-2">Initial Consultation and Assessment</h3>
                   <p className="text-muted-foreground">
                     We begin with a thorough review of your academic background, chosen program, and destination
@@ -333,7 +342,7 @@ export default function VisaSupportPage() {
                 <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   1
                 </div>
-                <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
+                <div className="md:w-1/2 order-1 md:order-2 md:pl-16 pl-12">
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                     <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-300 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1-2 days</p>
@@ -347,8 +356,8 @@ export default function VisaSupportPage() {
 
             {/* Step 2 */}
             <div className="relative">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:w-1/2 order-2 md:order-1 md:pr-12 pl-12 md:pl-0">
+              <div className="flex flex-col md:flex-row items-start gap-12">
+                <div className="md:w-1/2 order-2 md:order-1 md:pr-16 pl-12 md:pl-0">
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                     <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-300 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1-2 weeks</p>
@@ -361,7 +370,7 @@ export default function VisaSupportPage() {
                 <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   2
                 </div>
-                <div className="md:w-1/2 md:text-left order-1 md:order-2 pt-8 md:pt-0">
+                <div className="md:w-1/2 md:text-left order-1 md:order-2 pt-8 md:pt-0 md:pl-8">
                   <h3 className="text-xl font-bold mb-2">Document Preparation</h3>
                   <p className="text-muted-foreground">
                     Gathering the right documents can be overwhelming. We provide a comprehensive checklist and guide
@@ -374,8 +383,8 @@ export default function VisaSupportPage() {
 
             {/* Step 3 */}
             <div className="relative">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0">
+              <div className="flex flex-col md:flex-row items-start gap-12">
+                <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0 md:pr-8">
                   <h3 className="text-xl font-bold mb-2">Application Form Mastery</h3>
                   <p className="text-muted-foreground">
                     Visa application forms can be tricky, with seemingly simple questions carrying significant weight.
@@ -386,7 +395,7 @@ export default function VisaSupportPage() {
                 <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   3
                 </div>
-                <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
+                <div className="md:w-1/2 order-1 md:order-2 md:pl-16 pl-12">
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                     <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-300 mb-2" />
                     <p className="text-sm font-medium">Timeline: 3-5 days</p>
@@ -400,8 +409,8 @@ export default function VisaSupportPage() {
 
             {/* Step 4 */}
             <div className="relative">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:w-1/2 order-2 md:order-1 md:pr-12 pl-12 md:pl-0">
+              <div className="flex flex-col md:flex-row items-start gap-12">
+                <div className="md:w-1/2 order-2 md:order-1 md:pr-16 pl-12 md:pl-0">
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                     <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-300 mb-2" />
                     <p className="text-sm font-medium">Timeline: 1 week</p>
@@ -413,7 +422,7 @@ export default function VisaSupportPage() {
                 <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   4
                 </div>
-                <div className="md:w-1/2 md:text-left order-1 md:order-2 pt-8 md:pt-0">
+                <div className="md:w-1/2 md:text-left order-1 md:order-2 pt-8 md:pt-0 md:pl-8">
                   <h3 className="text-xl font-bold mb-2">Interview Preparation</h3>
                   <p className="text-muted-foreground">
                     Many visa applications require an interview. We conduct thorough mock interviews, preparing you for
@@ -426,8 +435,8 @@ export default function VisaSupportPage() {
 
             {/* Step 5 */}
             <div className="relative">
-              <div className="flex flex-col md:flex-row items-start gap-8">
-                <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0">
+              <div className="flex flex-col md:flex-row items-start gap-12">
+                <div className="md:w-1/2 md:text-right order-2 md:order-1 pt-8 md:pt-0 md:pr-8">
                   <h3 className="text-xl font-bold mb-2">Submission and Follow-up</h3>
                   <p className="text-muted-foreground">
                     We don't just help you prepare; we're with you until the end. Our team assists with the submission
@@ -438,7 +447,7 @@ export default function VisaSupportPage() {
                 <div className="z-10 flex items-center justify-center w-8 h-8 rounded-full bg-purple-600 text-white absolute left-0 md:left-1/2 transform -translate-x-1/2">
                   5
                 </div>
-                <div className="md:w-1/2 order-1 md:order-2 md:pl-12 pl-12">
+                <div className="md:w-1/2 order-1 md:order-2 md:pl-16 pl-12">
                   <div className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                     <Calendar className="h-6 w-6 text-purple-600 dark:text-purple-300 mb-2" />
                     <p className="text-sm font-medium">Timeline: Ongoing</p>
@@ -524,7 +533,7 @@ export default function VisaSupportPage() {
           Schedule a free consultation to discuss your visa needs and learn how we can help you navigate the process
           with confidence.
         </p>
-        <Link href="/signup">
+        <Link href="/signup?service=visa">
           <Button size="lg" className="bg-white text-purple-600 hover:bg-purple-50 gap-2">
             <span>Get Started with Visa Support</span>
             <ChevronRight className="h-4 w-4" />
