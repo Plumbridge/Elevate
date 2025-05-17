@@ -2,7 +2,8 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { getCurrentUser } from "@/lib/auth"
 import {
   BookOpen,
   Building,
@@ -26,6 +27,19 @@ import { motion } from "framer-motion"
 
 export default function DashboardPage() {
   const [progress, setProgress] = useState(68)
+  const [userName, setUserName] = useState("John Doe")
+
+  useEffect(() => {
+    async function fetchUser() {
+      const user = await getCurrentUser()
+      if (user && user.profile && user.profile.full_name) {
+        setUserName(user.profile.full_name)
+      } else if (user && user.email) {
+        setUserName(user.email.split('@')[0]) // Fallback to part of email if full_name is not available
+      }
+    }
+    fetchUser()
+  }, [])
 
   return (
     <div className="flex flex-col">
@@ -35,7 +49,7 @@ export default function DashboardPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold">Dashboard</h1>
-              <p className="text-sm text-muted-foreground">Welcome back, John Doe</p>
+              <p className="text-sm text-muted-foreground">{`Welcome back, ${userName}`}</p>
             </div>
             <div className="flex items-center gap-4">
               <Button variant="outline" size="sm" className="gap-2">

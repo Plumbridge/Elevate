@@ -2,7 +2,8 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { getCurrentUser } from "@/lib/auth"
 import {
   BarChart3,
   BookOpen,
@@ -22,6 +23,7 @@ import {
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
+import { ChatInterface } from "@/components/ai-chat/chat-interface"
 
 interface DashboardLayoutProps {
   children: React.ReactNode
@@ -31,6 +33,19 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const pathname = usePathname()
   const [isSidebarOpen, setIsSidebarOpen] = useState(true)
   const [isChatOpen, setIsChatOpen] = useState(false)
+  const [userName, setUserName] = useState("John Doe")
+
+  useEffect(() => {
+    async function fetchUser() {
+      const user = await getCurrentUser()
+      if (user && user.profile && user.profile.full_name) {
+        setUserName(user.profile.full_name)
+      } else if (user && user.email) {
+        setUserName(user.email.split('@')[0]) // Fallback to part of email if full_name is not available
+      }
+    }
+    fetchUser()
+  }, [])
 
   const sidebarItems = [
     { icon: Home, label: "Overview", href: "/dashboard" },
@@ -108,7 +123,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 <User className="h-5 w-5" />
               </div>
               <div>
-                <p className="text-sm font-medium">John Doe</p>
+                <p className="text-sm font-medium">{userName}</p>
                 <p className="text-xs text-muted-foreground">Student</p>
               </div>
             </div>
@@ -168,75 +183,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <MessageSquare className="h-6 w-6 text-white" />
         </button>
 
-        {/* Chat panel */}
+        {/* Chat panel - Using the ChatInterface component */}
         {isChatOpen && (
           <div className="fixed bottom-0 right-0 top-0 z-50 w-full border-l border-primary/10 bg-background shadow-xl md:w-1/3 md:min-w-[400px]">
-            <div className="flex h-16 items-center justify-between border-b border-primary/10 px-4">
-              <h2 className="text-lg font-semibold">AI Assistant</h2>
-              <button onClick={() => setIsChatOpen(false)} className="rounded-full p-1 hover:bg-primary/10">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="h-5 w-5"
-                >
-                  <path d="M18 6 6 18" />
-                  <path d="m6 6 12 12" />
-                </svg>
-              </button>
-            </div>
-
-            <div className="flex h-[calc(100%-8rem)] flex-col overflow-y-auto p-4">
-              {/* Example messages */}
-              <div className="mb-4 flex justify-start">
-                <div className="rounded-lg bg-primary/10 px-4 py-2 text-sm">Hello! How can I help you today?</div>
-              </div>
-
-              <div className="mb-4 flex justify-end">
-                <div className="rounded-lg bg-primary px-4 py-2 text-sm text-white">
-                  I need help with my visa application.
-                </div>
-              </div>
-
-              <div className="mb-4 flex justify-start">
-                <div className="rounded-lg bg-primary/10 px-4 py-2 text-sm">
-                  I'd be happy to help with your visa application. What specific information do you need?
-                </div>
-              </div>
-            </div>
-
-            <div className="absolute bottom-0 left-0 right-0 border-t border-primary/10 bg-background p-4">
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  placeholder="Type your message..."
-                  className="flex-1 rounded-md border border-primary/20 bg-transparent px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
-                />
-                <button className="rounded-md bg-primary p-2 text-white">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-5 w-5"
-                  >
-                    <path d="m22 2-7 20-4-9-9-4Z" />
-                    <path d="M22 2 11 13" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            <ChatInterface onClose={() => setIsChatOpen(false)} />
           </div>
         )}
       </div>
