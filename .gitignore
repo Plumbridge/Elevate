@@ -6,3 +6,5 @@
 
 .env.local
 *.local
+.env.local
+/.next
